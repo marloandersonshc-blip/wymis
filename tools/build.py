@@ -251,7 +251,6 @@ def footer(base):
   </div>
   <div class="wrap foot-bot">
     <span>&copy; <span id="year">2026</span> WYMIS. All rights reserved.</span>
-    <span>Photography from <a href="https://unsplash.com" rel="noopener">Unsplash</a></span>
   </div>
 </footer>
 <script src="{base}assets/js/site.js?v={JS_V}" defer></script>
