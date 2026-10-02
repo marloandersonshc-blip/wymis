@@ -28,7 +28,7 @@ JS_V = ver("assets/js/site.js")
 
 def esc(s): return html.escape(s, quote=True)
 
-def unsplash(pid, w): return f"https://images.unsplash.com/photo-{pid}?auto=format&fit=crop&w={w}&q=75"
+def unsplash(pid, w): return f"https://images.unsplash.com/photo-{pid}?auto=format&fit=crop&crop=faces,center&w={w}&q=75"
 
 def img(pid, alt, sizes="(max-width: 900px) 100vw, 50vw", eager=False, w=1200, h=900, maxw=1600):
     widths = [x for x in (480, 800, 1200, 1600, 2000) if x <= maxw]
@@ -42,15 +42,17 @@ ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width
 # ---------------------------------------------------------------- content data
 PHOTOS = {
     "hero":       ("1561409958-c0e6ad782a81", "Graduates throwing their caps in the air"),
-    "collab":     ("1758270705518-b61b40527e76", "Diverse group of students collaborating around a laptop"),
-    "hands":      ("1758270704286-83476deb3bd1", "Students raising their hands in a lecture hall"),
-    "smiling":    ("1758270704524-596810e891b5", "Students smiling in a lecture hall classroom"),
-    "listening":  ("1758270705067-0d7edee57af0", "Students listening attentively in a lecture hall"),
+    "collab":     ("1744320911030-1ab998d994d7", "Three smiling young women posing together on campus steps"),
+    "hands":      ("1594750852563-5ed8e0421d40", "Two graduates in caps and gowns smiling together"),
+    "smiling":    ("1549057446-9f5c6ac91a04", "Group of young adults walking and talking together outdoors"),
+    "listening":  ("1461280360983-bd93eaa5051b", "Young adults talking together outside a building"),
     "classroom":  ("1524178232363-1fb2b075b655", "Classroom of students facing a projector screen"),
-    "teacher":    ("1758270704925-fa59d93119c1", "Teacher leading a lesson in a classroom"),
-    "grad":       ("1523580846011-d3a5bc25702b", "Smiling graduate in a cap and gown"),
+    "teacher":    ("1509062522246-3755977927d7", "Teacher presenting to a classroom of high school students"),
+    "grad":       ("1618355776464-8666794d2520", "Smiling graduate in a cap and gown outdoors"),
     "handshake":  ("1549923746-c502d488b3ea", "Two professionals shaking hands and smiling"),
-    "pointing":   ("1758270704226-db897b180243", "Instructor engaging students with raised hands in a lecture hall"),
+    "pointing":   ("1655720348590-c739c860beed", "Students working together on laptops outdoors"),
+    "group":      ("1517486808906-6ca8b3f04846", "Diverse group of young adults sitting together outdoors"),
+    "study":      ("1573497701240-345a300b8d36", "Young women in a discussion around a table"),
     "phoenix":    ("1617407867182-2c3730f7fe29", "Phoenix skyline silhouetted at sunset"),
     "vegas":      ("1723585126886-f31a77294a43", "The Las Vegas Strip at night"),
     "memphis":    ("1577055383519-ca48a5d859be", "Memphis riverfront pyramid at sunset"),
@@ -309,7 +311,7 @@ def footer(base):
   </div>
   <div class="wrap foot-bot">
     <span>&copy; <span id="year">2026</span> WYMIS. All rights reserved.</span>
-    <a href="{base}privacy">Privacy policy</a>
+    <span class="foot-links"><a href="{base}privacy">Privacy policy</a><span>Site by <a href="https://atgaz.com" rel="noopener">ATGAZ</a></span></span>
   </div>
 </footer>
 <script src="{base}assets/js/site.js?v={JS_V}" defer></script>
@@ -418,7 +420,7 @@ def cities_block(light=False, base=""):
         pid, alt = PHOTOS[c["photo"]]
         out.append(f"""<article class="city">
       <div class="photo">{img(pid, alt, sizes="(max-width: 860px) 100vw, 33vw", w=800, h=600, maxw=1200)}</div>
-      <div class="city-body"><div class="city-top"><span>{c['state']}</span><span class="tag">Pilot city</span></div><h3>{c['name']}</h3><p>{c['coords']}</p></div>
+      <div class="city-body"><div class="city-top"><span>{c['state']}</span><span class="tag">Pilot city</span></div><h3>{c['name']}</h3></div>
     </article>""")
     return f'<div class="cities{" light" if light else ""}">' + "".join(out) + "</div>"
 
@@ -805,7 +807,7 @@ def page_faq(base):
     items = "".join(f'<details{" open" if i == 0 else ""}><summary>{q}</summary><div class="answer"><p>{a}</p></div></details>' for i, (q, a) in enumerate(FAQS))
     return page_hero("Questions &amp; Answers", "Frequently asked <em>questions</em>.",
                      "Quick answers about who WYMIS serves, how long it runs, what it covers, and how to bring it to your community.",
-                     "smiling", "FAQ", base) + f"""<main id="main">
+                     "group", "FAQ", base) + f"""<main id="main">
 <section class="section" aria-labelledby="faq-h">
   <div class="wrap" style="display:grid;gap:48px">
     <h2 id="faq-h" class="sr-only">WYMIS FAQ</h2>
@@ -868,7 +870,7 @@ def page_intensive(base):
         name = f'<a href="{base}curriculum#{slug}">{seg}</a>' if slug else seg
         rows.append(f'<li class="slot{" is-break" if brk else ""}"><span class="slot-time"><b>{a}</b><span>{b}</span></span><span class="slot-body"><b>{name}</b>{f"<span>{focus}</span>" if focus else ""}</span></li>')
     fac = "".join(f"<li>{x}</li>" for x in FACILITY)
-    spid, salt = PHOTOS["smiling"]
+    spid, salt = PHOTOS["study"]
     return page_hero("One-Day Intensive", "The thirteenth grade in <em>one day</em>.",
                      "A condensed, single-day version of WYMIS for young adults ages 16 to 26: six 75-minute module sessions from 8:00 AM to 6:00 PM.",
                      "pointing", "One-Day Intensive", base) + f"""<main id="main">

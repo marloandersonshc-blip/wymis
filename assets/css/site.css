@@ -493,3 +493,5 @@ form.inquiry{background:var(--navy-2);border:1px solid var(--navy-line);border-r
 .foot-tag{font-family:var(--f-mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 .fmt3-two .fmt3-grid{grid-template-columns:repeat(2,1fr)}
 @media (max-width:900px){.fmt3-two .fmt3-grid{grid-template-columns:1fr}}
+.foot-bot .foot-links{display:flex;flex-wrap:wrap;gap:8px 24px}
+.foot-bot a:hover{color:var(--on-navy)}
