@@ -138,6 +138,7 @@ ORG = {
 }
 PERSON = {"@type": "Person", "@id": SITE + "/about#barry-jackson", "name": "Barry K. Jackson", "honorificPrefix": "Dr.",
           "honorificSuffix": "Ph.D.", "jobTitle": "Creator of WYMIS", "url": SITE + "/about",
+          "image": SITE + "/assets/img/people/barry-jackson.jpg",
           "description": "Workforce and youth development leader; Senior Career Services Advisor at Bryan University; former Director of Programs with the National Urban League and Executive Director of The Memphis Youth Coalition; creator of WYMIS.",
           "worksFor": [{"@id": SITE + "/#org"}, {"@type": "CollegeOrUniversity", "name": "Bryan University"}],
           "hasOccupation": [{"@type": "Occupation", "name": "Senior Career Services Advisor"}],
@@ -453,7 +454,7 @@ def page_index(base):
     </div>
     <div class="vision-side">
       <p>The long-term vision is to grow WYMIS beyond individual pilot cohorts into a licensed, repeatable model that schools and organizations can bring into their own communities.</p>
-      <div class="founder"><span class="founder-mono" aria-hidden="true">BJ</span><div><b>{FOUNDER}</b><span>Creator of WYMIS</span></div></div>
+      <div class="founder"><img class="founder-img" src="{base}assets/img/people/barry-jackson-avatar.jpg" alt="" width="52" height="52" loading="lazy" decoding="async"><div><b>{FOUNDER}</b><span>Creator of WYMIS</span></div></div>
       <a class="link-arrow" href="{base}about">Read about the vision {ARROW}</a>
     </div>
   </div>
@@ -645,7 +646,12 @@ def page_about(base):
         <div><dt>Education</dt><dd>Master of Divinity; training in pastoral counseling</dd></div>
       </dl>
     </div>
-    <div class="split-media"><div class="photo tall">{img(cpid, calt, w=1200, h=1500)}</div></div>
+    <div class="split-media portrait-wrap">
+      <figure class="portrait">
+        <img src="{base}assets/img/people/barry-jackson.jpg" alt="Portrait of Dr. Barry K. Jackson, Ph.D., creator of WYMIS" width="340" height="390" loading="eager" decoding="async">
+        <figcaption><b>{FOUNDER}</b><span>Creator of WYMIS</span></figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 <section class="section on-navy grid-bg" aria-labelledby="vis-h">
