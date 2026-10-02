@@ -4,7 +4,7 @@
 Edit content in this file, then run:  python3 tools/build.py
 It writes every .html page plus sitemap.xml, robots.txt, llms.txt and llms-full.txt to the repo root.
 """
-import json, os, datetime, html
+import json, os, datetime, html, hashlib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://wymis.com"
@@ -17,6 +17,12 @@ TODAY = datetime.date.today().isoformat()
 FONTS = "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
 
 # ---------------------------------------------------------------- helpers
+def ver(rel):
+    """Short content hash so browsers fetch a fresh file whenever it changes."""
+    return hashlib.md5(open(os.path.join(ROOT, rel), "rb").read()).hexdigest()[:8]
+CSS_V = ver("assets/css/site.css")
+JS_V = ver("assets/js/site.js")
+
 def esc(s): return html.escape(s, quote=True)
 
 def unsplash(pid, w): return f"https://images.unsplash.com/photo-{pid}?auto=format&fit=crop&w={w}&q=75"
@@ -205,7 +211,7 @@ def head(p, base):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="{FONTS}">
-<link rel="stylesheet" href="{base}assets/css/site.css">
+<link rel="stylesheet" href="{base}assets/css/site.css?v={CSS_V}">
 <script type="application/ld+json">{ld}</script>
 </head>
 <body>
@@ -247,7 +253,7 @@ def footer(base):
     <span>Photography from <a href="https://unsplash.com" rel="noopener">Unsplash</a></span>
   </div>
 </footer>
-<script src="{base}assets/js/site.js" defer></script>
+<script src="{base}assets/js/site.js?v={JS_V}" defer></script>
 </body>
 </html>
 """
