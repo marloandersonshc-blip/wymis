@@ -243,7 +243,7 @@ def footer(base):
     <div class="foot-col"><h2>Connect</h2><a href="{base}about">About &amp; vision</a><a href="{base}partner">Partner with us</a><a href="mailto:{EMAIL}">{EMAIL}</a></div>
   </div>
   <div class="wrap foot-bot">
-    <span>&copy; <span id="year">2026</span> {FOUNDER} All rights reserved.</span>
+    <span>&copy; <span id="year">2026</span> WYMIS. All rights reserved.</span>
     <span>Photography from <a href="https://unsplash.com" rel="noopener">Unsplash</a></span>
   </div>
 </footer>
