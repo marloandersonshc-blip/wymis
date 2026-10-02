@@ -582,10 +582,10 @@ def page_index(base):
 
 def page_program(base):
     gpid, galt = PHOTOS["grad"]
-    spid, salt = PHOTOS["smiling"]
+    spid, salt = PHOTOS["hands"]
     return page_hero("The Program", "A structured <em>thirteenth grade</em> for real life.",
                      "WYMIS teaches the practical skills students need right after graduation, delivered as a One-Day Intensive, a 3-Day Applied Unit, or a full 8 to 12 week cohort.",
-                     "hands", "Program", base) + f"""<main id="main">
+                     "smiling", "Program", base) + f"""<main id="main">
 <section class="section" aria-labelledby="gap-h">
   <div class="wrap split">
     <div class="split-copy">
