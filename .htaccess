@@ -53,6 +53,13 @@ ExpiresByType application/xml "access plus 1 day"
 ExpiresByType text/plain "access plus 1 day"
 </IfModule>
 
+# HTML always revalidates so phones never show a stale page
+<IfModule mod_headers.c>
+<FilesMatch "\.(html|php)$">
+Header set Cache-Control "no-cache, must-revalidate"
+</FilesMatch>
+</IfModule>
+
 # Security headers
 <IfModule mod_headers.c>
 Header always set X-Content-Type-Options "nosniff"
