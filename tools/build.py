@@ -24,6 +24,8 @@ def umbrella_line(link=True):
 NAME = "WYMIS"
 FULL = "What You Missed In School"
 FOUNDER = "Dr. Barry K. Jackson, Ph.D."
+BARRY_IMG = "https://img1.wsimg.com/isteam/ip/017e6888-9585-4ff4-9883-b075f9a3ebd4/Untitled%20design.png/:/cr=t:6%25,l:0%25,w:64.72%25,h:57.5%25/rs=w:640,h:736,cg:true"
+BARRY_BIO = "https://valleycoachingconsulting.com/dr-barry-k-jackson"
 OG_IMG = SITE + "/assets/img/og/wymis-og.png"
 TODAY = datetime.date.today().isoformat()
 FONTS = "https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,500..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
@@ -180,7 +182,7 @@ FAQS = [
     ("Is WYMIS a nonprofit program?",
      f"Yes. WYMIS operates under the umbrella of {UMBRELLA}, a registered 501(c)(3) nonprofit organization. Schools, community partners, and funders can work with WYMIS through {UMBRELLA}."),
     ("Who created WYMIS?",
-     "WYMIS was created by Dr. Barry K. Jackson, Ph.D., a workforce and youth development leader. He is a Senior Career Services Advisor at Bryan University in Tempe, Arizona, and previously served as a Director of Programs with the National Urban League and as Executive Director of The Memphis Youth Coalition."),
+     "WYMIS was founded by Dr. Barry K. Jackson, Ph.D., Provost and Vice President of Academic Affairs at Alliance Bible College and Seminary. His career spans community outreach, nonprofits, and higher education, including roles as President of the Memphis Youth Coalition and Director of Programs with the Memphis Urban League."),
     ("Why is it called the thirteenth grade?",
      "Because it picks up where twelfth grade ends. WYMIS covers the practical lessons students need right after graduation, the ones a diploma does not include."),
     ("Can my school or organization bring WYMIS to our community?",
@@ -200,14 +202,17 @@ ORG = {
     "knowsAbout": [m["title"] for m in MODULES] + ["Workforce readiness", "Life skills education"],
 }
 PERSON = {"@type": "Person", "@id": SITE + "/about#barry-jackson", "name": "Barry K. Jackson", "honorificPrefix": "Dr.",
-          "honorificSuffix": "Ph.D.", "jobTitle": "Creator of WYMIS", "url": SITE + "/about",
-          "image": SITE + "/assets/img/people/barry-jackson.jpg",
-          "description": "Workforce and youth development leader; Senior Career Services Advisor at Bryan University; former Director of Programs with the National Urban League and Executive Director of The Memphis Youth Coalition; creator of WYMIS.",
-          "worksFor": [{"@id": SITE + "/#org"}, {"@type": "CollegeOrUniversity", "name": "Bryan University"}],
-          "hasOccupation": [{"@type": "Occupation", "name": "Senior Career Services Advisor"}],
-          "affiliation": [{"@type": "Organization", "name": "National Urban League"}, {"@type": "Organization", "name": "The Memphis Youth Coalition"}],
-          "hasCredential": [{"@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "Master of Divinity"}],
-          "knowsAbout": ["Workforce development", "Youth development", "Career services", "Employer relations", "Pastoral counseling"]}
+          "honorificSuffix": "Ph.D.", "jobTitle": "Founder of WYMIS", "url": SITE + "/about", "sameAs": [BARRY_BIO],
+          "image": BARRY_IMG,
+          "description": "Founder of WYMIS; Provost and Vice President of Academic Affairs at Alliance Bible College and Seminary; former President of the Memphis Youth Coalition and Director of Programs with the Memphis Urban League.",
+          "worksFor": [{"@id": SITE + "/#org"}, {"@type": "CollegeOrUniversity", "name": "Alliance Bible College and Seminary"}],
+          "hasOccupation": [{"@type": "Occupation", "name": "Provost and Vice President of Academic Affairs"}],
+          "affiliation": [{"@type": "Organization", "name": "Memphis Urban League"}, {"@type": "Organization", "name": "Memphis Youth Coalition"}],
+          "memberOf": [{"@type": "Organization", "name": "American Association of Christian Counselors"}],
+          "alumniOf": [{"@type": "CollegeOrUniversity", "name": "Alliance Bible College and Seminary"}],
+          "hasCredential": [{"@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "Ph.D. in Christian Counseling"},
+                            {"@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "Doctorate in Divinity"}],
+          "knowsAbout": ["Curriculum development", "Program design", "Youth development", "Higher education", "Christian counseling"]}
 WEBSITE = {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": NAME, "alternateName": FULL,
            "publisher": {"@id": SITE + "/#org"}, "inLanguage": "en-US"}
 
@@ -421,12 +426,6 @@ def credential(base):
 </section>
 """
 
-def quote_block(dark=False):
-    return f"""<figure class="pull-quote{' on-dark' if dark else ''}">
-  <blockquote>&ldquo;{QUOTE}&rdquo;</blockquote>
-  <figcaption><img class="founder-img" src="assets/img/people/barry-jackson-avatar.jpg" alt="" width="52" height="52" loading="lazy" decoding="async"><span><b>{FOUNDER}</b><span>Creator of WYMIS</span></span></figcaption>
-</figure>"""
-
 def cities_block(light=False, base=""):
     out = []
     for c in CITIES:
@@ -572,10 +571,6 @@ def page_index(base):
   </div>
 </section>
 
-<section class="section tight" aria-label="From the founder">
-  <div class="wrap">{quote_block()}</div>
-</section>
-
 <section class="section surface vision" aria-labelledby="vis-h">
   <div class="wrap vision-in">
     <div style="display:grid;gap:22px;min-width:0">
@@ -584,8 +579,7 @@ def page_index(base):
     </div>
     <div class="vision-side">
       <p>The long-term vision is to grow WYMIS beyond individual pilot cohorts into a licensed, repeatable model that schools and organizations can bring into their own communities.</p>
-      <div class="founder"><img class="founder-img" src="{base}assets/img/people/barry-jackson-avatar.jpg" alt="" width="52" height="52" loading="lazy" decoding="async"><div><b>{FOUNDER}</b><span>Creator of WYMIS</span></div></div>
-      <a class="link-arrow" href="{base}about">Read about the vision {ARROW}</a>
+      <a class="link-arrow" href="{base}about">Our mission and vision {ARROW}</a>
     </div>
   </div>
 </section>
@@ -758,43 +752,43 @@ def page_pilots(base):
 """
 
 def page_about(base):
-    cpid, calt = PHOTOS["collab"]
     return page_hero("About WYMIS", "Built so graduates leave <em>ready</em>.",
-                     "WYMIS was created by Dr. Barry K. Jackson, Ph.D. on a simple idea: a diploma should come with the practical confidence to use it.",
+                     "WYMIS exists to close the gap between a high school diploma and the practical skills adult life demands.",
                      "teacher", "About", base) + f"""<main id="main">
-<section class="section" aria-labelledby="founder-h">
-  <div class="wrap split">
-    <div class="split-copy">
-      <span class="eyebrow">The founder</span>
-      <h2 id="founder-h">{FOUNDER}</h2>
-      <div class="prose">
-        <p class="lead"><strong>Dr. Barry K. Jackson has built his career in workforce and youth development, connecting students and adult learners with employers and careers.</strong></p>
-        <p>He is a Senior Career Services Advisor at Bryan University in Tempe, Arizona, where he builds employer relationships that move graduates into jobs and prepares students for career entry. He previously served as a Director of Programs with the National Urban League and as Executive Director of The Memphis Youth Coalition. He holds a Master of Divinity and has training in pastoral counseling.</p>
-        <p>Dr. Jackson created WYMIS to close the gap between a high school diploma and the practical skills adult life demands. He built it as a cohort-based, skills-first program and piloted it with students in Phoenix, Las Vegas, and Memphis, refining the curriculum from real classroom experience and feedback.</p>
-      </div>
-      <dl class="cv">
-        <div><dt>Current role</dt><dd>Senior Career Services Advisor, Bryan University (Tempe, AZ)</dd></div>
-        <div><dt>Previously</dt><dd>Director of Programs, National Urban League</dd></div>
-        <div><dt>Previously</dt><dd>Executive Director, The Memphis Youth Coalition</dd></div>
-        <div><dt>Education</dt><dd>Master of Divinity; training in pastoral counseling</dd></div>
-      </dl>
+<section class="section" aria-labelledby="mv-h">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Mission and vision</span>
+      <h2 id="mv-h">Building the bridge between education and execution.</h2>
+      <p>WYMIS is not trying to recreate school. It complements the academic foundation schools already build with the real-world skills a standard curriculum doesn&rsquo;t have room for.</p>
     </div>
-    <div class="split-media portrait-wrap">
-      <figure class="portrait">
-        <img src="{base}assets/img/people/barry-jackson.jpg" alt="Portrait of Dr. Barry K. Jackson, Ph.D., creator of WYMIS" width="340" height="390" loading="eager" decoding="async">
-        <figcaption><b>{FOUNDER}</b><span>Creator of WYMIS</span></figcaption>
-      </figure>
+    <div class="mv">
+      <article class="mv-card">
+        <span class="mv-k">Our mission</span>
+        <p class="mv-lead">Give young people ages 16 to 26 the practical skills they need right after graduation: managing money, working professionally, building relationships, and starting something of their own.</p>
+        <p>We do it through seven practical modules, delivered as a One-Day Intensive, a 3-Day Applied Unit, or a full 8 to 12 week cohort, with a verifiable credential students can show employers.</p>
+      </article>
+      <article class="mv-card is-dark">
+        <span class="mv-k">Our vision</span>
+        <p class="mv-lead">Every student graduates not just with a diploma, but with the <em>practical confidence</em> to manage their money, present themselves professionally, build relationships, and start something of their own if they choose to.</p>
+        <p>We are growing WYMIS from pilot cohorts in Phoenix, Las Vegas, and Memphis into a licensed, repeatable model that schools and organizations nationwide can bring into their own communities.</p>
+      </article>
     </div>
   </div>
 </section>
-<section class="section on-navy grid-bg" aria-labelledby="vis-h">
-  <div class="wrap" style="display:grid;gap:28px;justify-items:start"><div style="display:grid;gap:28px;max-width:980px">
-    <span class="eyebrow" id="vis-h">The Vision</span>
-    <p class="big-quote">Students deserve to graduate not just with a diploma, but with the <em>practical confidence</em> to manage their money, present themselves professionally, build relationships, and start something of their own if they choose to.</p>
-  </div></div>
-</section>
-<section class="section tight surface" aria-label="From the founder">
-  <div class="wrap">{quote_block()}</div>
+<section class="section surface" aria-labelledby="pr-h">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What guides WYMIS</span>
+      <h2 id="pr-h">Discover. Learn. Build. Belong.</h2>
+    </div>
+    <div class="offers">
+      <article class="offer"><span class="k">Discover</span><h3>See the gap</h3><p>Students find the real-world skills a standard curriculum doesn&rsquo;t have room for, before life tests them.</p></article>
+      <article class="offer"><span class="k">Learn</span><h3>Practical modules</h3><p>Seven modules built around situations students face right after graduation.</p></article>
+      <article class="offer"><span class="k">Build</span><h3>Applied work</h3><p>Role-play, group work, and projects that turn knowledge into something students can do and prove.</p></article>
+      <article class="offer"><span class="k">Belong</span><h3>A cohort</h3><p>Students move through WYMIS together, with peer support and shared accountability.</p></article>
+    </div>
+  </div>
 </section>
 <section class="section tight" aria-labelledby="np-h">
   <div class="wrap"><div class="np">
@@ -806,22 +800,31 @@ def page_about(base):
     </div>
   </div></div>
 </section>
-<section class="section" aria-labelledby="pr-h">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">What guides WYMIS</span>
-      <h2 id="pr-h">Discover. Learn. Build. Belong.</h2>
-      <p>WYMIS is not trying to recreate school. It is building the bridge between education and execution.</p>
+<section class="section surface" aria-labelledby="founder-h">
+  <div class="wrap split founder-split">
+    <div class="split-copy">
+      <span class="eyebrow">The founder behind the mission</span>
+      <h2 id="founder-h">{FOUNDER}</h2>
+      <div class="prose">
+        <p class="lead"><strong>Dr. Jackson built WYMIS on a career in community outreach, nonprofits, and higher education, and on years of designing programs that prepare people for what comes next.</strong></p>
+        <p>He serves as Provost and Vice President of Academic Affairs at Alliance Bible College and Seminary, and previously served as President of the Memphis Youth Coalition and Director of Programs with the Memphis Urban League. He has developed curricula and programs for public and charter schools, municipal governments, faith-based organizations, and the Department of Corrections. WYMIS brings that work to one mission: the practical skills school leaves out.</p>
+      </div>
+      <dl class="cv">
+        <div><dt>Current role</dt><dd>Provost and VP of Academic Affairs, Alliance Bible College and Seminary</dd></div>
+        <div><dt>Previously</dt><dd>President, Memphis Youth Coalition; Director of Programs, Memphis Urban League</dd></div>
+        <div><dt>Education</dt><dd>Ph.D. in Christian Counseling and Doctorate in Divinity, Alliance Bible College and Seminary; advanced degrees and certifications from Johns Hopkins University and Morehouse School of Medicine</dd></div>
+      </dl>
+      <a class="link-arrow" href="{BARRY_BIO}" rel="noopener">Full bio at Valley Coaching &amp; Consulting {ARROW}</a>
     </div>
-    <div class="offers">
-      <article class="offer"><span class="k">Discover</span><h3>See the gap</h3><p>Students find the real-world skills a standard curriculum doesn&rsquo;t have room for, before life tests them.</p></article>
-      <article class="offer"><span class="k">Learn</span><h3>Practical modules</h3><p>Seven modules built around situations students face right after graduation.</p></article>
-      <article class="offer"><span class="k">Build</span><h3>Applied work</h3><p>Role-play, group work, and projects that turn knowledge into something students can do and prove.</p></article>
-      <article class="offer"><span class="k">Belong</span><h3>A cohort</h3><p>Students move through WYMIS together, with peer support and shared accountability.</p></article>
+    <div class="split-media portrait-wrap">
+      <figure class="portrait">
+        <img src="{BARRY_IMG}" alt="Portrait of Dr. Barry K. Jackson, Ph.D., founder of WYMIS" width="640" height="736" loading="lazy" decoding="async">
+        <figcaption><b>{FOUNDER}</b><span>Founder of WYMIS</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
-<section class="section tight surface" aria-label="Program facts"><div class="wrap">{facts_box()}</div></section>
+<section class="section tight" aria-label="Program facts"><div class="wrap">{facts_box()}</div></section>
 {cta(base, "Help us bring WYMIS to more students.")}
 </main>
 """
@@ -1035,8 +1038,8 @@ PAGES = [
          title="WYMIS Pilot Programs | Phoenix, Las Vegas & Memphis",
          desc="WYMIS has been piloted with students in Phoenix, Arizona; Las Vegas, Nevada; and Memphis, Tennessee, refining the curriculum from real classroom feedback."),
     dict(slug="about", crumb="About", fn=page_about, prio="0.7", pagetype="AboutPage",
-         title="About WYMIS | Dr. Barry K. Jackson, Ph.D. & the Vision",
-         desc="Meet Dr. Barry K. Jackson, Ph.D., creator of WYMIS, Bryan University career services leader and former National Urban League program director.",
+         title="About WYMIS | Mission, Vision & Nonprofit Home",
+         desc="The WYMIS mission and vision: closing the gap between a diploma and real-world skills for ages 16 to 26. A program under the 501(c)(3) Love Nation.",
          ld=[PERSON]),
     dict(slug="faq", crumb="FAQ", fn=page_faq, prio="0.8", pagetype="FAQPage",
          title="WYMIS FAQ | Ages, Program Length, Curriculum & Formats",
@@ -1093,7 +1096,7 @@ Key facts:
 - Nonprofit umbrella: WYMIS is a program under the umbrella of {UMBRELLA}, a registered 501(c)(3) nonprofit organization
 - Modules: 7
 - Pilot cities: Phoenix, Arizona; Las Vegas, Nevada; Memphis, Tennessee
-- Created by: {FOUNDER}, Senior Career Services Advisor at Bryan University (Tempe, AZ); former Director of Programs, National Urban League; former Executive Director, The Memphis Youth Coalition; Master of Divinity
+- Founded by: {FOUNDER}, Provost and Vice President of Academic Affairs, Alliance Bible College and Seminary
 - Contact: {EMAIL}
 
 ## Pages
@@ -1102,7 +1105,7 @@ Key facts:
 - [Curriculum]({SITE}/curriculum): All seven modules in detail
 - [One-Day Intensive]({SITE}/intensive): Full-day schedule and host facility requirements
 - [Pilots]({SITE}/pilots): Pilot cities and how they shaped the curriculum
-- [About]({SITE}/about): Founder and vision
+- [About]({SITE}/about): Mission, vision, nonprofit home, and founder
 - [FAQ]({SITE}/faq): Common questions with direct answers
 - [Partner]({SITE}/partner): How schools and organizations bring WYMIS to their communities
 
