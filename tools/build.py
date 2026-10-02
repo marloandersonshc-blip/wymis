@@ -9,6 +9,9 @@ import json, os, datetime, html, hashlib
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://wymis.com"
 EMAIL = "info@wymis.com"
+# Google Analytics 4 measurement ID (looks like G-XXXXXXXXXX). Leave empty to load no analytics.
+GA4_ID = ""
+PRIVACY_UPDATED = "October 1, 2026"
 NAME = "WYMIS"
 FULL = "What You Missed In School"
 FOUNDER = "Dr. Barry K. Jackson, Ph.D."
@@ -212,12 +215,19 @@ def head(p, base):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="{FONTS}">
-<link rel="stylesheet" href="{base}assets/css/site.css?v={CSS_V}">
+<link rel="stylesheet" href="{base}assets/css/site.css?v={CSS_V}">{analytics()}
 <script type="application/ld+json">{ld}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 """
+
+def analytics():
+    if not GA4_ID:
+        return ""
+    return (f'\n<script async src="https://www.googletagmanager.com/gtag/js?id={GA4_ID}"></script>'
+            f'\n<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}'
+            f'gtag("js",new Date());gtag("config","{GA4_ID}");</script>')
 
 def nav(active, base):
     home = base or "./"
@@ -251,6 +261,7 @@ def footer(base):
   </div>
   <div class="wrap foot-bot">
     <span>&copy; <span id="year">2026</span> WYMIS. All rights reserved.</span>
+    <a href="{base}privacy">Privacy policy</a>
   </div>
 </footer>
 <script src="{base}assets/js/site.js?v={JS_V}" defer></script>
@@ -259,9 +270,12 @@ def footer(base):
 """
 
 def page_hero(eyebrow, h1, lede, photo, crumb, base):
-    pid, alt = PHOTOS[photo]
-    return f"""<header class="page-hero">
-  <div class="ph-img">{img(pid, alt, sizes="100vw", eager=True, w=2000, h=1000, maxw=2000)}</div>
+    media = ""
+    if photo:
+        pid, alt = PHOTOS[photo]
+        media = f'<div class="ph-img">{img(pid, alt, sizes="100vw", eager=True, w=2000, h=1000, maxw=2000)}</div>'
+    return f"""<header class="page-hero{'' if photo else ' grid-bg'}">
+  {media}
   <div class="wrap ph-in">
     <ol class="crumbs" aria-label="Breadcrumb"><li><a href="{base or './'}">Home</a></li><li aria-current="page">{crumb}</li></ol>
     <span class="eyebrow">{eyebrow}</span>
@@ -733,7 +747,7 @@ def page_partner(base):
         <select id="f-int" name="interest"><option>Full cohort program (8 to 12 weeks)</option><option>Individual modules (75 minutes)</option><option>3-day applied units</option><option>Licensing the WYMIS model</option><option>Not sure yet</option></select></div>
       <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" maxlength="4000" placeholder="Number of students, timing, and anything else we should know."></textarea></div>
       <div class="form-foot">
-        <span class="form-note">We will follow up within two business days.</span>
+        <span class="form-note">We will follow up within two business days. We use your details only to reply. <a href="{base}privacy">Privacy policy</a></span>
         <button class="btn btn-primary" type="submit">Send inquiry</button>
       </div>
     </form>
@@ -749,6 +763,49 @@ def page_404(base):
   <p style="color:var(--muted);max-width:46ch">The page you were looking for doesn&rsquo;t exist or has moved.</p>
   <div class="hero-ctas" style="justify-content:center"><a class="btn btn-primary" href="/">Back to home</a><a class="btn btn-outline" href="/curriculum">View the curriculum</a></div>
 </div></main>
+"""
+
+def page_privacy(base):
+    return page_hero("Legal", "Privacy policy", f"How WYMIS collects, uses, and protects information on this website. Last updated {PRIVACY_UPDATED}.", None, "Privacy", base) + f"""<main id="main">
+<section class="section" aria-label="Privacy policy">
+  <div class="wrap"><div class="legal">
+    <p class="lead">WYMIS (What You Missed In School) operates this website. This policy explains what information we collect when you visit or contact us, how we use it, and the choices you have.</p>
+
+    <h2>Information you give us</h2>
+    <p>When you send an inquiry through the Partner page, we collect what you enter: your name, organization, email address, phone number (optional), the type of organization you represent, the program format you are interested in, and your message.</p>
+    <p>We use this information only to respond to your inquiry, discuss bringing WYMIS to your students, and keep a record of that conversation. We do not sell, rent, or trade it, and we do not add you to a marketing list without your permission.</p>
+
+    <h2>Information collected automatically</h2>
+    <p>Like most websites, our hosting provider records basic technical information when you visit, such as your IP address, browser type, the pages you request, and the time of the request. These logs are used to operate and secure the site.</p>
+    <p>{'We use Google Analytics to understand how visitors use the site, such as which pages are viewed and whether inquiries are submitted. Google Analytics uses cookies and collects device and usage information. Google provides an opt-out browser add-on at <a href="https://tools.google.com/dlpage/gaoptout">tools.google.com/dlpage/gaoptout</a>.' if GA4_ID else 'We may use a web analytics service to understand how visitors use the site, such as which pages are viewed. If we do, this policy will name the service and explain how to opt out.'}</p>
+
+    <h2>Services that help run this site</h2>
+    <ul>
+      <li><strong>Hostinger</strong> hosts the website and delivers the email sent from the inquiry form.</li>
+      <li><strong>Google Fonts</strong> supplies the typefaces. Your browser requests them from Google, which receives your IP address.</li>
+      <li><strong>Unsplash</strong> supplies some photographs. Your browser loads them from Unsplash's servers, which receive your IP address.</li>{'<li><strong>Google Analytics</strong> measures site usage, as described above.</li>' if GA4_ID else ''}
+    </ul>
+
+    <h2>How long we keep information</h2>
+    <p>We keep inquiry emails for as long as needed to respond and to maintain a record of our relationship with your school or organization. You can ask us to delete them at any time.</p>
+
+    <h2>Your choices</h2>
+    <p>You can ask us what information we hold about you, ask us to correct it, or ask us to delete it by emailing <a href="mailto:{EMAIL}">{EMAIL}</a>. Depending on where you live, you may have additional rights under state privacy laws, and we will honor requests made under them.</p>
+
+    <h2>Young people</h2>
+    <p>WYMIS serves students ages 16 to 26, but this website is intended for schools, organizations, parents, and adult learners. It is not directed to children under 13, and we do not knowingly collect information from them. If you believe a child under 13 has sent us information, contact us and we will delete it.</p>
+
+    <h2>Security</h2>
+    <p>The site uses HTTPS encryption, and inquiries are delivered by email to a private mailbox. No method of transmission or storage is completely secure, but we take reasonable steps to protect what you send us.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If we change this policy, we will post the new version here and update the date at the top.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+  </div></div>
+</section>
+</main>
 """
 
 PAGES = [
@@ -784,6 +841,9 @@ PAGES = [
     dict(slug="partner", crumb="Partner", fn=page_partner, prio="0.8", pagetype="ContactPage",
          title="Partner With WYMIS | Bring the Program to Your School",
          desc="Bring WYMIS to your school, nonprofit, or workforce program as a full 8 to 12 week cohort, individual 75-minute modules, or 3-day applied units."),
+    dict(slug="privacy", crumb="Privacy", fn=page_privacy, prio="0.3",
+         title="Privacy Policy | WYMIS",
+         desc="How WYMIS collects, uses, and protects information submitted through wymis.com, including inquiry form data, analytics, and your choices."),
     dict(slug="404", crumb="Not found", fn=page_404, title="Page not found | WYMIS", desc="This page could not be found."),
 ]
 

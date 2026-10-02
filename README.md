@@ -15,6 +15,7 @@ Plain HTML, CSS and a little JavaScript. No framework and no build step on the s
 | `/about` | `about.html` |
 | `/faq` | `faq.html` |
 | `/partner` | `partner.html` (inquiry form posts to `contact.php`) |
+| `/privacy` | `privacy.html` |
 
 Clean URLs (no `.html`) come from `.htaccess`.
 
@@ -34,6 +35,12 @@ python3 tools/build.py
 ```
 
 That regenerates every `.html` page plus `sitemap.xml`, `robots.txt`, `llms.txt` and `llms-full.txt`. Styles are in `assets/css/site.css`; behavior is in `assets/js/site.js`. `/tools` is blocked from the web by `.htaccess`.
+
+## Analytics (Google Analytics 4)
+
+1. In [Google Analytics](https://analytics.google.com) create a property for wymis.com and a Web data stream; copy the measurement ID (`G-XXXXXXXXXX`).
+2. Set `GA4_ID = "G-XXXXXXXXXX"` near the top of `tools/build.py` and run `python3 tools/build.py`. The tag is added to every page and the privacy policy updates itself to name Google Analytics.
+3. Events sent: `generate_lead` when an inquiry is delivered (mark it as a key event in GA4), and `partner_cta_click` on any link to /partner.
 
 ## SEO and GEO included
 

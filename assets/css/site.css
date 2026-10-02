@@ -396,3 +396,13 @@ form.inquiry{background:var(--navy-2);border:1px solid var(--navy-line);border-r
 .portrait figcaption b{font-family:var(--f-display);font-stretch:112%;font-size:15px;font-weight:700}
 .portrait figcaption span{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-navy-muted)}
 @media (max-width:900px){.portrait-wrap{justify-content:flex-start;order:-1}.portrait{width:min(320px,100%)}.portrait figcaption{right:8px}}
+
+/* Legal pages */
+.legal{display:grid;gap:16px;max-width:760px}
+.legal h2{font-size:clamp(22px,2.4vw,28px);font-weight:700;margin-top:24px}
+.legal p,.legal li{color:var(--muted)}
+.legal .lead{color:var(--fg)}
+.legal ul{margin:0;padding-left:20px;display:grid;gap:8px}
+.legal a,.form-note a{color:var(--accent-ink)}
+.on-navy .form-note a{color:var(--accent)}
+.foot-bot a{color:var(--on-navy-muted)}
