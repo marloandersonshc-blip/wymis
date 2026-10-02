@@ -11,7 +11,16 @@ SITE = "https://wymis.com"
 EMAIL = "info@wymis.com"
 # Google Analytics 4 measurement ID (looks like G-XXXXXXXXXX). Leave empty to load no analytics.
 GA4_ID = ""
-PRIVACY_UPDATED = "October 1, 2026"
+PRIVACY_UPDATED = "October 2, 2026"
+# Nonprofit umbrella. Add the EIN and website when confirmed; they appear automatically where set.
+UMBRELLA = "Love Nation"
+UMBRELLA_EIN = ""
+UMBRELLA_URL = ""
+def umbrella_name(link=True):
+    return f'<a href="{UMBRELLA_URL}" rel="noopener">{UMBRELLA}</a>' if (link and UMBRELLA_URL) else UMBRELLA
+def umbrella_line(link=True):
+    ein = f" (EIN {UMBRELLA_EIN})" if UMBRELLA_EIN else ""
+    return f"WYMIS is a program under the umbrella of {umbrella_name(link)}, a registered 501(c)(3) nonprofit organization{ein}."
 NAME = "WYMIS"
 FULL = "What You Missed In School"
 FOUNDER = "Dr. Barry K. Jackson, Ph.D."
@@ -168,6 +177,8 @@ FAQS = [
      "Yes. Modules can be delivered individually or combined into a full 8 to 12 week cohort experience."),
     ("Where has WYMIS been piloted?",
      "WYMIS has been piloted in Phoenix, Arizona; Las Vegas, Nevada; and Memphis, Tennessee, working directly with students to refine the curriculum from real classroom experience and feedback."),
+    ("Is WYMIS a nonprofit program?",
+     f"Yes. WYMIS operates under the umbrella of {UMBRELLA}, a registered 501(c)(3) nonprofit organization. Schools, community partners, and funders can work with WYMIS through {UMBRELLA}."),
     ("Who created WYMIS?",
      "WYMIS was created by Dr. Barry K. Jackson, Ph.D., a workforce and youth development leader. He is a Senior Career Services Advisor at Bryan University in Tempe, Arizona, and previously served as a Director of Programs with the National Urban League and as Executive Director of The Memphis Youth Coalition."),
     ("Why is it called the thirteenth grade?",
@@ -184,6 +195,7 @@ ORG = {
     "description": "WYMIS (What You Missed In School) is a cohort-based “thirteenth grade” workforce readiness and life skills program for ages 16 to 26.",
     "founder": {"@id": SITE + "/about#barry-jackson"},
     "slogan": "Building the bridge between education and execution",
+    "parentOrganization": {k: v for k, v in {"@type": "NGO", "name": UMBRELLA, "nonprofitStatus": "Nonprofit501c3", "taxID": UMBRELLA_EIN or None, "url": UMBRELLA_URL or None}.items() if v},
     "areaServed": [{"@type": "Country", "name": "United States"}] + [{"@type": "City", "name": c["name"], "containedInPlace": {"@type": "State", "name": c["state"]}} for c in CITIES],
     "knowsAbout": [m["title"] for m in MODULES] + ["Workforce readiness", "Life skills education"],
 }
@@ -303,6 +315,7 @@ def footer(base):
     <div class="foot-brand">
       <a href="{home}" aria-label="WYMIS home"><picture><source srcset="{base}assets/img/brand/wymis-logo-light.webp" type="image/webp"><img src="{base}assets/img/brand/wymis-logo-light.png" alt="WYMIS: What You Missed In School" width="271" height="52" loading="lazy"></picture></a>
       <p>Building the bridge between education and execution. A practical thirteenth grade for ages 16 to 26, available nationwide.</p>
+      <p class="foot-np">{umbrella_line()}</p>
       <p class="foot-tag">{TAGLINE}</p>
     </div>
     <div class="foot-col"><h2>Program</h2><a href="{base}program">How it works</a><a href="{base}curriculum">Curriculum</a><a href="{base}intensive">One-Day Intensive</a><a href="{base}pilots">Pilot cities</a><a href="{base}faq">FAQ</a></div>
@@ -434,7 +447,7 @@ def audience():
 def facts_box():
     rows = [("Full name", "What You Missed In School"), ("Type", "Workforce readiness &amp; life skills program"),
             ("Ages", "16 to 26"), ("Modules", "7"), ("Formats", "One-Day Intensive, 3-Day Applied Unit, 8 to 12 Week Cohort"),
-            ("Credential", "Open Badges 3.0, verifiable"), ("Availability", "Nationwide; piloted in Phoenix, Las Vegas, Memphis"), ("Created by", FOUNDER)]
+            ("Credential", "Open Badges 3.0, verifiable"), ("Availability", "Nationwide; piloted in Phoenix, Las Vegas, Memphis"), ("Nonprofit umbrella", f"{UMBRELLA}, a registered 501(c)(3)"), ("Created by", FOUNDER)]
     return '<aside class="facts" aria-labelledby="facts-h"><h2 id="facts-h">WYMIS at a glance</h2><dl>' + "".join(
         f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in rows) + "</dl></aside>"
 
@@ -783,6 +796,16 @@ def page_about(base):
 <section class="section tight surface" aria-label="From the founder">
   <div class="wrap">{quote_block()}</div>
 </section>
+<section class="section tight" aria-labelledby="np-h">
+  <div class="wrap"><div class="np">
+    <div class="np-mark" aria-hidden="true">501(c)(3)</div>
+    <div class="np-copy">
+      <span class="eyebrow">Nonprofit home</span>
+      <h2 id="np-h">A program of {umbrella_name()}.</h2>
+      <p>{umbrella_line()} That gives schools, community organizations, and funders a nonprofit partner to work with when they bring WYMIS to their students.</p>
+    </div>
+  </div></div>
+</section>
 <section class="section" aria-labelledby="pr-h">
   <div class="wrap">
     <div class="section-head">
@@ -831,6 +854,7 @@ def page_partner(base):
     </div>
     {formats3(base)}
     <p class="fmt3-note">Hosting a One-Day Intensive? See the <a href="{base}intensive#facility">facility checklist</a>. Longer term, WYMIS is growing toward a licensed model organizations can run in their own communities.</p>
+    <p class="fmt3-note"><strong>Funders and grantmakers:</strong> {umbrella_line()} Reach out through the form below to discuss sponsoring a cohort.</p>
   </div>
 </section>
 <section class="section on-navy grid-bg" id="inquiry" aria-labelledby="con-h">
@@ -937,7 +961,7 @@ def page_privacy(base):
     return page_hero("Legal", "Privacy policy", f"How WYMIS collects, uses, and protects information on this website. Last updated {PRIVACY_UPDATED}.", None, "Privacy", base) + f"""<main id="main">
 <section class="section" aria-label="Privacy policy">
   <div class="wrap"><div class="legal">
-    <p class="lead">WYMIS (What You Missed In School) operates this website. This policy explains what information we collect when you visit or contact us, how we use it, and the choices you have.</p>
+    <p class="lead">WYMIS (What You Missed In School), a program under the umbrella of {UMBRELLA}, a registered 501(c)(3) nonprofit organization, operates this website. This policy explains what information we collect when you visit or contact us, how we use it, and the choices you have.</p>
 
     <h2>Information you give us</h2>
     <p>When you send an inquiry through the Partner page, we collect what you enter: your name, organization, email address, phone number (optional), the type of organization you represent, the program format you are interested in, and your message.</p>
@@ -1066,6 +1090,7 @@ Key facts:
 - Formats: One-Day Intensive (8:00 AM to 6:00 PM, six 75-minute module sessions, groups of 20 to 30), 3-Day Applied Unit (hands-on, project-based), or 8 to 12 Week Cohort (all seven modules). Any single module can also run as a 75-minute session.
 - Credential: verifiable digital credential built on Open Badges 3.0
 - Availability: nationwide
+- Nonprofit umbrella: WYMIS is a program under the umbrella of {UMBRELLA}, a registered 501(c)(3) nonprofit organization
 - Modules: 7
 - Pilot cities: Phoenix, Arizona; Las Vegas, Nevada; Memphis, Tennessee
 - Created by: {FOUNDER}, Senior Career Services Advisor at Bryan University (Tempe, AZ); former Director of Programs, National Urban League; former Executive Director, The Memphis Youth Coalition; Master of Divinity

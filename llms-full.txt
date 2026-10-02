@@ -10,6 +10,7 @@ Key facts:
 - Formats: One-Day Intensive (8:00 AM to 6:00 PM, six 75-minute module sessions, groups of 20 to 30), 3-Day Applied Unit (hands-on, project-based), or 8 to 12 Week Cohort (all seven modules). Any single module can also run as a 75-minute session.
 - Credential: verifiable digital credential built on Open Badges 3.0
 - Availability: nationwide
+- Nonprofit umbrella: WYMIS is a program under the umbrella of Love Nation, a registered 501(c)(3) nonprofit organization
 - Modules: 7
 - Pilot cities: Phoenix, Arizona; Las Vegas, Nevada; Memphis, Tennessee
 - Created by: Dr. Barry K. Jackson, Ph.D., Senior Career Services Advisor at Bryan University (Tempe, AZ); former Director of Programs, National Urban League; former Executive Director, The Memphis Youth Coalition; Master of Divinity
@@ -126,6 +127,9 @@ Yes. Modules can be delivered individually or combined into a full 8 to 12 week 
 
 ### Where has WYMIS been piloted?
 WYMIS has been piloted in Phoenix, Arizona; Las Vegas, Nevada; and Memphis, Tennessee, working directly with students to refine the curriculum from real classroom experience and feedback.
+
+### Is WYMIS a nonprofit program?
+Yes. WYMIS operates under the umbrella of Love Nation, a registered 501(c)(3) nonprofit organization. Schools, community partners, and funders can work with WYMIS through Love Nation.
 
 ### Who created WYMIS?
 WYMIS was created by Dr. Barry K. Jackson, Ph.D., a workforce and youth development leader. He is a Senior Career Services Advisor at Bryan University in Tempe, Arizona, and previously served as a Director of Programs with the National Urban League and as Executive Director of The Memphis Youth Coalition.
