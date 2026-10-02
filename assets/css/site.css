@@ -296,6 +296,13 @@ a{color:inherit}
 .founder span{font-size:14px;color:var(--muted)}
 @media (max-width:860px){.vision-in{grid-template-columns:1fr}}
 
+/* Founder credentials */
+.cv{margin:0;display:grid;border-top:1px solid var(--line)}
+.cv div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}
+.cv dt{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.cv dd{margin:0;font-weight:500}
+@media (max-width:480px){.cv div{grid-template-columns:1fr;gap:2px}}
+
 /* Quick facts (GEO-friendly summary box) */
 .facts{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,3vw,34px);display:grid;gap:18px}
 .facts h2{font-size:22px;font-weight:700}

@@ -113,7 +113,7 @@ FAQS = [
     ("Where has WYMIS been piloted?",
      "WYMIS has been piloted in Phoenix, Arizona; Las Vegas, Nevada; and Memphis, Tennessee, working directly with students to refine the curriculum from real classroom experience and feedback."),
     ("Who created WYMIS?",
-     "WYMIS was created by Dr. Barry K. Jackson, Ph.D."),
+     "WYMIS was created by Dr. Barry K. Jackson, Ph.D., a workforce and youth development leader. He is a Senior Career Services Advisor at Bryan University in Tempe, Arizona, and previously served as a Director of Programs with the National Urban League and as Executive Director of The Memphis Youth Coalition."),
     ("Why is it called the thirteenth grade?",
      "Because it picks up where twelfth grade ends. WYMIS covers the practical lessons students need right after graduation, the ones a diploma does not include."),
     ("Can my school or organization bring WYMIS to our community?",
@@ -131,7 +131,13 @@ ORG = {
     "knowsAbout": [m["title"] for m in MODULES] + ["Workforce readiness", "Life skills education"],
 }
 PERSON = {"@type": "Person", "@id": SITE + "/about#barry-jackson", "name": "Barry K. Jackson", "honorificPrefix": "Dr.",
-          "honorificSuffix": "Ph.D.", "jobTitle": "Creator of WYMIS", "worksFor": {"@id": SITE + "/#org"}}
+          "honorificSuffix": "Ph.D.", "jobTitle": "Creator of WYMIS", "url": SITE + "/about",
+          "description": "Workforce and youth development leader; Senior Career Services Advisor at Bryan University; former Director of Programs with the National Urban League and Executive Director of The Memphis Youth Coalition; creator of WYMIS.",
+          "worksFor": [{"@id": SITE + "/#org"}, {"@type": "CollegeOrUniversity", "name": "Bryan University"}],
+          "hasOccupation": [{"@type": "Occupation", "name": "Senior Career Services Advisor"}],
+          "affiliation": [{"@type": "Organization", "name": "National Urban League"}, {"@type": "Organization", "name": "The Memphis Youth Coalition"}],
+          "hasCredential": [{"@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "Master of Divinity"}],
+          "knowsAbout": ["Workforce development", "Youth development", "Career services", "Employer relations", "Pastoral counseling"]}
 WEBSITE = {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": NAME, "alternateName": FULL,
            "publisher": {"@id": SITE + "/#org"}, "inLanguage": "en-US"}
 
@@ -622,10 +628,16 @@ def page_about(base):
       <span class="eyebrow">The founder</span>
       <h2 id="founder-h">{FOUNDER}</h2>
       <div class="prose">
-        <p class="lead"><strong>Dr. Barry K. Jackson created WYMIS to close the gap between a high school diploma and the practical skills adult life demands.</strong></p>
-        <p>He built WYMIS as a cohort-based, skills-first program and piloted it with students in Phoenix, Las Vegas, and Memphis, refining the curriculum from real classroom experience and feedback.</p>
+        <p class="lead"><strong>Dr. Barry K. Jackson has built his career in workforce and youth development, connecting students and adult learners with employers and careers.</strong></p>
+        <p>He is a Senior Career Services Advisor at Bryan University in Tempe, Arizona, where he builds employer relationships that move graduates into jobs and prepares students for career entry. He previously served as a Director of Programs with the National Urban League and as Executive Director of The Memphis Youth Coalition. He holds a Master of Divinity and has training in pastoral counseling.</p>
+        <p>Dr. Jackson created WYMIS to close the gap between a high school diploma and the practical skills adult life demands. He built it as a cohort-based, skills-first program and piloted it with students in Phoenix, Las Vegas, and Memphis, refining the curriculum from real classroom experience and feedback.</p>
       </div>
-      <div class="founder"><span class="founder-mono" aria-hidden="true">BJ</span><div><b>{FOUNDER}</b><span>Creator of WYMIS</span></div></div>
+      <dl class="cv">
+        <div><dt>Current role</dt><dd>Senior Career Services Advisor, Bryan University (Tempe, AZ)</dd></div>
+        <div><dt>Previously</dt><dd>Director of Programs, National Urban League</dd></div>
+        <div><dt>Previously</dt><dd>Executive Director, The Memphis Youth Coalition</dd></div>
+        <div><dt>Education</dt><dd>Master of Divinity; training in pastoral counseling</dd></div>
+      </dl>
     </div>
     <div class="split-media"><div class="photo tall">{img(cpid, calt, w=1200, h=1500)}</div></div>
   </div>
@@ -753,7 +765,7 @@ PAGES = [
          desc="WYMIS has been piloted with students in Phoenix, Arizona; Las Vegas, Nevada; and Memphis, Tennessee, refining the curriculum from real classroom feedback."),
     dict(slug="about", crumb="About", fn=page_about, prio="0.7", pagetype="AboutPage",
          title="About WYMIS | Dr. Barry K. Jackson, Ph.D. & the Vision",
-         desc="WYMIS was created by Dr. Barry K. Jackson, Ph.D. to give graduates the practical confidence to manage money, work professionally, and build their future.",
+         desc="Meet Dr. Barry K. Jackson, Ph.D., creator of WYMIS, Bryan University career services leader and former National Urban League program director.",
          ld=[PERSON]),
     dict(slug="faq", crumb="FAQ", fn=page_faq, prio="0.8", pagetype="FAQPage",
          title="WYMIS FAQ | Ages, Program Length, Curriculum & Formats",
@@ -803,7 +815,7 @@ Key facts:
 - Formats: each module runs as a 75-minute single-class session or a 3-day applied unit (role-play, group work, applied projects)
 - Modules: 7
 - Pilot cities: Phoenix, Arizona; Las Vegas, Nevada; Memphis, Tennessee
-- Created by: {FOUNDER}
+- Created by: {FOUNDER}, Senior Career Services Advisor at Bryan University (Tempe, AZ); former Director of Programs, National Urban League; former Executive Director, The Memphis Youth Coalition; Master of Divinity
 - Contact: {EMAIL}
 
 ## Pages
