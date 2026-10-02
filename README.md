@@ -47,6 +47,6 @@ That regenerates every `.html` page plus `sitemap.xml`, `robots.txt`, `llms.txt`
 
 ## Brand assets
 
-`assets/img/brand/`: `wymis-logo.svg` (for light backgrounds), `wymis-logo-light.svg` (for dark backgrounds), `wymis-mark.svg` / `wymis-mark-light.svg` (icon only), `favicon.svg`, plus PNG icons. The social share image is `assets/img/og/wymis-og.png`.
+`assets/img/brand/`: `wymis-logo.png/.webp` (full color, for light backgrounds), `wymis-logo-light.png/.webp` (white and green, for dark backgrounds), `wymis-mark.*` and `wymis-mark-light.*` (cap and book only), plus favicons and app icons. All are transparent. Brand colors: navy `#0A1F4D` (bands), `#0B1F45` (text), green `#1A7A32` (buttons, text on light), `#3DBA5A` (accents on navy). The social share image is `assets/img/og/wymis-og.png`.
 
 Photo sources: see `IMAGE-CREDITS.md`.

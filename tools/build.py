@@ -184,7 +184,7 @@ def head(p, base):
 <meta name="robots" content="{robots}">
 {'' if p['slug']=='404' else f'<link rel="canonical" href="{canon}">'}
 <meta name="author" content="{esc(FOUNDER)}">
-<meta name="theme-color" content="#0E1A2B">
+<meta name="theme-color" content="#0A1F4D">
 <meta name="geo.region" content="US-AZ">
 <meta name="geo.placename" content="Phoenix, Arizona">
 <meta name="geo.position" content="33.4484;-112.0740">
@@ -204,7 +204,7 @@ def head(p, base):
 <meta name="twitter:description" content="{esc(p['desc'])}">
 <meta name="twitter:image" content="{OG_IMG}">
 <link rel="icon" href="{base}favicon.ico" sizes="48x48">
-<link rel="icon" href="{base}assets/img/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{base}assets/img/brand/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="{base}assets/img/brand/apple-touch-icon.png">
 <link rel="manifest" href="{base}site.webmanifest">
 <link rel="alternate" type="text/plain" title="LLM summary" href="{base}llms.txt">
@@ -224,7 +224,7 @@ def nav(active, base):
     items = "".join(f'<li><a href="{base}{s}"{" aria-current=\"page\"" if s == active else ""}>{t}</a></li>' for s, t in NAV)
     return f"""<nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a class="brand" href="{home}" aria-label="WYMIS home"><img src="{base}assets/img/brand/wymis-logo-light.svg" alt="WYMIS: What You Missed In School" width="225" height="40"></a>
+    <a class="brand" href="{home}" aria-label="WYMIS home"><picture><source srcset="{base}assets/img/brand/wymis-logo-light.webp" type="image/webp" media="(prefers-color-scheme: dark)"><source srcset="{base}assets/img/brand/wymis-logo.webp" type="image/webp"><img src="{base}assets/img/brand/wymis-logo.png" alt="WYMIS: What You Missed In School" width="250" height="48" fetchpriority="high"></picture></a>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
@@ -242,7 +242,7 @@ def footer(base):
     return f"""<footer class="site-foot">
   <div class="wrap foot-top">
     <div class="foot-brand">
-      <a href="{home}" aria-label="WYMIS home"><img src="{base}assets/img/brand/wymis-logo-light.svg" alt="WYMIS: What You Missed In School" width="248" height="44" loading="lazy"></a>
+      <a href="{home}" aria-label="WYMIS home"><picture><source srcset="{base}assets/img/brand/wymis-logo-light.webp" type="image/webp"><img src="{base}assets/img/brand/wymis-logo-light.png" alt="WYMIS: What You Missed In School" width="271" height="52" loading="lazy"></picture></a>
       <p>A practical thirteenth grade for workforce readiness and life skills. Cohort-based, skills-first, built for ages 16 to 26.</p>
     </div>
     <div class="foot-col"><h2>Program</h2><a href="{base}program">How it works</a><a href="{base}curriculum">Curriculum</a><a href="{base}pilots">Pilot cities</a><a href="{base}faq">FAQ</a></div>
