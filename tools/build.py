@@ -224,7 +224,7 @@ def nav(active, base):
     items = "".join(f'<li><a href="{base}{s}"{" aria-current=\"page\"" if s == active else ""}>{t}</a></li>' for s, t in NAV)
     return f"""<nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
-    <a class="brand" href="{home}" aria-label="WYMIS home"><picture><source srcset="{base}assets/img/brand/wymis-logo-light.webp" type="image/webp" media="(prefers-color-scheme: dark)"><source srcset="{base}assets/img/brand/wymis-logo.webp" type="image/webp"><img src="{base}assets/img/brand/wymis-logo.png" alt="WYMIS: What You Missed In School" width="250" height="48" fetchpriority="high"></picture></a>
+    <a class="brand" href="{home}" aria-label="WYMIS home"><picture><source srcset="{base}assets/img/brand/wymis-logo.webp" type="image/webp"><img src="{base}assets/img/brand/wymis-logo.png" alt="WYMIS: What You Missed In School" width="250" height="48" fetchpriority="high"></picture></a>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>

@@ -31,18 +31,8 @@
   --r:6px;
   --r-lg:12px;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#07142F;--surface:#0D1D40;--fg:#E6EBF2;--muted:#9FB0CC;--line:#1D3160;
-  --accent:#45C463;--accent-ink:#5BD077;--btn:#1E8A39;--btn-hover:#23A043;--btn-fg:#FFFFFF;--miss:#B4442A;
-  --navy:#050F26;--navy-2:#0C1C40;--on-navy:#EEF2F8;--on-navy-muted:#9FB0CC;--navy-line:rgba(238,242,248,.10);
-  --nav-bg:#050F26;--nav-fg:#EEF2F8;--nav-muted:#9FB0CC;--nav-line:rgba(238,242,248,.10);--ok:#5DB38C;--err:#E07A5F;
-  color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#07142F;--surface:#0D1D40;--fg:#E6EBF2;--muted:#9FB0CC;--line:#1D3160;
-  --accent:#45C463;--accent-ink:#5BD077;--btn:#1E8A39;--btn-hover:#23A043;--btn-fg:#FFFFFF;--miss:#B4442A;
-  --navy:#050F26;--navy-2:#0C1C40;--on-navy:#EEF2F8;--on-navy-muted:#9FB0CC;--navy-line:rgba(238,242,248,.10);
-  --nav-bg:#050F26;--nav-fg:#EEF2F8;--nav-muted:#9FB0CC;--nav-line:rgba(238,242,248,.10);--ok:#5DB38C;--err:#E07A5F;
-  color-scheme:dark}
+/* Single light theme on every device so the brand looks the same everywhere */
+:root{color-scheme:light}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
