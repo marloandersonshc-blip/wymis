@@ -11,6 +11,7 @@ Plain HTML, CSS and a little JavaScript. No framework and no build step on the s
 | `/` | `index.html` |
 | `/program` | `program.html` |
 | `/curriculum` | `curriculum.html` |
+| `/intensive` | `intensive.html` (One-Day Intensive schedule and host facility needs) |
 | `/pilots` | `pilots.html` |
 | `/about` | `about.html` |
 | `/faq` | `faq.html` |

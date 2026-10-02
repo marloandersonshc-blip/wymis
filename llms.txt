@@ -6,7 +6,10 @@ Key facts:
 - Full name: What You Missed In School (WYMIS)
 - Audience: graduating high school seniors and young adults ages 16 to 26; schools, community organizations, and workforce programs
 - Length: 8 to 12 week full program, delivered as a cohort
-- Formats: each module runs as a 75-minute single-class session or a 3-day applied unit (role-play, group work, applied projects)
+- Positioning: "Building the bridge between education and execution." WYMIS complements what schools teach; it is not trying to recreate school.
+- Formats: One-Day Intensive (8:00 AM to 6:00 PM, six 75-minute module sessions, groups of 20 to 30), 3-Day Applied Unit (hands-on, project-based), or 8 to 12 Week Cohort (all seven modules). Any single module can also run as a 75-minute session.
+- Credential: verifiable digital credential built on Open Badges 3.0
+- Availability: nationwide
 - Modules: 7
 - Pilot cities: Phoenix, Arizona; Las Vegas, Nevada; Memphis, Tennessee
 - Created by: Dr. Barry K. Jackson, Ph.D., Senior Career Services Advisor at Bryan University (Tempe, AZ); former Director of Programs, National Urban League; former Executive Director, The Memphis Youth Coalition; Master of Divinity
@@ -16,6 +19,7 @@ Key facts:
 - [Home](https://wymis.com/): Overview of WYMIS
 - [Program](https://wymis.com/program): Cohort model, structure, formats, and audience
 - [Curriculum](https://wymis.com/curriculum): All seven modules in detail
+- [One-Day Intensive](https://wymis.com/intensive): Full-day schedule and host facility requirements
 - [Pilots](https://wymis.com/pilots): Pilot cities and how they shaped the curriculum
 - [About](https://wymis.com/about): Founder and vision
 - [FAQ](https://wymis.com/faq): Common questions with direct answers

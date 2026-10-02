@@ -50,49 +50,50 @@ PHOTOS = {
     "teacher":    ("1758270704925-fa59d93119c1", "Teacher leading a lesson in a classroom"),
     "grad":       ("1523580846011-d3a5bc25702b", "Smiling graduate in a cap and gown"),
     "handshake":  ("1549923746-c502d488b3ea", "Two professionals shaking hands and smiling"),
+    "pointing":   ("1758270704226-db897b180243", "Instructor engaging students with raised hands in a lecture hall"),
     "phoenix":    ("1617407867182-2c3730f7fe29", "Phoenix skyline silhouetted at sunset"),
     "vegas":      ("1723585126886-f31a77294a43", "The Las Vegas Strip at night"),
     "memphis":    ("1577055383519-ca48a5d859be", "Memphis riverfront pyramid at sunset"),
 }
 
 MODULES = [
-    dict(code="WYM 101", slug="financial-literacy", title="Financial Literacy",
+    dict(code="WYM 101", slug="financial-literacy", title="Financial Literacy", tagline="Budgeting, credit, saving, and debt",
          pid="1554224155-6726b3ff858f", alt="Person reviewing a budget on paper with a pen and calculator",
          intro="Money decisions start the day the first paycheck arrives. This module gives students a working plan for it.",
          summary="What financial literacy is, budgeting, credit, and simple investing, adapted for a first paycheck, first apartment, and first credit decisions.",
-         topics=["What financial literacy is", "Budgeting", "Credit", "Simple investing"],
+         topics=["What financial literacy is", "Budgeting", "Credit", "Saving and managing debt", "Simple investing"],
          applied="Built around a first paycheck, a first apartment, and first credit decisions."),
-    dict(code="WYM 102", slug="business-administration", title="Business Administration",
+    dict(code="WYM 102", slug="business-administration", title="Business Administration", tagline="How businesses actually operate",
          pid="1556761175-5973dc0f32e7", alt="Young professional presenting to colleagues in a meeting",
          intro="Students learn how businesses are built and run, and what it takes to start one of their own.",
          summary="What a business is, for-profit versus nonprofit models, basic business structures, how to start a simple business, and business ethics.",
          topics=["What a business is", "For-profit versus nonprofit models", "Basic business structures", "How to start a simple business", "Business ethics"],
          applied=""),
-    dict(code="WYM 103", slug="soft-skills", title="Soft Skills",
+    dict(code="WYM 103", slug="soft-skills", title="Soft Skills", tagline="Communication, teamwork, and professionalism",
          pid="1573497620053-ea5300f94f21", alt="Two women in a professional conversation at a table",
          intro="The skills that appear in every job description and rarely in a class schedule.",
          summary="Professional communication, teamwork and collaboration, professionalism and work ethic, and problem-solving and adaptability.",
          topics=["Professional communication", "Teamwork and collaboration", "Professionalism and work ethic", "Problem-solving and adaptability"],
          applied=""),
-    dict(code="WYM 104", slug="etiquette", title="Etiquette",
+    dict(code="WYM 104", slug="etiquette", title="Etiquette", tagline="Workplace norms and first impressions",
          pid="1521791136064-7986c2920216", alt="Two people shaking hands across a table",
          intro="How to carry yourself at the table, in the interview, and online.",
          summary="Everyday social etiquette, professional and interview etiquette, dining etiquette, and digital etiquette.",
-         topics=["Everyday social etiquette", "Professional and interview etiquette", "Dining etiquette", "Digital etiquette"],
+         topics=["Workplace norms and first impressions", "Everyday social etiquette", "Professional and interview etiquette", "Dining etiquette", "Digital etiquette"],
          applied=""),
-    dict(code="WYM 105", slug="networking-principles", title="Networking Principles",
+    dict(code="WYM 105", slug="networking-principles", title="Networking Principles", tagline="Building relationships and opening doors",
          pid="1515169067868-5387ec356754", alt="Small group of people talking together at an event",
          intro="Opportunities move through people. Students learn to introduce themselves, work a room, and follow up.",
          summary="What networking is, building a personal introduction, working a room at an event or conference, and following up effectively.",
          topics=["What networking is", "Building a personal introduction", "Working a room at an event or conference", "Following up effectively"],
          applied=""),
-    dict(code="WYM 106", slug="ai-and-technology", title="AI and Technology",
+    dict(code="WYM 106", slug="ai-and-technology", title="AI and Technology", tagline="Practical fluency with modern tools",
          pid="1604933762021-54a5858c9832", alt="Young woman with braids working on a laptop",
          intro="AI is already reshaping the jobs students are about to enter. Students learn what it is and how to use it well.",
          summary="What artificial intelligence is, how it is changing industries and jobs, using AI tools well, and responsible, ethical use.",
          topics=["What artificial intelligence is", "How AI is changing industries and jobs", "Using AI tools well", "Responsible, ethical use"],
          applied=""),
-    dict(code="WYM 107", slug="branding-and-marketing", title="Branding and Marketing",
+    dict(code="WYM 107", slug="branding-and-marketing", title="Branding and Marketing", tagline="Presenting yourself with clarity",
          pid="1542744173-8e7e53415bb0", alt="Presenter speaking to a team seated with laptops",
          intro="Every graduate has a personal brand, managed or not. Students learn to build one on purpose and reach an audience with it.",
          summary="The difference between branding and marketing, personal branding, building a brand identity, and reaching an audience.",
@@ -106,6 +107,40 @@ CITIES = [
     dict(name="Memphis", state="Tennessee", abbr="TN", coords="35.15&deg; N &middot; 90.05&deg; W", photo="memphis"),
 ]
 
+TAGLINE = "Discover. Learn. Build. Belong."
+QUOTE = "WYMIS is not trying to recreate school. It is building the bridge between education and execution."
+
+FORMATS = [
+    dict(k="1 day", t="One-Day Intensive", d="A focused, full-day deep dive that condenses the core modules into one immersive day, 8:00 AM to 6:00 PM.", items=["Six 75-minute module sessions", "Built for groups of 20 to 30", "Ideal for a first introduction"], link="intensive"),
+    dict(k="3 days", t="3-Day Applied Unit", d="A hands-on, project-based unit that gives students real practice time with a skill.", items=["Role-play and group work", "Applied projects", "Go deep on one module"], link=""),
+    dict(k="8 to 12 weeks", t="8 to 12 Week Cohort", d="The full WYMIS program: all seven modules, delivered to a cohort that moves through them together.", items=["All seven modules", "Peer accountability", "The complete thirteenth grade"], link="program"),
+]
+
+INTENSIVE = [
+    ("8:00 AM", "8:30 AM", "Welcome and orientation", "Check-in, introductions, and an overview of the day", None),
+    ("8:30 AM", "9:45 AM", "Soft Skills", "75-minute module session", "soft-skills"),
+    ("9:45 AM", "10:00 AM", "Break", "", None),
+    ("10:00 AM", "11:15 AM", "Networking Principles", "75-minute module session", "networking-principles"),
+    ("11:15 AM", "11:30 AM", "Break", "", None),
+    ("11:30 AM", "12:45 PM", "Financial Literacy", "75-minute module session", "financial-literacy"),
+    ("12:45 PM", "1:45 PM", "Lunch", "On site or nearby", None),
+    ("1:45 PM", "3:00 PM", "Business Administration", "75-minute module session", "business-administration"),
+    ("3:00 PM", "3:15 PM", "Break", "", None),
+    ("3:15 PM", "4:30 PM", "Etiquette", "75-minute module session", "etiquette"),
+    ("4:30 PM", "4:45 PM", "Break", "", None),
+    ("4:45 PM", "6:00 PM", "Branding and Marketing / AI and Technology", "75-minute module session and closing", "branding-and-marketing"),
+]
+
+FACILITY = [
+    "One main room that seats 20 to 30 participants, classroom or round-table style",
+    "A screen or wall space with a projector or TV for slides (WYMIS can bring a portable projector)",
+    "Reliable Wi-Fi",
+    "Tables and chairs that can be arranged for small-group breakouts",
+    "Restrooms and a space for the lunch break (on site preferred, not required)",
+    "Access from about 7:30 AM for setup to 6:30 PM for breakdown",
+    "Street or lot parking for participants and facilitators",
+]
+
 FAQS = [
     ("What is WYMIS?",
      "WYMIS, short for What You Missed In School, is a practical “thirteenth grade” workforce readiness and life skills program. It teaches graduating seniors and young adults the everyday skills school often leaves out: managing money, holding a job, communicating professionally, and navigating adult life with confidence."),
@@ -114,9 +149,19 @@ FAQS = [
     ("How long is the WYMIS program?",
      "The full WYMIS program runs 8 to 12 weeks as a cohort, with students moving through the modules together as a group."),
     ("What does the WYMIS curriculum cover?",
-     "Seven modules: Financial Literacy, Business Administration, Soft Skills, Etiquette, Networking Principles, AI and Technology, and Branding and Marketing. Each one covers a skill area students consistently report feeling underprepared for after high school."),
+     "Seven modules: Financial Literacy, Business Administration (business fundamentals), Soft Skills, Etiquette, Networking Principles, AI and Technology, and Branding and Marketing. Each one covers a skill area students consistently report feeling underprepared for after high school."),
     ("What delivery formats are available?",
-     "Every module is available in two formats: a 75-minute single-class session for a focused introduction, or a 3-day unit that adds hands-on practice through role-play, group work, and applied projects."),
+     "WYMIS can be delivered three ways: a One-Day Intensive (a full day, 8:00 AM to 6:00 PM), a 3-Day Applied Unit (hands-on and project-based), or the full 8 to 12 Week Cohort with all seven modules. Any single module can also run as a 75-minute session."),
+    ("What is the WYMIS One-Day Intensive?",
+     "A condensed, single-day version of the program that runs from 8:00 AM to 6:00 PM. It covers six 75-minute module sessions (Soft Skills, Networking Principles, Financial Literacy, Business Administration, Etiquette, and Branding and Marketing with AI and Technology) for a group of 20 to 30 young adults."),
+    ("What does a host site need for a One-Day Intensive?",
+     "One room that seats 20 to 30 people, a screen or projector (WYMIS can bring one), reliable Wi-Fi, tables that can be arranged for breakouts, restrooms and a lunch space, access from about 7:30 AM to 6:30 PM, and parking."),
+    ("Do students earn a credential?",
+     "Yes. WYMIS issues a verifiable digital credential built on Open Badges 3.0, the open standard for portable, verifiable learning credentials."),
+    ("How does WYMIS relate to what schools already teach?",
+     "WYMIS complements the academic foundation schools build. It is not trying to recreate school; it fills in the real-world skills a standard curriculum does not have room for, bridging education and execution."),
+    ("Is WYMIS available outside the pilot cities?",
+     "Yes. WYMIS was piloted in Phoenix, Las Vegas, and Memphis and is available nationwide."),
     ("Can schools use individual modules instead of the full program?",
      "Yes. Modules can be delivered individually or combined into a full 8 to 12 week cohort experience."),
     ("Where has WYMIS been piloted?",
@@ -136,7 +181,8 @@ ORG = {
     "image": OG_IMG, "email": EMAIL,
     "description": "WYMIS (What You Missed In School) is a cohort-based “thirteenth grade” workforce readiness and life skills program for ages 16 to 26.",
     "founder": {"@id": SITE + "/about#barry-jackson"},
-    "areaServed": [{"@type": "City", "name": c["name"], "containedInPlace": {"@type": "State", "name": c["state"]}} for c in CITIES],
+    "slogan": "Building the bridge between education and execution",
+    "areaServed": [{"@type": "Country", "name": "United States"}] + [{"@type": "City", "name": c["name"], "containedInPlace": {"@type": "State", "name": c["state"]}} for c in CITIES],
     "knowsAbout": [m["title"] for m in MODULES] + ["Workforce readiness", "Life skills education"],
 }
 PERSON = {"@type": "Person", "@id": SITE + "/about#barry-jackson", "name": "Barry K. Jackson", "honorificPrefix": "Dr.",
@@ -155,6 +201,7 @@ def course(m):
     return {"@type": "Course", "@id": f"{SITE}/curriculum#{m['slug']}", "name": f"{m['title']} ({m['code']})", "courseCode": m["code"],
             "description": m["summary"], "url": f"{SITE}/curriculum#{m['slug']}", "provider": {"@id": SITE + "/#org"},
             "teaches": m["topics"], "educationalLevel": "Beginner", "inLanguage": "en-US", "typicalAgeRange": "16-26",
+            "educationalCredentialAwarded": "Open Badges 3.0 verifiable digital credential",
             "hasCourseInstance": [
                 {"@type": "CourseInstance", "courseMode": "Onsite", "courseWorkload": "PT75M", "name": "75-minute session"},
                 {"@type": "CourseInstance", "courseMode": "Onsite", "courseSchedule": {"@type": "Schedule", "duration": "P3D", "repeatCount": 1}, "name": "3-day applied unit"}],
@@ -165,7 +212,7 @@ def crumbs_ld(items):
         {"@type": "ListItem", "position": i + 1, "name": n, "item": SITE + u} for i, (n, u) in enumerate(items)]}
 
 # ---------------------------------------------------------------- layout
-NAV = [("program", "Program"), ("curriculum", "Curriculum"), ("pilots", "Pilots"), ("about", "About"), ("faq", "FAQ")]
+NAV = [("program", "Program"), ("curriculum", "Curriculum"), ("intensive", "One-Day Intensive"), ("pilots", "Pilots"), ("about", "About"), ("faq", "FAQ")]
 
 def head(p, base):
     canon = SITE + ("/" if p["slug"] == "index" else "/" + p["slug"])
@@ -253,9 +300,10 @@ def footer(base):
   <div class="wrap foot-top">
     <div class="foot-brand">
       <a href="{home}" aria-label="WYMIS home"><picture><source srcset="{base}assets/img/brand/wymis-logo-light.webp" type="image/webp"><img src="{base}assets/img/brand/wymis-logo-light.png" alt="WYMIS: What You Missed In School" width="271" height="52" loading="lazy"></picture></a>
-      <p>A practical thirteenth grade for workforce readiness and life skills. Cohort-based, skills-first, built for ages 16 to 26.</p>
+      <p>Building the bridge between education and execution. A practical thirteenth grade for ages 16 to 26, available nationwide.</p>
+      <p class="foot-tag">{TAGLINE}</p>
     </div>
-    <div class="foot-col"><h2>Program</h2><a href="{base}program">How it works</a><a href="{base}curriculum">Curriculum</a><a href="{base}pilots">Pilot cities</a><a href="{base}faq">FAQ</a></div>
+    <div class="foot-col"><h2>Program</h2><a href="{base}program">How it works</a><a href="{base}curriculum">Curriculum</a><a href="{base}intensive">One-Day Intensive</a><a href="{base}pilots">Pilot cities</a><a href="{base}faq">FAQ</a></div>
     <div class="foot-col"><h2>Modules</h2>{mods}<a href="{base}curriculum">All seven modules</a></div>
     <div class="foot-col"><h2>Connect</h2><a href="{base}about">About &amp; vision</a><a href="{base}partner">Partner with us</a><a href="mailto:{EMAIL}">{EMAIL}</a></div>
   </div>
@@ -285,7 +333,7 @@ def page_hero(eyebrow, h1, lede, photo, crumb, base):
 </header>
 """
 
-def cta(base, h="Bring WYMIS to your students.", p="Full cohorts, single modules, or 3-day units. Tell us what fits your schedule and we will build the plan with you."):
+def cta(base, h="Bring WYMIS to your students.", p="A One-Day Intensive, a 3-Day Applied Unit, or the full cohort. Tell us what fits your schedule and we will build the plan with you."):
     return f"""<section class="cta-band grid-bg" aria-label="Partner with WYMIS">
   <div class="wrap cta-in">
     <div><h2>{h}</h2><p>{p}</p></div>
@@ -302,7 +350,7 @@ FEATS = [
     ('<path d="M16 4l11 6-11 6L5 10z"/><path d="M9 12.5V19c0 2.2 3.1 4 7 4s7-1.8 7-4v-6.5M27 10v8"/>',
      "Skills-first", "Every module is built around real situations students will face immediately after graduation."),
     ('<circle cx="16" cy="16" r="11"/><path d="M16 9v7l5 3"/>',
-     "Flexible delivery", "Run any module as a focused 75-minute class session or a deeper 3-day unit with role-play and applied projects."),
+     "Flexible delivery", "Deliver it as a One-Day Intensive, a 3-Day Applied Unit, or the full cohort, or run any single module as a 75-minute session."),
 ]
 def feats():
     return '<div class="feat-grid">' + "".join(
@@ -325,6 +373,45 @@ def formats_block(active="short"):
   </article>
 </div>"""
 
+def bridge():
+    return """<div class="bridge" role="list" aria-label="Education to WYMIS to Opportunity">
+  <div class="bridge-node" role="listitem"><span class="bridge-k">Education</span><p>Academic foundations built by schools and teachers</p></div>
+  <span class="bridge-arrow" aria-hidden="true"></span>
+  <div class="bridge-node is-wymis" role="listitem"><span class="bridge-k">WYMIS</span><p>Practical, applied skills for life and work</p></div>
+  <span class="bridge-arrow" aria-hidden="true"></span>
+  <div class="bridge-node" role="listitem"><span class="bridge-k">Opportunity</span><p>Employment, entrepreneurship, and independent adulthood</p></div>
+</div>"""
+
+def formats3(base, note=True, skip=None):
+    cards = "".join(f"""<article class="fmt3">
+      <span class="fmt3-k">{f['k']}</span>
+      <h3>{f['t']}</h3>
+      <p>{f['d']}</p>
+      <ul class="checks">{''.join(f'<li>{i}</li>' for i in f['items'])}</ul>
+      {f'<a class="link-arrow" href="{base}{f["link"]}">{"See the schedule" if f["link"]=="intensive" else "How the cohort works"} {ARROW}</a>' if f['link'] else ''}
+    </article>""" for f in FORMATS if f["t"] != skip)
+    extra = '<p class="fmt3-note">Need something shorter? Any single module can also run as a 75-minute session inside a class period or event.</p>' if note else ''
+    return f'<div class="fmt3-grid">{cards}</div>{extra}'
+
+def credential(base):
+    return f"""<section class="section tight on-navy grid-bg" aria-labelledby="cred-h">
+  <div class="wrap cred">
+    <div class="cred-badge" aria-hidden="true"><svg viewBox="0 0 96 96" fill="none"><path d="M48 6l10 7 12-1 5 11 11 6-1 12 7 10-7 10 1 12-11 6-5 11-12-1-10 7-10-7-12 1-5-11-11-6 1-12-7-10 7-10-1-12 11-6 5-11 12 1z" stroke="currentColor" stroke-width="2.5"/><path d="M33 49l10 10 20-22" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="cred-copy">
+      <span class="eyebrow">Verifiable credential</span>
+      <h2 id="cred-h">Skills students can prove.</h2>
+      <p>WYMIS issues a verifiable digital credential built on <strong>Open Badges 3.0</strong>, the open standard for portable learning credentials. Students can share it with employers and schools, and anyone can verify it.</p>
+    </div>
+  </div>
+</section>
+"""
+
+def quote_block(dark=False):
+    return f"""<figure class="pull-quote{' on-dark' if dark else ''}">
+  <blockquote>&ldquo;{QUOTE}&rdquo;</blockquote>
+  <figcaption><img class="founder-img" src="assets/img/people/barry-jackson-avatar.jpg" alt="" width="52" height="52" loading="lazy" decoding="async"><span><b>{FOUNDER}</b><span>Creator of WYMIS</span></span></figcaption>
+</figure>"""
+
 def cities_block(light=False, base=""):
     out = []
     for c in CITIES:
@@ -344,8 +431,8 @@ def audience():
 
 def facts_box():
     rows = [("Full name", "What You Missed In School"), ("Type", "Workforce readiness &amp; life skills program"),
-            ("Ages", "16 to 26"), ("Length", "8 to 12 weeks"), ("Modules", "7"), ("Formats", "75-minute session or 3-day unit"),
-            ("Pilot cities", "Phoenix, Las Vegas, Memphis"), ("Created by", FOUNDER)]
+            ("Ages", "16 to 26"), ("Modules", "7"), ("Formats", "One-Day Intensive, 3-Day Applied Unit, 8 to 12 Week Cohort"),
+            ("Credential", "Open Badges 3.0, verifiable"), ("Availability", "Nationwide; piloted in Phoenix, Las Vegas, Memphis"), ("Created by", FOUNDER)]
     return '<aside class="facts" aria-labelledby="facts-h"><h2 id="facts-h">WYMIS at a glance</h2><dl>' + "".join(
         f"<div><dt>{k}</dt><dd>{v}</dd></div>" for k, v in rows) + "</dl></aside>"
 
@@ -365,7 +452,7 @@ def page_index(base):
         <a class="btn btn-primary" href="{base}partner">Bring WYMIS to your school {ARROW}</a>
         <a class="btn btn-ghost" href="{base}curriculum">Explore the curriculum</a>
       </div>
-      <div class="hero-meta"><span>Ages 16 to 26</span><span>8 to 12 week cohorts</span><span>Piloted in 3 cities</span></div>
+      <div class="hero-meta"><span>Ages 16 to 26</span><span>7 practical modules</span><span>Available nationwide</span></div>
     </div>
     <div class="hero-visual">
       <div class="hero-photo">{img(pid, alt, sizes="(max-width: 980px) 90vw, 45vw", eager=True, w=1200, h=1500)}</div>
@@ -388,10 +475,10 @@ def page_index(base):
 
 <section class="stats" aria-label="Program at a glance">
   <div class="wrap stats-in">
-    <div class="stat"><b>8&ndash;12</b><span>Week full program</span></div>
-    <div class="stat"><b>16&ndash;26</b><span>Ideal age range</span></div>
-    <div class="stat"><b>7</b><span>Skills-first modules</span></div>
-    <div class="stat"><b>3</b><span>Pilot cities</span></div>
+    <div class="stat"><b>16&ndash;26</b><span>Ages served</span></div>
+    <div class="stat"><b>7</b><span>Practical modules</span></div>
+    <div class="stat"><b>3</b><span>Ways to deliver it</span></div>
+    <div class="stat"><b>OB 3.0</b><span>Verifiable credential</span></div>
   </div>
 </section>
 
@@ -414,14 +501,14 @@ def page_index(base):
   </div>
 </section>
 
-<section class="section surface" aria-labelledby="model-h">
+<section class="section surface" aria-labelledby="bridge-h">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">The WYMIS Model</span>
-      <h2 id="model-h">Built for accountability, not one-off lessons.</h2>
-      <p>Students move through WYMIS together. Shared progress creates peer support and keeps everyone accountable from the first session to the last.</p>
+      <span class="eyebrow">The bridge</span>
+      <h2 id="bridge-h">Building the bridge between education and execution.</h2>
+      <p>WYMIS complements the academic foundation schools already build, filling in the real-world skills a standard curriculum doesn&rsquo;t have room for.</p>
     </div>
-    {feats()}
+    {bridge()}
   </div>
 </section>
 
@@ -437,12 +524,23 @@ def page_index(base):
   </div>
 </section>
 
+<section class="section surface" aria-labelledby="ways-h">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Ways to deliver it</span>
+      <h2 id="ways-h">One day, three days, or a full cohort.</h2>
+      <p>Pick the format that fits your students and your calendar. Each one draws from the same seven modules.</p>
+    </div>
+    {formats3(base)}
+  </div>
+</section>
+{credential(base)}
 <section class="section on-navy grid-bg" aria-labelledby="pil-h">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Proven in the classroom</span>
-      <h2 id="pil-h">Piloted in Phoenix, Las Vegas, and Memphis.</h2>
-      <p>WYMIS has worked directly with students in each city, refining the curriculum from real classroom experience and student feedback.</p>
+      <h2 id="pil-h">Piloted in Phoenix, Las Vegas, and Memphis. Available nationwide.</h2>
+      <p>WYMIS has worked directly with students in each city, refining the curriculum from real classroom experience and student feedback. Today it can come to your city.</p>
     </div>
     {cities_block(base=base)}
     <p style="margin-top:28px"><a class="link-arrow" href="{base}pilots">About the pilots {ARROW}</a></p>
@@ -457,6 +555,10 @@ def page_index(base):
     </div>
     {audience()}
   </div>
+</section>
+
+<section class="section tight" aria-label="From the founder">
+  <div class="wrap">{quote_block()}</div>
 </section>
 
 <section class="section surface vision" aria-labelledby="vis-h">
@@ -480,17 +582,18 @@ def page_program(base):
     gpid, galt = PHOTOS["grad"]
     spid, salt = PHOTOS["smiling"]
     return page_hero("The Program", "A structured <em>thirteenth grade</em> for real life.",
-                     "WYMIS is an 8 to 12 week, cohort-based program that teaches the practical skills students need right after graduation.",
+                     "WYMIS teaches the practical skills students need right after graduation, delivered as a One-Day Intensive, a 3-Day Applied Unit, or a full 8 to 12 week cohort.",
                      "hands", "Program", base) + f"""<main id="main">
 <section class="section" aria-labelledby="gap-h">
   <div class="wrap split">
     <div class="split-copy">
-      <span class="eyebrow">The gap</span>
+      <span class="eyebrow">The bridge</span>
       <h2 id="gap-h">Academic credentials without everyday skills.</h2>
       <div class="prose">
         <p class="lead"><strong>Most students graduate high school without many of the practical skills needed to manage money, hold a job, communicate professionally, and navigate adult life with confidence.</strong></p>
-        <p>WYMIS takes the real-world lessons that traditional schooling often leaves out and turns them into a structured, cohort-based learning experience. It is designed for graduating seniors and young adults preparing to enter the workforce, start a business, or live independently for the first time.</p>
+        <p>WYMIS complements the academic foundation schools already build. It takes the real-world lessons a standard curriculum doesn&rsquo;t have room for and turns them into a structured learning experience for graduating seniors and young adults preparing to enter the workforce, start a business, or live independently for the first time.</p>
       </div>
+      {bridge()}
     </div>
     <div class="split-media"><div class="photo">{img(spid, salt)}</div></div>
   </div>
@@ -515,8 +618,8 @@ def page_program(base):
     </div>
     <div class="journey">
       <div class="step"><span class="step-k">Weeks 1 to 12</span><h3>A shared program</h3><p>A group of students begins WYMIS together and moves through the modules as a cohort over 8 to 12 weeks.</p></div>
-      <div class="step"><span class="step-k">Each module</span><h3>Learn, then practice</h3><p>Modules run as a focused 75-minute session or a 3-day unit with role-play, group work, and applied projects.</p></div>
-      <div class="step"><span class="step-k">After graduation</span><h3>Ready for what is next</h3><p>Students leave with practical confidence for a first job, a first apartment, college, or a business of their own.</p></div>
+      <div class="step"><span class="step-k">Each module</span><h3>Learn, then practice</h3><p>Each module pairs focused instruction with role-play, group work, and applied projects.</p></div>
+      <div class="step"><span class="step-k">After graduation</span><h3>Ready for what is next</h3><p>Students leave with a verifiable credential and practical confidence for a first job, a first apartment, college, or a business of their own.</p></div>
     </div>
   </div>
 </section>
@@ -525,12 +628,13 @@ def page_program(base):
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Delivery formats</span>
-      <h2 id="fmt-h">Two ways to run every module.</h2>
-      <p>Deliver modules individually or combine them into a full cohort experience.</p>
+      <h2 id="fmt-h">Three ways to bring WYMIS to your students.</h2>
+      <p>From a single focused day to the complete thirteenth grade. Each format draws from the same seven modules.</p>
     </div>
-    {formats_block()}
+    {formats3(base)}
   </div>
 </section>
+{credential(base)}
 
 <section class="section" aria-labelledby="aud-h">
   <div class="wrap split rev">
@@ -558,14 +662,15 @@ def page_curriculum(base):
       <div class="module-media"><div class="photo">{img(m['pid'], m['alt'])}</div><span class="module-code">{m['code']}</span></div>
       <div class="module-copy">
         <h2>{m['title']}</h2>
+        <p class="module-tag">{m['tagline']}</p>
         <p>{m['intro']}</p>
         <ul class="topics">{''.join(f'<li>{t}</li>' for t in m['topics'])}</ul>
         {f'<p>{m["applied"]}</p>' if m['applied'] else ''}
-        <div class="fmt-pills"><span class="pill">75-minute session</span><span class="pill">3-day unit</span></div>
+        <div class="fmt-pills"><span class="pill">75-minute session</span><span class="pill">3-day unit</span><span class="pill">One-Day Intensive</span><span class="pill">8 to 12 week cohort</span></div>
       </div>
     </article>""" for m in MODULES)
     return page_hero("The Curriculum", "Seven modules for life <em>after</em> graduation.",
-                     "Each module covers a skill area students consistently report feeling underprepared for after high school. Run them individually or as a full cohort.",
+                     "Each module covers a skill area students consistently report feeling underprepared for after high school. Run them in a One-Day Intensive, a 3-Day Applied Unit, or a full cohort.",
                      "classroom", "Curriculum", base) + f"""<main id="main">
 <section class="section" aria-labelledby="tx-h">
   <div class="wrap">
@@ -628,8 +733,8 @@ def page_pilots(base):
   <div class="wrap split">
     <div class="split-copy">
       <span class="eyebrow">What comes next</span>
-      <h2 id="next-h">From pilot cohorts to a licensed model.</h2>
-      <p style="color:var(--on-navy-muted)">The long-term vision is to grow WYMIS beyond individual pilot cohorts into a licensed, repeatable model that other schools and organizations can bring directly into their own communities.</p>
+      <h2 id="next-h">Now available nationwide.</h2>
+      <p style="color:var(--on-navy-muted)">What started in three pilot cities can now come to yours, as a One-Day Intensive, a 3-Day Applied Unit, or a full cohort. The long-term vision is a licensed, repeatable model that schools and organizations run in their own communities.</p>
     </div>
     <div style="display:flex;justify-content:flex-start"><a class="btn btn-primary" href="{base}partner">Bring WYMIS to your city {ARROW}</a></div>
   </div>
@@ -673,17 +778,21 @@ def page_about(base):
     <p class="big-quote">Students deserve to graduate not just with a diploma, but with the <em>practical confidence</em> to manage their money, present themselves professionally, build relationships, and start something of their own if they choose to.</p>
   </div></div>
 </section>
+<section class="section tight surface" aria-label="From the founder">
+  <div class="wrap">{quote_block()}</div>
+</section>
 <section class="section" aria-labelledby="pr-h">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">What guides WYMIS</span>
-      <h2 id="pr-h">Practical, shared, flexible, and built to grow.</h2>
+      <h2 id="pr-h">Discover. Learn. Build. Belong.</h2>
+      <p>WYMIS is not trying to recreate school. It is building the bridge between education and execution.</p>
     </div>
     <div class="offers">
-      <article class="offer"><span class="k">Practical first</span><h3>Real situations</h3><p>Every module is built around situations students will face immediately after graduation.</p></article>
-      <article class="offer"><span class="k">Learn together</span><h3>Cohort model</h3><p>Students progress as a group, creating accountability and peer support.</p></article>
-      <article class="offer"><span class="k">Flexible</span><h3>Two formats</h3><p>A 75-minute session for a focused introduction, or a 3-day unit for real practice.</p></article>
-      <article class="offer"><span class="k">Built to grow</span><h3>Licensed model</h3><p>The goal is a repeatable model schools and organizations can bring to their own communities.</p></article>
+      <article class="offer"><span class="k">Discover</span><h3>See the gap</h3><p>Students find the real-world skills a standard curriculum doesn&rsquo;t have room for, before life tests them.</p></article>
+      <article class="offer"><span class="k">Learn</span><h3>Practical modules</h3><p>Seven modules built around situations students face right after graduation.</p></article>
+      <article class="offer"><span class="k">Build</span><h3>Applied work</h3><p>Role-play, group work, and projects that turn knowledge into something students can do and prove.</p></article>
+      <article class="offer"><span class="k">Belong</span><h3>A cohort</h3><p>Students move through WYMIS together, with peer support and shared accountability.</p></article>
     </div>
   </div>
 </section>
@@ -710,7 +819,7 @@ def page_faq(base):
 
 def page_partner(base):
     return page_hero("Partner With WYMIS", "Bring WYMIS to your <em>community</em>.",
-                     "Schools, community organizations, and workforce programs can bring WYMIS to their students as a full cohort, individual modules, or 3-day units.",
+                     "Schools, community organizations, and workforce programs anywhere in the country can bring WYMIS to their students as a One-Day Intensive, a 3-Day Applied Unit, or a full cohort.",
                      "handshake", "Partner", base) + f"""<main id="main">
 <section class="section" aria-labelledby="opt-h">
   <div class="wrap">
@@ -718,12 +827,8 @@ def page_partner(base):
       <span class="eyebrow">Ways to partner</span>
       <h2 id="opt-h">Choose the format that fits your students.</h2>
     </div>
-    <div class="offers">
-      <article class="offer"><span class="k">8 to 12 weeks</span><h3>Full cohort program</h3><p>All seven modules delivered to a group of students moving through the program together.</p></article>
-      <article class="offer"><span class="k">75 minutes</span><h3>Individual modules</h3><p>A focused single-class session on one topic, from financial literacy to AI.</p></article>
-      <article class="offer"><span class="k">3 days</span><h3>Applied units</h3><p>Deeper module units with role-play, group work, and applied projects.</p></article>
-      <article class="offer"><span class="k">Long-term</span><h3>Licensing</h3><p>WYMIS is growing toward a licensed model organizations can run in their own communities.</p></article>
-    </div>
+    {formats3(base)}
+    <p class="fmt3-note">Hosting a One-Day Intensive? See the <a href="{base}intensive#facility">facility checklist</a>. Longer term, WYMIS is growing toward a licensed model organizations can run in their own communities.</p>
   </div>
 </section>
 <section class="section on-navy grid-bg" id="inquiry" aria-labelledby="con-h">
@@ -732,7 +837,7 @@ def page_partner(base):
       <span class="eyebrow">Start the conversation</span>
       <h2 id="con-h">Tell us about your students.</h2>
       <p>Share your audience, timing, and goals. We will recommend the right mix of modules and formats for your school, organization, or workforce program.</p>
-      <ul class="contact-list"><li>Ages 16 to 26</li><li>On-site cohorts and single sessions</li><li>Programs for schools, nonprofits, and workforce boards</li></ul>
+      <ul class="contact-list"><li>Ages 16 to 26</li><li>One-day, three-day, and full-cohort formats</li><li>Available nationwide</li><li>Open Badges 3.0 credential for students</li></ul>
       <div class="direct"><span>Email</span><a href="mailto:{EMAIL}">{EMAIL}</a></div>
     </div>
     <form class="inquiry" action="{base}contact.php" method="post" novalidate>
@@ -744,7 +849,7 @@ def page_partner(base):
       <div class="field"><label for="f-type">I'm reaching out as</label>
         <select id="f-type" name="type"><option>School or district</option><option>Community organization</option><option>Workforce program</option><option>Student or parent</option><option>Other</option></select></div>
       <div class="field"><label for="f-int">Interested in</label>
-        <select id="f-int" name="interest"><option>Full cohort program (8 to 12 weeks)</option><option>Individual modules (75 minutes)</option><option>3-day applied units</option><option>Licensing the WYMIS model</option><option>Not sure yet</option></select></div>
+        <select id="f-int" name="interest"><option>One-Day Intensive</option><option>Hosting a One-Day Intensive at our facility</option><option>3-Day Applied Unit</option><option>Full cohort program (8 to 12 weeks)</option><option>Individual modules (75 minutes)</option><option>Licensing the WYMIS model</option><option>Not sure yet</option></select></div>
       <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" maxlength="4000" placeholder="Number of students, timing, and anything else we should know."></textarea></div>
       <div class="form-foot">
         <span class="form-note">We will follow up within two business days. We use your details only to reply. <a href="{base}privacy">Privacy policy</a></span>
@@ -753,6 +858,67 @@ def page_partner(base):
     </form>
   </div>
 </section>
+</main>
+"""
+
+def page_intensive(base):
+    rows = []
+    for a, b, seg, focus, slug in INTENSIVE:
+        brk = seg in ("Break", "Lunch")
+        name = f'<a href="{base}curriculum#{slug}">{seg}</a>' if slug else seg
+        rows.append(f'<li class="slot{" is-break" if brk else ""}"><span class="slot-time"><b>{a}</b><span>{b}</span></span><span class="slot-body"><b>{name}</b>{f"<span>{focus}</span>" if focus else ""}</span></li>')
+    fac = "".join(f"<li>{x}</li>" for x in FACILITY)
+    spid, salt = PHOTOS["smiling"]
+    return page_hero("One-Day Intensive", "The thirteenth grade in <em>one day</em>.",
+                     "A condensed, single-day version of WYMIS for young adults ages 16 to 26: six 75-minute module sessions from 8:00 AM to 6:00 PM.",
+                     "pointing", "One-Day Intensive", base) + f"""<main id="main">
+<section class="section tight surface" aria-label="Intensive at a glance">
+  <div class="wrap">
+    <dl class="glance">
+      <div><dt>Time</dt><dd>8:00 AM to 6:00 PM</dd></div>
+      <div><dt>Audience</dt><dd>Ages 16 to 26, as a cohort</dd></div>
+      <div><dt>Group size</dt><dd>20 to 30 participants</dd></div>
+      <div><dt>Format</dt><dd>In person, one room with breakouts</dd></div>
+      <div><dt>Sessions</dt><dd>Six 75-minute modules</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="day-h">
+  <div class="wrap split day-split">
+    <div class="split-copy">
+      <span class="eyebrow">Day-of schedule</span>
+      <h2 id="day-h">One immersive day, seven modules.</h2>
+      <div class="prose">
+        <p class="lead"><strong>The One-Day Intensive condenses the core of WYMIS into a single day for groups that want a shorter-format introduction to the curriculum.</strong></p>
+        <p>The day covers Soft Skills, Networking Principles, Financial Literacy, Business Administration, Etiquette, and a closing session that pairs Branding and Marketing with AI and Technology.</p>
+        <p>Module order can shift based on facilitator availability. The 8:00 AM to 6:00 PM window and total instruction time stay fixed.</p>
+      </div>
+      <div class="split-media" style="margin-top:12px"><div class="photo">{img(spid, salt)}</div></div>
+    </div>
+    <ol class="schedule" aria-label="One-Day Intensive schedule">{''.join(rows)}</ol>
+  </div>
+</section>
+
+<section class="section surface" id="facility" aria-labelledby="fac-h">
+  <div class="wrap split">
+    <div class="split-copy">
+      <span class="eyebrow">For host sites</span>
+      <h2 id="fac-h">What a host facility needs.</h2>
+      <p style="color:var(--muted)">Schools, libraries, community centers, churches, and workforce offices can host a One-Day Intensive. Here is everything the day requires.</p>
+      <a class="btn btn-primary" href="{base}partner" style="justify-self:start">Host an intensive {ARROW}</a>
+    </div>
+    <ul class="checks facility">{fac}</ul>
+  </div>
+</section>
+
+<section class="section tight" aria-label="Other formats">
+  <div class="wrap">
+    <div class="section-head"><span class="eyebrow">Want more time?</span><h2>Go deeper with a 3-day unit or the full cohort.</h2></div>
+    <div class="fmt3-two">{formats3(base, note=False, skip="One-Day Intensive")}</div>
+  </div>
+</section>
+{cta(base, "Bring a One-Day Intensive to your city.", "Tell us your date, group size, and location. We will confirm the schedule and what your facility needs.")}
 </main>
 """
 
@@ -812,14 +978,15 @@ PAGES = [
     dict(slug="index", crumb="Home", fn=page_index, prio="1.0",
          title="WYMIS: What You Missed In School | Life Skills Program",
          og="WYMIS: Welcome to the thirteenth grade",
-         desc="WYMIS is a cohort-based thirteenth grade for ages 16 to 26, teaching financial literacy, soft skills, etiquette, networking, AI, and more."),
+         desc="WYMIS bridges education and execution: a practical thirteenth grade for ages 16 to 26 in financial literacy, soft skills, networking, AI, and more."),
     dict(slug="program", crumb="Program", fn=page_program, prio="0.9",
          title="The WYMIS Program | 8 to 12 Week Life Skills Cohorts",
-         desc="How WYMIS works: an 8 to 12 week, cohort-based workforce readiness program for ages 16 to 26, with 75-minute sessions or 3-day applied units.",
+         desc="How WYMIS works: a workforce readiness and life skills program for ages 16 to 26, delivered as a One-Day Intensive, 3-Day Applied Unit, or 8 to 12 week cohort.",
          ld=[{"@type": "Course", "@id": SITE + "/program#course", "name": "WYMIS: What You Missed In School",
               "description": "A cohort-based thirteenth grade workforce readiness and life skills program for ages 16 to 26, run over 8 to 12 weeks.",
               "provider": {"@id": SITE + "/#org"}, "typicalAgeRange": "16-26", "inLanguage": "en-US", "educationalLevel": "Beginner",
               "teaches": [m["title"] for m in MODULES], "timeRequired": "P12W",
+              "educationalCredentialAwarded": "Open Badges 3.0 verifiable digital credential",
               "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Onsite", "courseSchedule": {"@type": "Schedule", "duration": "P12W", "repeatCount": 1}},
               "hasPart": [{"@id": f"{SITE}/curriculum#{m['slug']}"} for m in MODULES],
               "offers": {"@type": "Offer", "category": "Partnership", "url": SITE + "/partner"}}]),
@@ -828,6 +995,16 @@ PAGES = [
          desc="Seven WYMIS modules: Financial Literacy, Business Administration, Soft Skills, Etiquette, Networking, AI and Technology, and Branding and Marketing.",
          ld=[{"@type": "ItemList", "name": "WYMIS curriculum modules", "numberOfItems": len(MODULES),
               "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": course(m)} for i, m in enumerate(MODULES)]}]),
+    dict(slug="intensive", crumb="One-Day Intensive", fn=page_intensive, prio="0.9",
+         title="WYMIS One-Day Intensive | Life Skills in One Day, Ages 16-26",
+         desc="The WYMIS One-Day Intensive: six 75-minute life skills and workforce readiness sessions from 8 AM to 6 PM for groups of 20 to 30 young adults.",
+         ld=[{"@type": "Course", "@id": SITE + "/intensive#course", "name": "WYMIS One-Day Intensive",
+              "description": "A condensed, single-day version of the WYMIS workforce readiness and life skills program for ages 16 to 26, with six 75-minute module sessions from 8:00 AM to 6:00 PM.",
+              "provider": {"@id": SITE + "/#org"}, "typicalAgeRange": "16-26", "inLanguage": "en-US", "educationalLevel": "Beginner",
+              "timeRequired": "PT10H", "educationalCredentialAwarded": "Open Badges 3.0 verifiable digital credential",
+              "teaches": ["Soft Skills", "Networking Principles", "Financial Literacy", "Business Administration", "Etiquette", "Branding and Marketing", "AI and Technology"],
+              "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Onsite", "courseWorkload": "PT10H", "maximumAttendeeCapacity": 30},
+              "offers": {"@type": "Offer", "category": "Partnership", "url": SITE + "/partner"}}]),
     dict(slug="pilots", crumb="Pilots", fn=page_pilots, prio="0.7",
          title="WYMIS Pilot Programs | Phoenix, Las Vegas & Memphis",
          desc="WYMIS has been piloted with students in Phoenix, Arizona; Las Vegas, Nevada; and Memphis, Tennessee, refining the curriculum from real classroom feedback."),
@@ -883,7 +1060,10 @@ Key facts:
 - Full name: What You Missed In School (WYMIS)
 - Audience: graduating high school seniors and young adults ages 16 to 26; schools, community organizations, and workforce programs
 - Length: 8 to 12 week full program, delivered as a cohort
-- Formats: each module runs as a 75-minute single-class session or a 3-day applied unit (role-play, group work, applied projects)
+- Positioning: "Building the bridge between education and execution." WYMIS complements what schools teach; it is not trying to recreate school.
+- Formats: One-Day Intensive (8:00 AM to 6:00 PM, six 75-minute module sessions, groups of 20 to 30), 3-Day Applied Unit (hands-on, project-based), or 8 to 12 Week Cohort (all seven modules). Any single module can also run as a 75-minute session.
+- Credential: verifiable digital credential built on Open Badges 3.0
+- Availability: nationwide
 - Modules: 7
 - Pilot cities: Phoenix, Arizona; Las Vegas, Nevada; Memphis, Tennessee
 - Created by: {FOUNDER}, Senior Career Services Advisor at Bryan University (Tempe, AZ); former Director of Programs, National Urban League; former Executive Director, The Memphis Youth Coalition; Master of Divinity
@@ -893,6 +1073,7 @@ Key facts:
 - [Home]({SITE}/): Overview of WYMIS
 - [Program]({SITE}/program): Cohort model, structure, formats, and audience
 - [Curriculum]({SITE}/curriculum): All seven modules in detail
+- [One-Day Intensive]({SITE}/intensive): Full-day schedule and host facility requirements
 - [Pilots]({SITE}/pilots): Pilot cities and how they shaped the curriculum
 - [About]({SITE}/about): Founder and vision
 - [FAQ]({SITE}/faq): Common questions with direct answers
@@ -919,6 +1100,12 @@ WYMIS, short for What You Missed In School, closes a gap most students experienc
 
 ## Curriculum
 {mods_txt}
+
+## One-Day Intensive
+""" + "\n".join(f"- {a} to {b}: {seg}" + (f" ({focus})" if focus else "") for a, b, seg, focus, _ in INTENSIVE) + """
+
+Host facility needs:
+""" + "\n".join(f"- {x}" for x in FACILITY) + f"""
 
 ## Pilots
 WYMIS has been piloted in Phoenix, Las Vegas, and Memphis, working directly with students to refine the curriculum based on real classroom experience and feedback.

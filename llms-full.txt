@@ -6,7 +6,10 @@ Key facts:
 - Full name: What You Missed In School (WYMIS)
 - Audience: graduating high school seniors and young adults ages 16 to 26; schools, community organizations, and workforce programs
 - Length: 8 to 12 week full program, delivered as a cohort
-- Formats: each module runs as a 75-minute single-class session or a 3-day applied unit (role-play, group work, applied projects)
+- Positioning: "Building the bridge between education and execution." WYMIS complements what schools teach; it is not trying to recreate school.
+- Formats: One-Day Intensive (8:00 AM to 6:00 PM, six 75-minute module sessions, groups of 20 to 30), 3-Day Applied Unit (hands-on, project-based), or 8 to 12 Week Cohort (all seven modules). Any single module can also run as a 75-minute session.
+- Credential: verifiable digital credential built on Open Badges 3.0
+- Availability: nationwide
 - Modules: 7
 - Pilot cities: Phoenix, Arizona; Las Vegas, Nevada; Memphis, Tennessee
 - Created by: Dr. Barry K. Jackson, Ph.D., Senior Career Services Advisor at Bryan University (Tempe, AZ); former Director of Programs, National Urban League; former Executive Director, The Memphis Youth Coalition; Master of Divinity
@@ -58,6 +61,29 @@ Every graduate has a personal brand, managed or not. Students learn to build one
 Covers: The difference between branding and marketing, personal branding, building a brand identity, and reaching an audience.
 Formats: 75-minute session or 3-day unit.
 
+## One-Day Intensive
+- 8:00 AM to 8:30 AM: Welcome and orientation (Check-in, introductions, and an overview of the day)
+- 8:30 AM to 9:45 AM: Soft Skills (75-minute module session)
+- 9:45 AM to 10:00 AM: Break
+- 10:00 AM to 11:15 AM: Networking Principles (75-minute module session)
+- 11:15 AM to 11:30 AM: Break
+- 11:30 AM to 12:45 PM: Financial Literacy (75-minute module session)
+- 12:45 PM to 1:45 PM: Lunch (On site or nearby)
+- 1:45 PM to 3:00 PM: Business Administration (75-minute module session)
+- 3:00 PM to 3:15 PM: Break
+- 3:15 PM to 4:30 PM: Etiquette (75-minute module session)
+- 4:30 PM to 4:45 PM: Break
+- 4:45 PM to 6:00 PM: Branding and Marketing / AI and Technology (75-minute module session and closing)
+
+Host facility needs:
+- One main room that seats 20 to 30 participants, classroom or round-table style
+- A screen or wall space with a projector or TV for slides (WYMIS can bring a portable projector)
+- Reliable Wi-Fi
+- Tables and chairs that can be arranged for small-group breakouts
+- Restrooms and a space for the lunch break (on site preferred, not required)
+- Access from about 7:30 AM for setup to 6:30 PM for breakdown
+- Street or lot parking for participants and facilitators
+
 ## Pilots
 WYMIS has been piloted in Phoenix, Las Vegas, and Memphis, working directly with students to refine the curriculum based on real classroom experience and feedback.
 
@@ -75,10 +101,25 @@ WYMIS is designed for ages 16 to 26. That includes graduating high school senior
 The full WYMIS program runs 8 to 12 weeks as a cohort, with students moving through the modules together as a group.
 
 ### What does the WYMIS curriculum cover?
-Seven modules: Financial Literacy, Business Administration, Soft Skills, Etiquette, Networking Principles, AI and Technology, and Branding and Marketing. Each one covers a skill area students consistently report feeling underprepared for after high school.
+Seven modules: Financial Literacy, Business Administration (business fundamentals), Soft Skills, Etiquette, Networking Principles, AI and Technology, and Branding and Marketing. Each one covers a skill area students consistently report feeling underprepared for after high school.
 
 ### What delivery formats are available?
-Every module is available in two formats: a 75-minute single-class session for a focused introduction, or a 3-day unit that adds hands-on practice through role-play, group work, and applied projects.
+WYMIS can be delivered three ways: a One-Day Intensive (a full day, 8:00 AM to 6:00 PM), a 3-Day Applied Unit (hands-on and project-based), or the full 8 to 12 Week Cohort with all seven modules. Any single module can also run as a 75-minute session.
+
+### What is the WYMIS One-Day Intensive?
+A condensed, single-day version of the program that runs from 8:00 AM to 6:00 PM. It covers six 75-minute module sessions (Soft Skills, Networking Principles, Financial Literacy, Business Administration, Etiquette, and Branding and Marketing with AI and Technology) for a group of 20 to 30 young adults.
+
+### What does a host site need for a One-Day Intensive?
+One room that seats 20 to 30 people, a screen or projector (WYMIS can bring one), reliable Wi-Fi, tables that can be arranged for breakouts, restrooms and a lunch space, access from about 7:30 AM to 6:30 PM, and parking.
+
+### Do students earn a credential?
+Yes. WYMIS issues a verifiable digital credential built on Open Badges 3.0, the open standard for portable, verifiable learning credentials.
+
+### How does WYMIS relate to what schools already teach?
+WYMIS complements the academic foundation schools build. It is not trying to recreate school; it fills in the real-world skills a standard curriculum does not have room for, bridging education and execution.
+
+### Is WYMIS available outside the pilot cities?
+Yes. WYMIS was piloted in Phoenix, Las Vegas, and Memphis and is available nationwide.
 
 ### Can schools use individual modules instead of the full program?
 Yes. Modules can be delivered individually or combined into a full 8 to 12 week cohort experience.
