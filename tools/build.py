@@ -795,11 +795,11 @@ def page_about(base):
 </section>
 <section class="section tight" aria-labelledby="np-h">
   <div class="wrap"><div class="np">
-    <a class="np-logo" href="{UMBRELLA_URL}" target="_blank" rel="noopener"><img src="{UMBRELLA_LOGO}" alt="{UMBRELLA} logo" width="240" height="39" loading="lazy"><span class="np-tag">Registered 501(c)(3)</span></a>
+    <div class="np-logo"><img src="{UMBRELLA_LOGO}" alt="{UMBRELLA} logo" width="240" height="39" loading="lazy"><span class="np-tag">Registered 501(c)(3)</span></div>
     <div class="np-copy">
       <span class="eyebrow">Nonprofit home</span>
-      <h2 id="np-h">A program of {umbrella_name()}.</h2>
-      <p>{umbrella_line()} Based in Phoenix, Love Nation Ministries serves families through counseling, education, and community outreach, and gives schools, community organizations, and funders a nonprofit partner to work with when they bring WYMIS to their students.</p>
+      <h2 id="np-h">A program of {umbrella_name(False)}.</h2>
+      <p>{umbrella_line(False)} Based in Phoenix, Love Nation Ministries serves families through counseling, education, and community outreach, and gives schools, community organizations, and funders a nonprofit partner to work with when they bring WYMIS to their students.</p>
       <a class="link-arrow" href="{UMBRELLA_URL}" target="_blank" rel="noopener">Visit Love Nation Ministries <span class="sr-only">(opens in a new tab)</span>{ARROW}</a>
     </div>
   </div></div>
