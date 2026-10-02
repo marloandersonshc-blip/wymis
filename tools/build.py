@@ -13,11 +13,13 @@ EMAIL = "info@wymisworks.org"
 GA4_ID = ""
 PRIVACY_UPDATED = "October 2, 2026"
 # Nonprofit umbrella. Add the EIN and website when confirmed; they appear automatically where set.
-UMBRELLA = "Love Nation"
+UMBRELLA = "Love Nation Ministries"
 UMBRELLA_EIN = ""
-UMBRELLA_URL = ""
+UMBRELLA_URL = "https://lovenationministries.org/"
+UMBRELLA_LOGO = "https://img1.wsimg.com/isteam/ip/a3d9029a-ee77-4795-b8c1-e567b129ffc1/Love%20Nation%20Without%20Slogan%20Transparent%20bg.svg"
+UMBRELLA_ADDR = {"@type": "PostalAddress", "streetAddress": "1141 East Glendale Avenue", "addressLocality": "Phoenix", "addressRegion": "AZ", "postalCode": "85020", "addressCountry": "US"}
 def umbrella_name(link=True):
-    return f'<a href="{UMBRELLA_URL}" rel="noopener">{UMBRELLA}</a>' if (link and UMBRELLA_URL) else UMBRELLA
+    return f'<a href="{UMBRELLA_URL}" target="_blank" rel="noopener">{UMBRELLA}<span class="sr-only"> (opens in a new tab)</span></a>' if (link and UMBRELLA_URL) else UMBRELLA
 def umbrella_line(link=True):
     ein = f" (EIN {UMBRELLA_EIN})" if UMBRELLA_EIN else ""
     return f"WYMIS is a program under the umbrella of {umbrella_name(link)}, a registered 501(c)(3) nonprofit organization{ein}."
@@ -197,7 +199,7 @@ ORG = {
     "description": "WYMIS (What You Missed In School) is a cohort-based “thirteenth grade” workforce readiness and life skills program for ages 16 to 26.",
     "founder": {"@id": SITE + "/about#barry-jackson"},
     "slogan": "Building the bridge between education and execution",
-    "parentOrganization": {k: v for k, v in {"@type": "NGO", "name": UMBRELLA, "nonprofitStatus": "Nonprofit501c3", "taxID": UMBRELLA_EIN or None, "url": UMBRELLA_URL or None}.items() if v},
+    "parentOrganization": {k: v for k, v in {"@type": "NGO", "name": UMBRELLA, "nonprofitStatus": "Nonprofit501c3", "taxID": UMBRELLA_EIN or None, "url": UMBRELLA_URL or None, "logo": UMBRELLA_LOGO, "address": UMBRELLA_ADDR}.items() if v},
     "areaServed": [{"@type": "Country", "name": "United States"}] + [{"@type": "City", "name": c["name"], "containedInPlace": {"@type": "State", "name": c["state"]}} for c in CITIES],
     "knowsAbout": [m["title"] for m in MODULES] + ["Workforce readiness", "Life skills education"],
 }
@@ -321,6 +323,7 @@ def footer(base):
       <a href="{home}" aria-label="WYMIS home"><picture><source srcset="{base}assets/img/brand/wymis-logo-light.webp" type="image/webp"><img src="{base}assets/img/brand/wymis-logo-light.png" alt="WYMIS: What You Missed In School" width="271" height="52" loading="lazy"></picture></a>
       <p>Building the bridge between education and execution. A practical thirteenth grade for ages 16 to 26, available nationwide.</p>
       <p class="foot-np">{umbrella_line()}</p>
+      <a class="foot-np-logo" href="{UMBRELLA_URL}" target="_blank" rel="noopener" aria-label="{UMBRELLA} (opens in a new tab)"><img src="{UMBRELLA_LOGO}" alt="{UMBRELLA}" width="150" height="24" loading="lazy"></a>
       <p class="foot-tag">{TAGLINE}</p>
     </div>
     <div class="foot-col"><h2>Program</h2><a href="{base}program">How it works</a><a href="{base}curriculum">Curriculum</a><a href="{base}intensive">One-Day Intensive</a><a href="{base}pilots">Pilot cities</a><a href="{base}faq">FAQ</a></div>
@@ -792,11 +795,12 @@ def page_about(base):
 </section>
 <section class="section tight" aria-labelledby="np-h">
   <div class="wrap"><div class="np">
-    <div class="np-mark" aria-hidden="true">501(c)(3)</div>
+    <a class="np-logo" href="{UMBRELLA_URL}" target="_blank" rel="noopener"><img src="{UMBRELLA_LOGO}" alt="{UMBRELLA} logo" width="240" height="39" loading="lazy"><span class="np-tag">Registered 501(c)(3)</span></a>
     <div class="np-copy">
       <span class="eyebrow">Nonprofit home</span>
       <h2 id="np-h">A program of {umbrella_name()}.</h2>
-      <p>{umbrella_line()} That gives schools, community organizations, and funders a nonprofit partner to work with when they bring WYMIS to their students.</p>
+      <p>{umbrella_line()} Based in Phoenix, Love Nation Ministries serves families through counseling, education, and community outreach, and gives schools, community organizations, and funders a nonprofit partner to work with when they bring WYMIS to their students.</p>
+      <a class="link-arrow" href="{UMBRELLA_URL}" target="_blank" rel="noopener">Visit Love Nation Ministries <span class="sr-only">(opens in a new tab)</span>{ARROW}</a>
     </div>
   </div></div>
 </section>
