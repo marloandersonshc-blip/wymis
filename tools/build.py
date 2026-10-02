@@ -814,7 +814,7 @@ def page_about(base):
         <div><dt>Previously</dt><dd>President, Memphis Youth Coalition; Director of Programs, Memphis Urban League</dd></div>
         <div><dt>Education</dt><dd>Ph.D. in Christian Counseling and Doctorate in Divinity, Alliance Bible College and Seminary; advanced degrees and certifications from Johns Hopkins University and Morehouse School of Medicine</dd></div>
       </dl>
-      <a class="link-arrow" href="{BARRY_BIO}" rel="noopener">Full bio at Valley Coaching &amp; Consulting {ARROW}</a>
+      <a class="link-arrow" href="{BARRY_BIO}" target="_blank" rel="noopener noreferrer">Full bio at Valley Coaching &amp; Consulting <span class="sr-only">(opens in a new tab)</span>{ARROW}</a>
     </div>
     <div class="split-media portrait-wrap">
       <figure class="portrait">
