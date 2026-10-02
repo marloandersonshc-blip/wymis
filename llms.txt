@@ -1,0 +1,34 @@
+# WYMIS: What You Missed In School
+
+> WYMIS is a practical "thirteenth grade" workforce readiness and life skills program created by Dr. Barry K. Jackson, Ph.D.. It is a cohort-based, 8 to 12 week program for ages 16 to 26 that teaches the everyday skills school often leaves out: managing money, holding a job, communicating professionally, and navigating adult life. It has been piloted in Phoenix (AZ), Las Vegas (NV), and Memphis (TN).
+
+Key facts:
+- Full name: What You Missed In School (WYMIS)
+- Audience: graduating high school seniors and young adults ages 16 to 26; schools, community organizations, and workforce programs
+- Length: 8 to 12 week full program, delivered as a cohort
+- Formats: each module runs as a 75-minute single-class session or a 3-day applied unit (role-play, group work, applied projects)
+- Modules: 7
+- Pilot cities: Phoenix, Arizona; Las Vegas, Nevada; Memphis, Tennessee
+- Created by: Dr. Barry K. Jackson, Ph.D.
+- Contact: info@wymis.com
+
+## Pages
+- [Home](https://wymis.com/): Overview of WYMIS
+- [Program](https://wymis.com/program): Cohort model, structure, formats, and audience
+- [Curriculum](https://wymis.com/curriculum): All seven modules in detail
+- [Pilots](https://wymis.com/pilots): Pilot cities and how they shaped the curriculum
+- [About](https://wymis.com/about): Founder and vision
+- [FAQ](https://wymis.com/faq): Common questions with direct answers
+- [Partner](https://wymis.com/partner): How schools and organizations bring WYMIS to their communities
+
+## Curriculum
+- [Financial Literacy (WYM 101)](https://wymis.com/curriculum#financial-literacy): What financial literacy is, budgeting, credit, and simple investing, adapted for a first paycheck, first apartment, and first credit decisions.
+- [Business Administration (WYM 102)](https://wymis.com/curriculum#business-administration): What a business is, for-profit versus nonprofit models, basic business structures, how to start a simple business, and business ethics.
+- [Soft Skills (WYM 103)](https://wymis.com/curriculum#soft-skills): Professional communication, teamwork and collaboration, professionalism and work ethic, and problem-solving and adaptability.
+- [Etiquette (WYM 104)](https://wymis.com/curriculum#etiquette): Everyday social etiquette, professional and interview etiquette, dining etiquette, and digital etiquette.
+- [Networking Principles (WYM 105)](https://wymis.com/curriculum#networking-principles): What networking is, building a personal introduction, working a room at an event or conference, and following up effectively.
+- [AI and Technology (WYM 106)](https://wymis.com/curriculum#ai-and-technology): What artificial intelligence is, how it is changing industries and jobs, using AI tools well, and responsible, ethical use.
+- [Branding and Marketing (WYM 107)](https://wymis.com/curriculum#branding-and-marketing): The difference between branding and marketing, personal branding, building a brand identity, and reaching an audience.
+
+## Optional
+- [Full text for AI systems](https://wymis.com/llms-full.txt)
