@@ -1,4 +1,4 @@
-# wymis.com
+# wymisworks.org
 
 Static website for **WYMIS: What You Missed In School**, the thirteenth-grade workforce readiness and life skills program created by Dr. Barry K. Jackson, Ph.D.
 
@@ -22,10 +22,10 @@ Clean URLs (no `.html`) come from `.htaccess`.
 
 ## Deploy to Hostinger
 
-1. In hPanel open **Websites > wymis.com > Advanced > Git** and connect this repo (branch `main`, install path empty so it deploys to `public_html`). Or upload the repo contents into `public_html` with File Manager.
-2. Turn on SSL for wymis.com (hPanel > Security > SSL). `.htaccess` forces HTTPS and the bare domain.
-3. Create the mailboxes `info@wymis.com` (receives inquiries) and `no-reply@wymis.com` (sender) in hPanel > Emails, or change `TO_EMAIL` / `FROM_EMAIL` at the top of `contact.php`.
-4. Submit `https://wymis.com/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
+1. In hPanel open **Websites > wymisworks.org > Advanced > Git** and connect this repo (branch `main`, install path empty so it deploys to `public_html`). Or upload the repo contents into `public_html` with File Manager.
+2. Turn on SSL for wymisworks.org (hPanel > Security > SSL). `.htaccess` forces HTTPS and the bare domain.
+3. Create the mailbox `info@wymisworks.org` in hPanel > Emails. The form sends to it and from it; change `TO_EMAIL` / `FROM_EMAIL` at the top of `contact.php` if needed.
+4. Submit `https://wymisworks.org/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
 
 ## Editing content
 
@@ -39,7 +39,7 @@ That regenerates every `.html` page plus `sitemap.xml`, `robots.txt`, `llms.txt`
 
 ## Analytics (Google Analytics 4)
 
-1. In [Google Analytics](https://analytics.google.com) create a property for wymis.com and a Web data stream; copy the measurement ID (`G-XXXXXXXXXX`).
+1. In [Google Analytics](https://analytics.google.com) create a property for wymisworks.org and a Web data stream; copy the measurement ID (`G-XXXXXXXXXX`).
 2. Set `GA4_ID = "G-XXXXXXXXXX"` near the top of `tools/build.py` and run `python3 tools/build.py`. The tag is added to every page and the privacy policy updates itself to name Google Analytics.
 3. Events sent: `generate_lead` when an inquiry is delivered (mark it as a key event in GA4), and `partner_cta_click` on any link to /partner.
 

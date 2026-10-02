@@ -2,10 +2,10 @@
 /**
  * WYMIS inquiry form handler (Hostinger PHP mail).
  * Change TO_EMAIL to the inbox that should receive inquiries.
- * FROM_EMAIL should be a mailbox on the wymis.com domain (create it in Hostinger > Emails) so messages are not flagged as spam.
+ * FROM_EMAIL must be a real mailbox on wymisworks.org (Hostinger > Emails) so messages are not flagged as spam.
  */
-const TO_EMAIL   = 'info@wymis.com';
-const FROM_EMAIL = 'no-reply@wymis.com';
+const TO_EMAIL   = 'info@wymisworks.org';
+const FROM_EMAIL = 'info@wymisworks.org';
 const BACK       = '/partner';
 
 function back($q) { header('Location: ' . BACK . '?' . $q . '#inquiry', true, 303); exit; }
@@ -36,7 +36,7 @@ if (file_exists($ipKey) && time() - filemtime($ipKey) < 60) { back('sent=1'); }
 @touch($ipKey);
 
 $subject = 'WYMIS inquiry: ' . $name . ($org ? ' (' . $org . ')' : '');
-$body  = "New inquiry from wymis.com\n\n";
+$body  = "New inquiry from wymisworks.org\n\n";
 $body .= "Name: $name\nOrganization: $org\nEmail: $email\nPhone: $phone\n";
 $body .= "Reaching out as: $type\nInterested in: $interest\n\nMessage:\n$message\n\n";
 $body .= "Sent: " . date('Y-m-d H:i T') . "\nIP: " . ($_SERVER['REMOTE_ADDR'] ?? '') . "\n";

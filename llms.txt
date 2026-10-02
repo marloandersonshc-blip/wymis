@@ -14,26 +14,26 @@ Key facts:
 - Modules: 7
 - Pilot cities: Phoenix, Arizona; Las Vegas, Nevada; Memphis, Tennessee
 - Created by: Dr. Barry K. Jackson, Ph.D., Senior Career Services Advisor at Bryan University (Tempe, AZ); former Director of Programs, National Urban League; former Executive Director, The Memphis Youth Coalition; Master of Divinity
-- Contact: info@wymis.com
+- Contact: info@wymisworks.org
 
 ## Pages
-- [Home](https://wymis.com/): Overview of WYMIS
-- [Program](https://wymis.com/program): Cohort model, structure, formats, and audience
-- [Curriculum](https://wymis.com/curriculum): All seven modules in detail
-- [One-Day Intensive](https://wymis.com/intensive): Full-day schedule and host facility requirements
-- [Pilots](https://wymis.com/pilots): Pilot cities and how they shaped the curriculum
-- [About](https://wymis.com/about): Founder and vision
-- [FAQ](https://wymis.com/faq): Common questions with direct answers
-- [Partner](https://wymis.com/partner): How schools and organizations bring WYMIS to their communities
+- [Home](https://wymisworks.org/): Overview of WYMIS
+- [Program](https://wymisworks.org/program): Cohort model, structure, formats, and audience
+- [Curriculum](https://wymisworks.org/curriculum): All seven modules in detail
+- [One-Day Intensive](https://wymisworks.org/intensive): Full-day schedule and host facility requirements
+- [Pilots](https://wymisworks.org/pilots): Pilot cities and how they shaped the curriculum
+- [About](https://wymisworks.org/about): Founder and vision
+- [FAQ](https://wymisworks.org/faq): Common questions with direct answers
+- [Partner](https://wymisworks.org/partner): How schools and organizations bring WYMIS to their communities
 
 ## Curriculum
-- [Financial Literacy (WYM 101)](https://wymis.com/curriculum#financial-literacy): What financial literacy is, budgeting, credit, and simple investing, adapted for a first paycheck, first apartment, and first credit decisions.
-- [Business Administration (WYM 102)](https://wymis.com/curriculum#business-administration): What a business is, for-profit versus nonprofit models, basic business structures, how to start a simple business, and business ethics.
-- [Soft Skills (WYM 103)](https://wymis.com/curriculum#soft-skills): Professional communication, teamwork and collaboration, professionalism and work ethic, and problem-solving and adaptability.
-- [Etiquette (WYM 104)](https://wymis.com/curriculum#etiquette): Everyday social etiquette, professional and interview etiquette, dining etiquette, and digital etiquette.
-- [Networking Principles (WYM 105)](https://wymis.com/curriculum#networking-principles): What networking is, building a personal introduction, working a room at an event or conference, and following up effectively.
-- [AI and Technology (WYM 106)](https://wymis.com/curriculum#ai-and-technology): What artificial intelligence is, how it is changing industries and jobs, using AI tools well, and responsible, ethical use.
-- [Branding and Marketing (WYM 107)](https://wymis.com/curriculum#branding-and-marketing): The difference between branding and marketing, personal branding, building a brand identity, and reaching an audience.
+- [Financial Literacy (WYM 101)](https://wymisworks.org/curriculum#financial-literacy): What financial literacy is, budgeting, credit, and simple investing, adapted for a first paycheck, first apartment, and first credit decisions.
+- [Business Administration (WYM 102)](https://wymisworks.org/curriculum#business-administration): What a business is, for-profit versus nonprofit models, basic business structures, how to start a simple business, and business ethics.
+- [Soft Skills (WYM 103)](https://wymisworks.org/curriculum#soft-skills): Professional communication, teamwork and collaboration, professionalism and work ethic, and problem-solving and adaptability.
+- [Etiquette (WYM 104)](https://wymisworks.org/curriculum#etiquette): Everyday social etiquette, professional and interview etiquette, dining etiquette, and digital etiquette.
+- [Networking Principles (WYM 105)](https://wymisworks.org/curriculum#networking-principles): What networking is, building a personal introduction, working a room at an event or conference, and following up effectively.
+- [AI and Technology (WYM 106)](https://wymisworks.org/curriculum#ai-and-technology): What artificial intelligence is, how it is changing industries and jobs, using AI tools well, and responsible, ethical use.
+- [Branding and Marketing (WYM 107)](https://wymisworks.org/curriculum#branding-and-marketing): The difference between branding and marketing, personal branding, building a brand identity, and reaching an audience.
 
 ## Optional
-- [Full text for AI systems](https://wymis.com/llms-full.txt)
+- [Full text for AI systems](https://wymisworks.org/llms-full.txt)

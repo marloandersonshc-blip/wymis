@@ -52,4 +52,4 @@ Allow: /
 Disallow: /tools/
 Disallow: /contact.php
 
-Sitemap: https://wymis.com/sitemap.xml
+Sitemap: https://wymisworks.org/sitemap.xml

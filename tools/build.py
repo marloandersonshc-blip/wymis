@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Static site generator for wymis.com.
+"""Static site generator for wymisworks.org.
 
 Edit content in this file, then run:  python3 tools/build.py
 It writes every .html page plus sitemap.xml, robots.txt, llms.txt and llms-full.txt to the repo root.
@@ -7,8 +7,8 @@ It writes every .html page plus sitemap.xml, robots.txt, llms.txt and llms-full.
 import json, os, datetime, html, hashlib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = "https://wymis.com"
-EMAIL = "info@wymis.com"
+SITE = "https://wymisworks.org"
+EMAIL = "info@wymisworks.org"
 # Google Analytics 4 measurement ID (looks like G-XXXXXXXXXX). Leave empty to load no analytics.
 GA4_ID = ""
 PRIVACY_UPDATED = "October 2, 2026"
@@ -1046,7 +1046,7 @@ PAGES = [
          desc="Bring WYMIS to your school, nonprofit, or workforce program as a full 8 to 12 week cohort, individual 75-minute modules, or 3-day applied units."),
     dict(slug="privacy", crumb="Privacy", fn=page_privacy, prio="0.3",
          title="Privacy Policy | WYMIS",
-         desc="How WYMIS collects, uses, and protects information submitted through wymis.com, including inquiry form data, analytics, and your choices."),
+         desc="How WYMIS collects, uses, and protects information submitted through wymisworks.org, including inquiry form data, analytics, and your choices."),
     dict(slug="404", crumb="Not found", fn=page_404, title="Page not found | WYMIS", desc="This page could not be found."),
 ]
 
