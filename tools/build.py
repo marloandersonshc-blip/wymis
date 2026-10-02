@@ -329,7 +329,7 @@ def footer(base):
   </div>
   <div class="wrap foot-bot">
     <span>&copy; <span id="year">2026</span> WYMIS. All rights reserved.</span>
-    <span class="foot-links"><a href="{base}privacy">Privacy policy</a><span>Site by <a href="https://atgaz.com" rel="noopener">ATGAZ</a></span></span>
+    <span class="foot-links"><a href="{base}privacy">Privacy policy</a><span>Site by <a href="https://atgaz.com" target="_blank" rel="noopener">ATGAZ<span class="sr-only"> (opens in a new tab)</span></a></span></span>
   </div>
 </footer>
 <script src="{base}assets/js/site.js?v={JS_V}" defer></script>
