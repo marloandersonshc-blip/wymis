@@ -11,8 +11,8 @@ SITE = "https://wymisworks.org"
 EMAIL = "info@wymisworks.org"
 # Google Analytics 4 measurement ID (looks like G-XXXXXXXXXX). Leave empty to load no analytics.
 GA4_ID = ""
-PRIVACY_UPDATED = "October 2, 2026"
-SHEET_BACKUP = False  # set True (and update PRIVACY_UPDATED) once SHEET_URL is live in contact.php
+PRIVACY_UPDATED = "October 14, 2026"
+SHEET_BACKUP = True  # sheet backup live since Oct 14, 2026 (URL in private server file)
 # Nonprofit umbrella. Add the EIN and website when confirmed; they appear automatically where set.
 UMBRELLA = "Love Nation Ministries"
 UMBRELLA_EIN = ""
