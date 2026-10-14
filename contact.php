@@ -8,13 +8,19 @@
  *   3. saved as a row in the Google Sheet "WYMIS Website Inquiries" (backup), via the Apps Script web app at SHEET_URL.
  *
  * FROM_EMAIL must be a real mailbox on wymisworks.org (Hostinger > Emails) so messages are not flagged as spam.
- * SHEET_URL is the Apps Script "Web app" URL (ends in /exec). Leave it empty to skip the sheet backup.
- * The Web app URL acts as the access key, so keep it only here (server side). Receiver script: tools/google-apps-script.gs.
+ * SHEET_URL is the Apps Script "Web app" URL (ends in /exec), read from a private file outside the repo (see below).
+ * The Web app URL acts as the access key, so it never goes in git. Receiver script: tools/google-apps-script.gs.
  */
 const TO_EMAIL     = 'info@wymisworks.org';
 const FROM_EMAIL   = 'info@wymisworks.org';
-const SHEET_URL    = '';
 const BACK         = '/partner';
+
+// The Sheet web-app URL is kept OUT of this public repo. It lives in one private file one level
+// above public_html on the server (Hostinger File Manager): /home/<user>/domains/wymisworks.org/wymis-sheet-url.txt
+// containing just the /exec URL on one line. Missing file = sheet backup off.
+$sheetFile = dirname(__DIR__) . '/wymis-sheet-url.txt';
+$sheetUrl  = is_readable($sheetFile) ? trim((string)file_get_contents($sheetFile)) : '';
+define('SHEET_URL', preg_match('#^https://script\.google\.com/macros/s/[\w-]+/exec$#', $sheetUrl) ? $sheetUrl : '');
 
 date_default_timezone_set('America/Phoenix');
 

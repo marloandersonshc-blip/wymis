@@ -37,7 +37,7 @@ Clean URLs (no `.html`) come from `.htaccess`.
 
 The visitor sees success if either the email or the sheet backup worked.
 
-**Sheet backup setup (one time):** open the sheet, go to Extensions > Apps Script, paste in `tools/google-apps-script.gs`, then Deploy > New deployment > Web app with "Execute as: Me" and "Who has access: Anyone". Copy the Web app URL (ends in `/exec`) into `SHEET_URL` in `contact.php`. The Web app URL acts as the access key: keep it only in `contact.php`.
+**Sheet backup setup (one time):** open the sheet, go to Extensions > Apps Script, paste in `tools/google-apps-script.gs`, then Deploy > New deployment > Web app with "Execute as: Me" and "Who has access: Anyone". Put the Web app URL (ends in `/exec`) alone on one line in a file named `wymis-sheet-url.txt` one level ABOVE `public_html` on the server (Hostinger File Manager). `contact.php` reads it from there. The URL acts as the access key and this repo is public, so never commit it.
 
 ## Editing content
 
