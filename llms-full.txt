@@ -7,7 +7,7 @@ Key facts:
 - Audience: graduating high school seniors and young adults ages 16 to 26; schools, community organizations, and workforce programs
 - Length: 8 to 12 week full program, delivered as a cohort
 - Positioning: "Building the bridge between education and execution." WYMIS complements what schools teach; it is not trying to recreate school.
-- Formats: One-Day Intensive (8:00 AM to 6:00 PM, six 75-minute module sessions, groups of 20 to 30), 3-Day Applied Unit (hands-on, project-based), or 8 to 12 Week Cohort (all seven modules). Any single module can also run as a 75-minute session.
+- Formats: One-Day Intensive (9:00 AM to 6:00 PM, six 75-minute module sessions, groups of 20 to 30), 3-Day Applied Unit (hands-on, project-based), or 8 to 12 Week Cohort (all seven modules). Any single module can also run as a 75-minute session.
 - Credential: verifiable digital credential built on Open Badges 3.0
 - Availability: nationwide
 - Nonprofit umbrella: WYMIS is a program under the umbrella of Love Nation Ministries, a registered 501(c)(3) nonprofit organization
@@ -15,6 +15,7 @@ Key facts:
 - Pilot cities: Phoenix, Arizona; Las Vegas, Nevada; Memphis, Tennessee
 - Founded by: Dr. Barry K. Jackson, Ph.D., Provost and Vice President of Academic Affairs, Alliance Bible College and Seminary
 - Contact: info@wymisworks.org
+- Upcoming free One-Day Intensives (9:00 AM to 6:00 PM local time, register at https://wymisworks.org/register): Phoenix, AZ on Saturday, October 24, 2026 (Phoenix, AZ. Venue to be announced); Memphis, TN on Saturday, November 7, 2026 (Allworld Headquarters, 85 N. Danny Thomas Blvd, Memphis, TN); Las Vegas, NV on Saturday, December 5, 2026 (Las Vegas, NV. Venue to be announced)
 
 ## What WYMIS is
 WYMIS, short for What You Missed In School, closes a gap most students experience firsthand: graduating high school with academic credentials but without many of the practical, everyday skills needed to manage money, hold a job, communicate professionally, and navigate adult life with confidence. It turns the real-world lessons traditional schooling often leaves out into a structured, cohort-based learning experience for graduating seniors and young adults preparing to enter the workforce, start a business, or live independently for the first time.
@@ -63,17 +64,16 @@ Covers: The difference between branding and marketing, personal branding, buildi
 Formats: 75-minute session or 3-day unit.
 
 ## One-Day Intensive
-- 8:00 AM to 8:30 AM: Welcome and orientation (Check-in, introductions, and an overview of the day)
-- 8:30 AM to 9:45 AM: Soft Skills (75-minute module session)
-- 9:45 AM to 10:00 AM: Break
-- 10:00 AM to 11:15 AM: Networking Principles (75-minute module session)
-- 11:15 AM to 11:30 AM: Break
-- 11:30 AM to 12:45 PM: Financial Literacy (75-minute module session)
-- 12:45 PM to 1:45 PM: Lunch (On site or nearby)
-- 1:45 PM to 3:00 PM: Business Administration (75-minute module session)
-- 3:00 PM to 3:15 PM: Break
-- 3:15 PM to 4:30 PM: Etiquette (75-minute module session)
-- 4:30 PM to 4:45 PM: Break
+- 9:00 AM to 10:15 AM: Welcome and Soft Skills (Check-in opens at 8:30 AM. Introductions, then the first 75-minute module)
+- 10:15 AM to 10:25 AM: Break
+- 10:25 AM to 11:40 AM: Networking Principles (75-minute module session)
+- 11:40 AM to 11:50 AM: Break
+- 11:50 AM to 1:05 PM: Financial Literacy (75-minute module session)
+- 1:05 PM to 1:55 PM: Lunch (On site or nearby)
+- 1:55 PM to 3:10 PM: Business Administration (75-minute module session)
+- 3:10 PM to 3:20 PM: Break
+- 3:20 PM to 4:35 PM: Etiquette (75-minute module session)
+- 4:35 PM to 4:45 PM: Break
 - 4:45 PM to 6:00 PM: Branding and Marketing / AI and Technology (75-minute module session and closing)
 
 Host facility needs:
@@ -82,7 +82,7 @@ Host facility needs:
 - Reliable Wi-Fi
 - Tables and chairs that can be arranged for small-group breakouts
 - Restrooms and a space for the lunch break (on site preferred, not required)
-- Access from about 7:30 AM for setup to 6:30 PM for breakdown
+- Access from about 8:00 AM for setup to 6:30 PM for breakdown
 - Street or lot parking for participants and facilitators
 
 ## Pilots
@@ -105,13 +105,13 @@ The full WYMIS program runs 8 to 12 weeks as a cohort, with students moving thro
 Seven modules: Financial Literacy, Business Administration (business fundamentals), Soft Skills, Etiquette, Networking Principles, AI and Technology, and Branding and Marketing. Each one covers a skill area students consistently report feeling underprepared for after high school.
 
 ### What delivery formats are available?
-WYMIS can be delivered three ways: a One-Day Intensive (a full day, 8:00 AM to 6:00 PM), a 3-Day Applied Unit (hands-on and project-based), or the full 8 to 12 Week Cohort with all seven modules. Any single module can also run as a 75-minute session.
+WYMIS can be delivered three ways: a One-Day Intensive (a full day, 9:00 AM to 6:00 PM), a 3-Day Applied Unit (hands-on and project-based), or the full 8 to 12 Week Cohort with all seven modules. Any single module can also run as a 75-minute session.
 
 ### What is the WYMIS One-Day Intensive?
-A condensed, single-day version of the program that runs from 8:00 AM to 6:00 PM. It covers six 75-minute module sessions (Soft Skills, Networking Principles, Financial Literacy, Business Administration, Etiquette, and Branding and Marketing with AI and Technology) for a group of 20 to 30 young adults.
+A condensed, single-day version of the program that runs from 9:00 AM to 6:00 PM. It covers six 75-minute module sessions (Soft Skills, Networking Principles, Financial Literacy, Business Administration, Etiquette, and Branding and Marketing with AI and Technology) for a group of 20 to 30 young adults.
 
 ### What does a host site need for a One-Day Intensive?
-One room that seats 20 to 30 people, a screen or projector (WYMIS can bring one), reliable Wi-Fi, tables that can be arranged for breakouts, restrooms and a lunch space, access from about 7:30 AM to 6:30 PM, and parking.
+One room that seats 20 to 30 people, a screen or projector (WYMIS can bring one), reliable Wi-Fi, tables that can be arranged for breakouts, restrooms and a lunch space, access from about 8:00 AM to 6:30 PM, and parking.
 
 ### Do students earn a credential?
 Yes. WYMIS issues a verifiable digital credential built on Open Badges 3.0, the open standard for portable, verifiable learning credentials.

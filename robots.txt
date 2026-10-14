@@ -51,5 +51,7 @@ User-agent: *
 Allow: /
 Disallow: /tools/
 Disallow: /contact.php
+Disallow: /register.php
+Disallow: /events.inc.php
 
 Sitemap: https://wymisworks.org/sitemap.xml

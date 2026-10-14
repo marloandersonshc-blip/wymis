@@ -127,25 +127,35 @@ TAGLINE = "Discover. Learn. Build. Belong."
 QUOTE = "WYMIS is not trying to recreate school. It is building the bridge between education and execution."
 
 FORMATS = [
-    dict(k="1 day", t="One-Day Intensive", d="A focused, full-day deep dive that condenses the core modules into one immersive day, 8:00 AM to 6:00 PM.", items=["Six 75-minute module sessions", "Built for groups of 20 to 30", "Ideal for a first introduction"], link="intensive"),
+    dict(k="1 day", t="One-Day Intensive", d="A focused, full-day deep dive that condenses the core modules into one immersive day, 9:00 AM to 6:00 PM.", items=["Six 75-minute module sessions", "Built for groups of 20 to 30", "Ideal for a first introduction"], link="intensive"),
     dict(k="3 days", t="3-Day Applied Unit", d="A hands-on, project-based unit that gives students real practice time with a skill.", items=["Role-play and group work", "Applied projects", "Go deep on one module"], link=""),
     dict(k="8 to 12 weeks", t="8 to 12 Week Cohort", d="The full WYMIS program: all seven modules, delivered to a cohort that moves through them together.", items=["All seven modules", "Peer accountability", "The complete thirteenth grade"], link="program"),
 ]
 
 INTENSIVE = [
-    ("8:00 AM", "8:30 AM", "Welcome and orientation", "Check-in, introductions, and an overview of the day", None),
-    ("8:30 AM", "9:45 AM", "Soft Skills", "75-minute module session", "soft-skills"),
-    ("9:45 AM", "10:00 AM", "Break", "", None),
-    ("10:00 AM", "11:15 AM", "Networking Principles", "75-minute module session", "networking-principles"),
-    ("11:15 AM", "11:30 AM", "Break", "", None),
-    ("11:30 AM", "12:45 PM", "Financial Literacy", "75-minute module session", "financial-literacy"),
-    ("12:45 PM", "1:45 PM", "Lunch", "On site or nearby", None),
-    ("1:45 PM", "3:00 PM", "Business Administration", "75-minute module session", "business-administration"),
-    ("3:00 PM", "3:15 PM", "Break", "", None),
-    ("3:15 PM", "4:30 PM", "Etiquette", "75-minute module session", "etiquette"),
-    ("4:30 PM", "4:45 PM", "Break", "", None),
+    ("9:00 AM", "10:15 AM", "Welcome and Soft Skills", "Check-in opens at 8:30 AM. Introductions, then the first 75-minute module", "soft-skills"),
+    ("10:15 AM", "10:25 AM", "Break", "", None),
+    ("10:25 AM", "11:40 AM", "Networking Principles", "75-minute module session", "networking-principles"),
+    ("11:40 AM", "11:50 AM", "Break", "", None),
+    ("11:50 AM", "1:05 PM", "Financial Literacy", "75-minute module session", "financial-literacy"),
+    ("1:05 PM", "1:55 PM", "Lunch", "On site or nearby", None),
+    ("1:55 PM", "3:10 PM", "Business Administration", "75-minute module session", "business-administration"),
+    ("3:10 PM", "3:20 PM", "Break", "", None),
+    ("3:20 PM", "4:35 PM", "Etiquette", "75-minute module session", "etiquette"),
+    ("4:35 PM", "4:45 PM", "Break", "", None),
     ("4:45 PM", "6:00 PM", "Branding and Marketing / AI and Technology", "75-minute module session and closing", "branding-and-marketing"),
 ]
+
+# Public One-Day Intensive dates. Times are local to each city. Free; up to 30 seats each.
+EVENTS = [
+    dict(slug="phoenix-2026-10-24", city="Phoenix", state="Arizona", abbr="AZ", date="2026-10-24", tz="-07:00",
+         day="Saturday, October 24, 2026", short="Sat, Oct 24", venue="", street="", photo="phoenix"),
+    dict(slug="memphis-2026-11-07", city="Memphis", state="Tennessee", abbr="TN", date="2026-11-07", tz="-06:00",
+         day="Saturday, November 7, 2026", short="Sat, Nov 7", venue="Allworld Headquarters", street="85 N. Danny Thomas Blvd", photo="memphis"),
+    dict(slug="las-vegas-2026-12-05", city="Las Vegas", state="Nevada", abbr="NV", date="2026-12-05", tz="-08:00",
+         day="Saturday, December 5, 2026", short="Sat, Dec 5", venue="", street="", photo="vegas"),
+]
+EVENT_HOURS = "9:00 AM to 6:00 PM"
 
 FACILITY = [
     "One main room that seats 20 to 30 participants, classroom or round-table style",
@@ -153,7 +163,7 @@ FACILITY = [
     "Reliable Wi-Fi",
     "Tables and chairs that can be arranged for small-group breakouts",
     "Restrooms and a space for the lunch break (on site preferred, not required)",
-    "Access from about 7:30 AM for setup to 6:30 PM for breakdown",
+    "Access from about 8:00 AM for setup to 6:30 PM for breakdown",
     "Street or lot parking for participants and facilitators",
 ]
 
@@ -167,11 +177,11 @@ FAQS = [
     ("What does the WYMIS curriculum cover?",
      "Seven modules: Financial Literacy, Business Administration (business fundamentals), Soft Skills, Etiquette, Networking Principles, AI and Technology, and Branding and Marketing. Each one covers a skill area students consistently report feeling underprepared for after high school."),
     ("What delivery formats are available?",
-     "WYMIS can be delivered three ways: a One-Day Intensive (a full day, 8:00 AM to 6:00 PM), a 3-Day Applied Unit (hands-on and project-based), or the full 8 to 12 Week Cohort with all seven modules. Any single module can also run as a 75-minute session."),
+     "WYMIS can be delivered three ways: a One-Day Intensive (a full day, 9:00 AM to 6:00 PM), a 3-Day Applied Unit (hands-on and project-based), or the full 8 to 12 Week Cohort with all seven modules. Any single module can also run as a 75-minute session."),
     ("What is the WYMIS One-Day Intensive?",
-     "A condensed, single-day version of the program that runs from 8:00 AM to 6:00 PM. It covers six 75-minute module sessions (Soft Skills, Networking Principles, Financial Literacy, Business Administration, Etiquette, and Branding and Marketing with AI and Technology) for a group of 20 to 30 young adults."),
+     "A condensed, single-day version of the program that runs from 9:00 AM to 6:00 PM. It covers six 75-minute module sessions (Soft Skills, Networking Principles, Financial Literacy, Business Administration, Etiquette, and Branding and Marketing with AI and Technology) for a group of 20 to 30 young adults."),
     ("What does a host site need for a One-Day Intensive?",
-     "One room that seats 20 to 30 people, a screen or projector (WYMIS can bring one), reliable Wi-Fi, tables that can be arranged for breakouts, restrooms and a lunch space, access from about 7:30 AM to 6:30 PM, and parking."),
+     "One room that seats 20 to 30 people, a screen or projector (WYMIS can bring one), reliable Wi-Fi, tables that can be arranged for breakouts, restrooms and a lunch space, access from about 8:00 AM to 6:30 PM, and parking."),
     ("Do students earn a credential?",
      "Yes. WYMIS issues a verifiable digital credential built on Open Badges 3.0, the open standard for portable, verifiable learning credentials."),
     ("How does WYMIS relate to what schools already teach?",
@@ -234,7 +244,7 @@ def crumbs_ld(items):
         {"@type": "ListItem", "position": i + 1, "name": n, "item": SITE + u} for i, (n, u) in enumerate(items)]}
 
 # ---------------------------------------------------------------- layout
-NAV = [("program", "Program"), ("curriculum", "Curriculum"), ("intensive", "One-Day Intensive"), ("pilots", "Pilots"), ("about", "About"), ("faq", "FAQ")]
+NAV = [("program", "Program"), ("curriculum", "Curriculum"), ("intensive", "One-Day Intensive"), ("register", "Register"), ("pilots", "Pilots"), ("about", "About"), ("faq", "FAQ")]
 
 def head(p, base):
     canon = SITE + ("/" if p["slug"] == "index" else "/" + p["slug"])
@@ -490,6 +500,13 @@ def page_index(base):
     </div>
   </div>
 </header>
+<section class="event-strip" aria-label="Upcoming free intensives">
+  <div class="wrap event-strip-in">
+    <span class="eyebrow">Free One-Day Intensives</span>
+    <ul>{''.join(f'<li><a href="{base}register?event={e["slug"]}#register"><b>{e["city"]}, {e["abbr"]}</b><span>{e["short"]}</span></a></li>' for e in EVENTS)}</ul>
+    <a class="link-arrow" href="{base}register">Register now {ARROW}</a>
+  </div>
+</section>
 
 <section class="stats" aria-label="Program at a glance">
   <div class="wrap stats-in">
@@ -904,17 +921,28 @@ def page_intensive(base):
     fac = "".join(f"<li>{x}</li>" for x in FACILITY)
     spid, salt = PHOTOS["study"]
     return page_hero("One-Day Intensive", "The thirteenth grade in <em>one day</em>.",
-                     "A condensed, single-day version of WYMIS for young adults ages 16 to 26: six 75-minute module sessions from 8:00 AM to 6:00 PM.",
+                     "A condensed, single-day version of WYMIS for young adults ages 16 to 26: six 75-minute module sessions from 9:00 AM to 6:00 PM.",
                      "pointing", "One-Day Intensive", base) + f"""<main id="main">
 <section class="section tight surface" aria-label="Intensive at a glance">
   <div class="wrap">
     <dl class="glance">
-      <div><dt>Time</dt><dd>8:00 AM to 6:00 PM</dd></div>
+      <div><dt>Time</dt><dd>9:00 AM to 6:00 PM</dd></div>
       <div><dt>Audience</dt><dd>Ages 16 to 26, as a cohort</dd></div>
       <div><dt>Group size</dt><dd>20 to 30 participants</dd></div>
       <div><dt>Format</dt><dd>In person, one room with breakouts</dd></div>
       <div><dt>Sessions</dt><dd>Six 75-minute modules</dd></div>
     </dl>
+  </div>
+</section>
+
+<section class="section" id="dates" aria-labelledby="up-h">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Upcoming public intensives</span>
+      <h2 id="up-h">Free intensives in three cities.</h2>
+      <p>Open to young adults ages 16 to 26. Registration is free and seats are limited to 30 per city.</p>
+    </div>
+    {events_block(base)}
   </div>
 </section>
 
@@ -926,7 +954,7 @@ def page_intensive(base):
       <div class="prose">
         <p class="lead"><strong>The One-Day Intensive condenses the core of WYMIS into a single day for groups that want a shorter-format introduction to the curriculum.</strong></p>
         <p>The day covers Soft Skills, Networking Principles, Financial Literacy, Business Administration, Etiquette, and a closing session that pairs Branding and Marketing with AI and Technology.</p>
-        <p>Module order can shift based on facilitator availability. The 8:00 AM to 6:00 PM window and total instruction time stay fixed.</p>
+        <p>Module order can shift based on facilitator availability. The 9:00 AM to 6:00 PM window and total instruction time stay fixed. Check-in opens at 8:30 AM.</p>
       </div>
       <div class="split-media" style="margin-top:12px"><div class="photo">{img(spid, salt)}</div></div>
     </div>
@@ -956,6 +984,101 @@ def page_intensive(base):
 </main>
 """
 
+def event_where(e):
+    return f"{e['venue']}, {e['street']}, {e['city']}, {e['abbr']}" if e["venue"] else f"{e['city']}, {e['abbr']}. Venue to be announced"
+
+def event_ld(e):
+    place = {"@type": "Place", "name": e["venue"] or f"Venue to be announced, {e['city']}, {e['abbr']}",
+             "address": {"@type": "PostalAddress", "addressLocality": e["city"], "addressRegion": e["abbr"], "addressCountry": "US"}}
+    if e["street"]:
+        place["address"]["streetAddress"] = e["street"]
+    return {"@type": "EducationEvent", "@id": f"{SITE}/register#{e['slug']}",
+            "name": f"WYMIS One-Day Intensive: {e['city']}, {e['abbr']}",
+            "description": f"A free, full-day WYMIS life skills and workforce readiness intensive for ages 16 to 26 in {e['city']}: six 75-minute sessions covering soft skills, networking, financial literacy, business administration, etiquette, and branding with AI and technology.",
+            "startDate": f"{e['date']}T09:00:00{e['tz']}", "endDate": f"{e['date']}T18:00:00{e['tz']}",
+            "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "location": place, "image": [OG_IMG], "organizer": {"@id": SITE + "/#org"}, "isAccessibleForFree": True,
+            "typicalAgeRange": "16-26", "maximumAttendeeCapacity": 30, "inLanguage": "en-US",
+            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock",
+                       "url": f"{SITE}/register?event={e['slug']}#register", "validFrom": "2026-10-14T00:00:00-07:00"}}
+
+def events_block(base, cta=True):
+    cards = []
+    for e in EVENTS:
+        pid, alt = PHOTOS[e["photo"]]
+        where = f"<b>{e['venue']}</b><span>{e['street']}, {e['city']}, {e['abbr']}</span>" if e["venue"] else f"<b>Venue to be announced</b><span>{e['city']}, {e['abbr']}</span>"
+        cards.append(f"""<article class="event" id="{e['slug']}" data-date="{e['date']}">
+      <div class="photo">{img(pid, alt, sizes="(max-width: 860px) 100vw, 33vw", w=800, h=500, maxw=1200)}</div>
+      <div class="event-body">
+        <div class="event-top"><span class="event-date">{e['short']}</span><span class="tag">Free</span></div>
+        <h3>{e['city']}, {e['abbr']}</h3>
+        <dl class="event-facts">
+          <div><dt>Date</dt><dd>{e['day']}</dd></div>
+          <div><dt>Time</dt><dd>{EVENT_HOURS} <span>(check-in 8:30 AM)</span></dd></div>
+          <div><dt>Location</dt><dd>{where}</dd></div>
+        </dl>
+        {f'<a class="btn btn-primary event-btn" href="{base}register?event={e["slug"]}#register" data-event="{e["slug"]}">Register for {e["city"]} {ARROW}</a>' if cta else ''}
+        <p class="event-closed" hidden>Registration for this date has closed.</p>
+      </div>
+    </article>""")
+    return '<div class="events">' + "".join(cards) + "</div>"
+
+def page_register(base):
+    opts = "".join(f'<option value="{e["slug"]}">{e["city"]}, {e["abbr"]}: {e["day"]}</option>' for e in EVENTS)
+    return page_hero("One-Day Intensive Registration", "Save your seat for a <em>free</em> intensive.",
+                     f"WYMIS is coming to Phoenix, Memphis, and Las Vegas. One Saturday, {EVENT_HOURS}, six practical sessions on money, work, and adult life for ages 16 to 26.",
+                     None, "Register", base) + f"""<main id="main">
+<section class="section" aria-labelledby="dates-h">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Upcoming dates</span>
+      <h2 id="dates-h">Pick your city.</h2>
+      <p>Each intensive is free and seats up to 30 participants. Venues marked "to be announced" will be emailed to registered participants as soon as they are confirmed.</p>
+    </div>
+    {events_block(base)}
+    <p class="fmt3-note">See the full <a href="{base}intensive">day-of schedule</a> and the <a href="{base}curriculum">modules</a> you will cover.</p>
+  </div>
+</section>
+<section class="section on-navy grid-bg" id="register" aria-labelledby="reg-h">
+  <div class="wrap contact-in">
+    <div class="contact-copy">
+      <span class="eyebrow">Register</span>
+      <h2 id="reg-h">Reserve your spot.</h2>
+      <p>Registration takes about a minute. You will get a confirmation email right away, and a reminder with the venue details before the day.</p>
+      <ul class="contact-list"><li>Free to attend</li><li>Ages 16 to 26</li><li>{EVENT_HOURS}, check-in from 8:30 AM</li><li>Under 18? A parent or guardian must give permission</li></ul>
+      <div class="direct"><span>Questions</span><a href="mailto:{EMAIL}">{EMAIL}</a></div>
+    </div>
+    <form class="inquiry register" action="{base}register.php" method="post" novalidate>
+      <div class="hp" aria-hidden="true"><label for="r-web">Website</label><input id="r-web" name="website" tabindex="-1" autocomplete="off"></div>
+      <div class="field full"><label for="r-event">Intensive</label><select id="r-event" name="event" required><option value="">Choose a city and date</option>{opts}</select></div>
+      <div class="field"><label for="r-first">First name</label><input id="r-first" name="first" autocomplete="given-name" required maxlength="80"></div>
+      <div class="field"><label for="r-last">Last name</label><input id="r-last" name="last" autocomplete="family-name" required maxlength="80"></div>
+      <div class="field"><label for="r-email">Email</label><input id="r-email" name="email" type="email" autocomplete="email" required maxlength="160"></div>
+      <div class="field"><label for="r-phone">Mobile phone (optional)</label><input id="r-phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+      <div class="field"><label for="r-age">Age</label><select id="r-age" name="age" required><option value="">Select</option><option>16 or 17</option><option>18 to 21</option><option>22 to 26</option><option>27 or older</option></select></div>
+      <div class="field"><label for="r-org">School or organization (optional)</label><input id="r-org" name="org" autocomplete="organization" maxlength="160"></div>
+      <fieldset class="field full guardian" id="guardian" hidden>
+        <legend>Parent or guardian</legend>
+        <p class="guardian-note">Because you are under 18, we need a parent or guardian's details. They will get a copy of your confirmation.</p>
+        <div class="guardian-grid">
+          <div class="field"><label for="r-gname">Parent or guardian name</label><input id="r-gname" name="gname" maxlength="120"></div>
+          <div class="field"><label for="r-gemail">Parent or guardian email</label><input id="r-gemail" name="gemail" type="email" maxlength="160"></div>
+          <div class="field"><label for="r-gphone">Parent or guardian phone (optional)</label><input id="r-gphone" name="gphone" type="tel" maxlength="40"></div>
+        </div>
+        <label class="check"><input type="checkbox" name="gconsent" value="yes"> <span>My parent or guardian has given permission for me to attend, and WYMIS may contact them about this event.</span></label>
+      </fieldset>
+      <div class="field full"><label for="r-heard">How did you hear about WYMIS? (optional)</label><select id="r-heard" name="heard"><option value="">Select</option><option>School or teacher</option><option>Church or community organization</option><option>Friend or family</option><option>Social media</option><option>Workforce program</option><option>Other</option></select></div>
+      <div class="field full"><label for="r-notes">Accessibility needs or questions (optional)</label><textarea id="r-notes" name="notes" maxlength="2000" placeholder="Anything that would help us make the day work for you."></textarea></div>
+      <div class="form-foot">
+        <span class="form-note">We use your details only for this event and WYMIS follow-up. <a href="{base}privacy">Privacy policy</a></span>
+        <button class="btn btn-primary" type="submit">Register</button>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+"""
+
 def page_404(base):
     return f"""<main id="main" class="nf"><div class="wrap nf-in">
   <span class="nf-code">404</span>
@@ -973,7 +1096,9 @@ def page_privacy(base):
 
     <h2>Information you give us</h2>
     <p>When you send an inquiry through the Partner page, we collect what you enter: your name, organization, email address, phone number (optional), the type of organization you represent, the program format you are interested in, and your message.</p>
-    <p>We use this information only to respond to your inquiry, discuss bringing WYMIS to your students, and keep a record of that conversation. We do not sell, rent, or trade it, and we do not add you to a marketing list without your permission.</p>
+    <p>When you register for a One-Day Intensive, we collect the event you chose, your name, email address, phone number (optional), age range, school or organization (optional), how you heard about WYMIS (optional), and any accessibility needs or questions you share. If you are under 18, we also collect a parent or guardian's name, email address, phone number (optional), and confirmation that they gave permission for you to attend, and we send them a copy of your confirmation.</p>
+    <p>We use registration details only to run the event: confirming your seat, sending venue and schedule updates, checking you in, and following up about WYMIS programs.</p>
+    <p>We use inquiry information only to respond to your inquiry, discuss bringing WYMIS to your students, and keep a record of that conversation. We do not sell, rent, or trade it, and we do not add you to a marketing list without your permission.</p>
 
     <h2>Information collected automatically</h2>
     <p>Like most websites, our hosting provider records basic technical information when you visit, such as your IP address, browser type, the pages you request, and the time of the request. These logs are used to operate and secure the site.</p>
@@ -981,22 +1106,22 @@ def page_privacy(base):
 
     <h2>Services that help run this site</h2>
     <ul>
-      <li><strong>Hostinger</strong> hosts the website and delivers the email sent from the inquiry form, including the confirmation email sent to you.</li>{'<li><strong>Google Sheets</strong> keeps a private backup copy of each inquiry so no request is lost if an email fails. Only the WYMIS team can open it.</li>' if SHEET_BACKUP else ''}
+      <li><strong>Hostinger</strong> hosts the website and delivers the email sent from the inquiry form, including the confirmation emails sent to you (and, for registrants under 18, to a parent or guardian).</li>{'<li><strong>Google Sheets</strong> keeps a private backup copy of each inquiry and registration so no request is lost if an email fails. Only the WYMIS team can open it.</li>' if SHEET_BACKUP else ''}
       <li><strong>Google Fonts</strong> supplies the typefaces. Your browser requests them from Google, which receives your IP address.</li>
       <li><strong>Unsplash</strong> supplies some photographs. Your browser loads them from Unsplash's servers, which receive your IP address.</li>{'<li><strong>Google Analytics</strong> measures site usage, as described above.</li>' if GA4_ID else ''}
     </ul>
 
     <h2>How long we keep information</h2>
-    <p>We keep inquiry emails{' and their backup records' if SHEET_BACKUP else ''} for as long as needed to respond and to maintain a record of our relationship with your school or organization. You can ask us to delete them at any time.</p>
+    <p>We keep inquiry and registration emails{' and their backup records' if SHEET_BACKUP else ''} for as long as needed to respond, run the event, and maintain a record of our relationship with you or your school or organization. You can ask us to delete them at any time.</p>
 
     <h2>Your choices</h2>
     <p>You can ask us what information we hold about you, ask us to correct it, or ask us to delete it by emailing <a href="mailto:{EMAIL}">{EMAIL}</a>. Depending on where you live, you may have additional rights under state privacy laws, and we will honor requests made under them.</p>
 
     <h2>Young people</h2>
-    <p>WYMIS serves students ages 16 to 26, but this website is intended for schools, organizations, parents, and adult learners. It is not directed to children under 13, and we do not knowingly collect information from them. If you believe a child under 13 has sent us information, contact us and we will delete it.</p>
+    <p>WYMIS serves young people ages 16 to 26. Registrants who are 16 or 17 must provide a parent or guardian's contact details and confirm that the parent or guardian gave permission, and we send the parent or guardian a copy of the confirmation. A parent or guardian can ask us at any time to see, correct, or delete their child's registration. This website is not directed to children under 13, and we do not knowingly collect information from them. If you believe a child under 13 has sent us information, contact us and we will delete it.</p>
 
     <h2>Security</h2>
-    <p>The site uses HTTPS encryption, and inquiries are delivered by email to a private mailbox. No method of transmission or storage is completely secure, but we take reasonable steps to protect what you send us.</p>
+    <p>The site uses HTTPS encryption, and inquiries and registrations are delivered by email to a private mailbox. No method of transmission or storage is completely secure, but we take reasonable steps to protect what you send us.</p>
 
     <h2>Changes to this policy</h2>
     <p>If we change this policy, we will post the new version here and update the date at the top.</p>
@@ -1031,14 +1156,19 @@ PAGES = [
               "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": course(m)} for i, m in enumerate(MODULES)]}]),
     dict(slug="intensive", crumb="One-Day Intensive", fn=page_intensive, prio="0.9",
          title="WYMIS One-Day Intensive | Life Skills in One Day, Ages 16-26",
-         desc="The WYMIS One-Day Intensive: six 75-minute life skills and workforce readiness sessions from 8 AM to 6 PM for groups of 20 to 30 young adults.",
+         desc="The WYMIS One-Day Intensive: six 75-minute life skills and workforce readiness sessions from 9 AM to 6 PM for groups of 20 to 30 young adults.",
          ld=[{"@type": "Course", "@id": SITE + "/intensive#course", "name": "WYMIS One-Day Intensive",
-              "description": "A condensed, single-day version of the WYMIS workforce readiness and life skills program for ages 16 to 26, with six 75-minute module sessions from 8:00 AM to 6:00 PM.",
+              "description": "A condensed, single-day version of the WYMIS workforce readiness and life skills program for ages 16 to 26, with six 75-minute module sessions from 9:00 AM to 6:00 PM.",
               "provider": {"@id": SITE + "/#org"}, "typicalAgeRange": "16-26", "inLanguage": "en-US", "educationalLevel": "Beginner",
-              "timeRequired": "PT10H", "educationalCredentialAwarded": "Open Badges 3.0 verifiable digital credential",
+              "timeRequired": "PT9H", "educationalCredentialAwarded": "Open Badges 3.0 verifiable digital credential",
               "teaches": ["Soft Skills", "Networking Principles", "Financial Literacy", "Business Administration", "Etiquette", "Branding and Marketing", "AI and Technology"],
-              "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Onsite", "courseWorkload": "PT10H", "maximumAttendeeCapacity": 30},
+              "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Onsite", "courseWorkload": "PT9H", "maximumAttendeeCapacity": 30},
               "offers": {"@type": "Offer", "category": "Partnership", "url": SITE + "/partner"}}]),
+    dict(slug="register", crumb="Register", fn=page_register, prio="0.9",
+         title="Register | Free WYMIS One-Day Intensives: Phoenix, Memphis, Las Vegas",
+         og="Free WYMIS One-Day Intensives: Phoenix, Memphis, Las Vegas",
+         desc="Register free for a WYMIS One-Day Intensive for ages 16 to 26: Phoenix Oct 24, Memphis Nov 7, Las Vegas Dec 5, 2026. 9 AM to 6 PM.",
+         ld=[event_ld(e) for e in EVENTS]),
     dict(slug="pilots", crumb="Pilots", fn=page_pilots, prio="0.7",
          title="WYMIS Pilot Programs | Phoenix, Las Vegas & Memphis",
          desc="WYMIS has been piloted with students in Phoenix, Arizona; Las Vegas, Nevada; and Memphis, Tennessee, refining the curriculum from real classroom feedback."),
@@ -1054,7 +1184,7 @@ PAGES = [
          desc="Bring WYMIS to your school, nonprofit, or workforce program as a full 8 to 12 week cohort, individual 75-minute modules, or 3-day applied units."),
     dict(slug="privacy", crumb="Privacy", fn=page_privacy, prio="0.3",
          title="Privacy Policy | WYMIS",
-         desc="How WYMIS collects, uses, and protects information submitted through wymisworks.org, including inquiry form data, analytics, and your choices."),
+         desc="How WYMIS collects, uses, and protects information submitted through wymisworks.org, including inquiry and registration form data, analytics, and your choices."),
     dict(slug="404", crumb="Not found", fn=page_404, title="Page not found | WYMIS", desc="This page could not be found."),
 ]
 
@@ -1072,6 +1202,10 @@ def build():
         assert "—" not in doc, "em dash found in " + p["slug"]
         open(os.path.join(ROOT, p["slug"] + ".html"), "w").write(doc)
 
+    # events for register.php (generated; PHP-only, prints nothing if requested over the web)
+    rows = "".join(f"    {json.dumps(e['slug'])} => [{json.dumps(e['city'] + ', ' + e['abbr'])}, {json.dumps(e['day'])}, {json.dumps(e['date'])}, {json.dumps(event_where(e))}],\n" for e in EVENTS)
+    open(os.path.join(ROOT, "events.inc.php"), "w").write(f"<?php\n// Generated by tools/build.py from EVENTS. Do not edit by hand.\n// slug => [city label, day label, ISO date, location]\nreturn [\n{rows}];\n")
+
     # sitemap
     urls = "".join(f"""  <url><loc>{SITE}{'/' if p['slug']=='index' else '/' + p['slug']}</loc><lastmod>{TODAY}</lastmod><priority>{p['prio']}</priority></url>\n"""
                    for p in PAGES if p["slug"] != "404")
@@ -1082,10 +1216,11 @@ def build():
             "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot", "Applebot-Extended", "CCBot", "DuckAssistBot", "Meta-ExternalAgent"]
     robots = "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots)
     open(os.path.join(ROOT, "robots.txt"), "w").write(
-        f"# WYMIS robots.txt: search engines and AI assistants are welcome.\n{robots}User-agent: *\nAllow: /\nDisallow: /tools/\nDisallow: /contact.php\n\nSitemap: {SITE}/sitemap.xml\n")
+        f"# WYMIS robots.txt: search engines and AI assistants are welcome.\n{robots}User-agent: *\nAllow: /\nDisallow: /tools/\nDisallow: /contact.php\nDisallow: /register.php\nDisallow: /events.inc.php\n\nSitemap: {SITE}/sitemap.xml\n")
 
     # llms.txt (GEO): concise, link-rich summary for AI systems
     mod_lines = "\n".join(f"- [{m['title']} ({m['code']})]({SITE}/curriculum#{m['slug']}): {m['summary']}" for m in MODULES)
+    events_line = "; ".join(f"{e['city']}, {e['abbr']} on {e['day']} ({event_where(e)})" for e in EVENTS)
     llms = f"""# WYMIS: What You Missed In School
 
 > WYMIS is a practical "thirteenth grade" workforce readiness and life skills program created by {FOUNDER}. It is a cohort-based, 8 to 12 week program for ages 16 to 26 that teaches the everyday skills school often leaves out: managing money, holding a job, communicating professionally, and navigating adult life. It has been piloted in Phoenix (AZ), Las Vegas (NV), and Memphis (TN).
@@ -1095,7 +1230,7 @@ Key facts:
 - Audience: graduating high school seniors and young adults ages 16 to 26; schools, community organizations, and workforce programs
 - Length: 8 to 12 week full program, delivered as a cohort
 - Positioning: "Building the bridge between education and execution." WYMIS complements what schools teach; it is not trying to recreate school.
-- Formats: One-Day Intensive (8:00 AM to 6:00 PM, six 75-minute module sessions, groups of 20 to 30), 3-Day Applied Unit (hands-on, project-based), or 8 to 12 Week Cohort (all seven modules). Any single module can also run as a 75-minute session.
+- Formats: One-Day Intensive (9:00 AM to 6:00 PM, six 75-minute module sessions, groups of 20 to 30), 3-Day Applied Unit (hands-on, project-based), or 8 to 12 Week Cohort (all seven modules). Any single module can also run as a 75-minute session.
 - Credential: verifiable digital credential built on Open Badges 3.0
 - Availability: nationwide
 - Nonprofit umbrella: WYMIS is a program under the umbrella of {UMBRELLA}, a registered 501(c)(3) nonprofit organization
@@ -1103,12 +1238,14 @@ Key facts:
 - Pilot cities: Phoenix, Arizona; Las Vegas, Nevada; Memphis, Tennessee
 - Founded by: {FOUNDER}, Provost and Vice President of Academic Affairs, Alliance Bible College and Seminary
 - Contact: {EMAIL}
+- Upcoming free One-Day Intensives ({EVENT_HOURS} local time, register at {SITE}/register): {events_line}
 
 ## Pages
 - [Home]({SITE}/): Overview of WYMIS
 - [Program]({SITE}/program): Cohort model, structure, formats, and audience
 - [Curriculum]({SITE}/curriculum): All seven modules in detail
 - [One-Day Intensive]({SITE}/intensive): Full-day schedule and host facility requirements
+- [Register]({SITE}/register): Free public One-Day Intensive dates and registration
 - [Pilots]({SITE}/pilots): Pilot cities and how they shaped the curriculum
 - [About]({SITE}/about): Mission, vision, nonprofit home, and founder
 - [FAQ]({SITE}/faq): Common questions with direct answers

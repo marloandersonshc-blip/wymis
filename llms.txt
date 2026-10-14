@@ -7,7 +7,7 @@ Key facts:
 - Audience: graduating high school seniors and young adults ages 16 to 26; schools, community organizations, and workforce programs
 - Length: 8 to 12 week full program, delivered as a cohort
 - Positioning: "Building the bridge between education and execution." WYMIS complements what schools teach; it is not trying to recreate school.
-- Formats: One-Day Intensive (8:00 AM to 6:00 PM, six 75-minute module sessions, groups of 20 to 30), 3-Day Applied Unit (hands-on, project-based), or 8 to 12 Week Cohort (all seven modules). Any single module can also run as a 75-minute session.
+- Formats: One-Day Intensive (9:00 AM to 6:00 PM, six 75-minute module sessions, groups of 20 to 30), 3-Day Applied Unit (hands-on, project-based), or 8 to 12 Week Cohort (all seven modules). Any single module can also run as a 75-minute session.
 - Credential: verifiable digital credential built on Open Badges 3.0
 - Availability: nationwide
 - Nonprofit umbrella: WYMIS is a program under the umbrella of Love Nation Ministries, a registered 501(c)(3) nonprofit organization
@@ -15,12 +15,14 @@ Key facts:
 - Pilot cities: Phoenix, Arizona; Las Vegas, Nevada; Memphis, Tennessee
 - Founded by: Dr. Barry K. Jackson, Ph.D., Provost and Vice President of Academic Affairs, Alliance Bible College and Seminary
 - Contact: info@wymisworks.org
+- Upcoming free One-Day Intensives (9:00 AM to 6:00 PM local time, register at https://wymisworks.org/register): Phoenix, AZ on Saturday, October 24, 2026 (Phoenix, AZ. Venue to be announced); Memphis, TN on Saturday, November 7, 2026 (Allworld Headquarters, 85 N. Danny Thomas Blvd, Memphis, TN); Las Vegas, NV on Saturday, December 5, 2026 (Las Vegas, NV. Venue to be announced)
 
 ## Pages
 - [Home](https://wymisworks.org/): Overview of WYMIS
 - [Program](https://wymisworks.org/program): Cohort model, structure, formats, and audience
 - [Curriculum](https://wymisworks.org/curriculum): All seven modules in detail
 - [One-Day Intensive](https://wymisworks.org/intensive): Full-day schedule and host facility requirements
+- [Register](https://wymisworks.org/register): Free public One-Day Intensive dates and registration
 - [Pilots](https://wymisworks.org/pilots): Pilot cities and how they shaped the curriculum
 - [About](https://wymisworks.org/about): Mission, vision, nonprofit home, and founder
 - [FAQ](https://wymisworks.org/faq): Common questions with direct answers
