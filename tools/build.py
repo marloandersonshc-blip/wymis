@@ -12,6 +12,7 @@ EMAIL = "info@wymisworks.org"
 # Google Analytics 4 measurement ID (looks like G-XXXXXXXXXX). Leave empty to load no analytics.
 GA4_ID = ""
 PRIVACY_UPDATED = "October 2, 2026"
+SHEET_BACKUP = False  # set True (and update PRIVACY_UPDATED) once SHEET_URL is live in contact.php
 # Nonprofit umbrella. Add the EIN and website when confirmed; they appear automatically where set.
 UMBRELLA = "Love Nation Ministries"
 UMBRELLA_EIN = ""
@@ -980,13 +981,13 @@ def page_privacy(base):
 
     <h2>Services that help run this site</h2>
     <ul>
-      <li><strong>Hostinger</strong> hosts the website and delivers the email sent from the inquiry form.</li>
+      <li><strong>Hostinger</strong> hosts the website and delivers the email sent from the inquiry form, including the confirmation email sent to you.</li>{'<li><strong>Google Sheets</strong> keeps a private backup copy of each inquiry so no request is lost if an email fails. Only the WYMIS team can open it.</li>' if SHEET_BACKUP else ''}
       <li><strong>Google Fonts</strong> supplies the typefaces. Your browser requests them from Google, which receives your IP address.</li>
       <li><strong>Unsplash</strong> supplies some photographs. Your browser loads them from Unsplash's servers, which receive your IP address.</li>{'<li><strong>Google Analytics</strong> measures site usage, as described above.</li>' if GA4_ID else ''}
     </ul>
 
     <h2>How long we keep information</h2>
-    <p>We keep inquiry emails for as long as needed to respond and to maintain a record of our relationship with your school or organization. You can ask us to delete them at any time.</p>
+    <p>We keep inquiry emails{' and their backup records' if SHEET_BACKUP else ''} for as long as needed to respond and to maintain a record of our relationship with your school or organization. You can ask us to delete them at any time.</p>
 
     <h2>Your choices</h2>
     <p>You can ask us what information we hold about you, ask us to correct it, or ask us to delete it by emailing <a href="mailto:{EMAIL}">{EMAIL}</a>. Depending on where you live, you may have additional rights under state privacy laws, and we will honor requests made under them.</p>
