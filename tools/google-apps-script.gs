@@ -1,19 +1,20 @@
 /**
  * WYMIS Website Inquiries: backup receiver.
- * Paste into the sheet "WYMIS Website Inquiries" via Extensions > Apps Script, then
- * Deploy > New deployment > Web app (Execute as: Me, Who has access: Anyone).
- * Put the Web app URL (ends in /exec) into SHEET_URL in contact.php.
- * SECRET must match SHEET_SECRET in contact.php.
+ * Bound to the sheet "WYMIS Website Inquiries" (Extensions > Apps Script), deployed as a
+ * Web app (Execute as: Me, Who has access: Anyone). The /exec URL lives only in contact.php
+ * on the server and acts as the access key; requests that are not WYMIS inquiries are rejected.
  */
-const SECRET = 'CtiYoFgjQwLlxn3ORRVqLdx3e5V5Z3MK';
-
 function doPost(e) {
   try {
-    const d = JSON.parse(e.postData.contents);
-    if (d.secret !== SECRET) return reply({ ok: false, error: 'forbidden' });
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
-    // Prefix values that start with = + - @ so the sheet never runs them as formulas
-    const safe = v => { v = String(v === undefined || v === null ? '' : v); return /^[=+\-@]/.test(v) ? "'" + v : v; };
+    var d = JSON.parse(e.postData.contents);
+    if (d.source !== 'wymisworks.org' || !d.name || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email || '')) {
+      return reply({ ok: false, error: 'rejected' });
+    }
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+    var safe = function (v) {
+      v = String(v === undefined || v === null ? '' : v).slice(0, 4000);
+      return /^[=+\-@]/.test(v) ? "'" + v : v;
+    };
     sheet.appendRow([
       d.received, d.name, d.org, d.email, d.phone, d.type, d.interest, d.message,
       d.notice ? 'Yes' : 'No', d.confirmation ? 'Yes' : 'No', d.ip, 'New'

@@ -9,12 +9,11 @@
  *
  * FROM_EMAIL must be a real mailbox on wymisworks.org (Hostinger > Emails) so messages are not flagged as spam.
  * SHEET_URL is the Apps Script "Web app" URL (ends in /exec). Leave it empty to skip the sheet backup.
- * SHEET_SECRET must match SECRET in tools/google-apps-script.gs.
+ * The Web app URL acts as the access key, so keep it only here (server side). Receiver script: tools/google-apps-script.gs.
  */
 const TO_EMAIL     = 'info@wymisworks.org';
 const FROM_EMAIL   = 'info@wymisworks.org';
 const SHEET_URL    = '';
-const SHEET_SECRET = 'CtiYoFgjQwLlxn3ORRVqLdx3e5V5Z3MK';
 const BACK         = '/partner';
 
 date_default_timezone_set('America/Phoenix');
@@ -81,7 +80,7 @@ $confirm = @mail($email, utf8_subject('We received your WYMIS inquiry'), $cbody,
 $logged = false;
 if (SHEET_URL !== '' && function_exists('curl_init')) {
     $payload = json_encode([
-        'secret' => SHEET_SECRET, 'received' => $received, 'name' => $name, 'org' => $org,
+        'source' => 'wymisworks.org', 'received' => $received, 'name' => $name, 'org' => $org,
         'email' => $email, 'phone' => $phone, 'type' => $type, 'interest' => $interest,
         'message' => $message, 'notice' => $notice, 'confirmation' => $confirm, 'ip' => $ip,
     ]);
