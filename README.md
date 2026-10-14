@@ -27,6 +27,18 @@ Clean URLs (no `.html`) come from `.htaccess`.
 3. Create the mailbox `info@wymisworks.org` in hPanel > Emails. The form sends to it and from it; change `TO_EMAIL` / `FROM_EMAIL` at the top of `contact.php` if needed.
 4. Submit `https://wymisworks.org/sitemap.xml` in Google Search Console and Bing Webmaster Tools.
 
+## Inquiry form
+
+`contact.php` handles each submission from /partner:
+
+1. Emails it to `info@wymisworks.org` (reply-to is the sender).
+2. Sends the sender a short confirmation email from `info@wymisworks.org`.
+3. Saves a backup row to the Google Sheet "WYMIS Website Inquiries" through a Google Apps Script web app.
+
+The visitor sees success if either the email or the sheet backup worked.
+
+**Sheet backup setup (one time):** open the sheet, go to Extensions > Apps Script, paste in `tools/google-apps-script.gs`, then Deploy > New deployment > Web app with "Execute as: Me" and "Who has access: Anyone". Copy the Web app URL (ends in `/exec`) into `SHEET_URL` in `contact.php`. `SHEET_SECRET` in `contact.php` and `SECRET` in the script must match.
+
 ## Editing content
 
 All page content lives in `tools/build.py` (module text, FAQs, photos, page titles and meta descriptions). After editing:
