@@ -79,7 +79,7 @@ MODULES = [
          summary="What financial literacy is, budgeting, credit, and simple investing, adapted for a first paycheck, first apartment, and first credit decisions.",
          topics=["What financial literacy is", "Budgeting", "Credit", "Saving and managing debt", "Simple investing"],
          applied="Built around a first paycheck, a first apartment, and first credit decisions."),
-    dict(code="WYM 102", slug="business-administration", title="Business Administration", tagline="How businesses actually operate",
+    dict(code="WYM 102", slug="business-fundamentals", title="Business Fundamentals", tagline="How businesses actually operate",
          pid="1556761175-5973dc0f32e7", alt="Young professional presenting to colleagues in a meeting",
          intro="Students learn how businesses are built and run, and what it takes to start one of their own.",
          summary="What a business is, for-profit versus nonprofit models, basic business structures, how to start a simple business, and business ethics.",
@@ -139,7 +139,7 @@ INTENSIVE = [
     ("11:40 AM", "11:50 AM", "Break", "", None),
     ("11:50 AM", "1:05 PM", "Financial Literacy", "75-minute module session", "financial-literacy"),
     ("1:05 PM", "1:55 PM", "Lunch", "On site or nearby", None),
-    ("1:55 PM", "3:10 PM", "Business Administration", "75-minute module session", "business-administration"),
+    ("1:55 PM", "3:10 PM", "Business Fundamentals", "75-minute module session", "business-fundamentals"),
     ("3:10 PM", "3:20 PM", "Break", "", None),
     ("3:20 PM", "4:35 PM", "Etiquette", "75-minute module session", "etiquette"),
     ("4:35 PM", "4:45 PM", "Break", "", None),
@@ -150,7 +150,7 @@ INTENSIVE = [
 EVENTS = [
     dict(slug="phoenix-2026-10-24", city="Phoenix", state="Arizona", abbr="AZ", date="2026-10-24", tz="-07:00",
          day="Saturday, October 24, 2026", short="Sat, Oct 24", venue="Heritage Headquarters", street="515 E Grant St, Ste 101", zip="85004", photo="phoenix",
-         audience="High school students", perk="Complete the workshop and receive $100 toward your senior dues.",
+         audience="Open to all ages 16 to 26", perk="High school seniors: complete the workshop and receive $100 toward your senior dues.",
          flyer="wymis-phoenix-2026-10-24"),
     dict(slug="memphis-2026-11-07", city="Memphis", state="Tennessee", abbr="TN", date="2026-11-07", tz="-06:00",
          day="Saturday, November 7, 2026", short="Sat, Nov 7", venue="Allworld Headquarters", street="85 N. Danny Thomas Blvd", photo="memphis"),
@@ -177,11 +177,11 @@ FAQS = [
     ("How long is the WYMIS program?",
      "The full WYMIS program runs 8 to 12 weeks as a cohort, with students moving through the modules together as a group."),
     ("What does the WYMIS curriculum cover?",
-     "Seven modules: Financial Literacy, Business Administration (business fundamentals), Soft Skills, Etiquette, Networking Principles, AI and Technology, and Branding and Marketing. Each one covers a skill area students consistently report feeling underprepared for after high school."),
+     "Seven modules: Financial Literacy, Business Fundamentals, Soft Skills, Etiquette, Networking Principles, AI and Technology, and Branding and Marketing. Each one covers a skill area students consistently report feeling underprepared for after high school."),
     ("What delivery formats are available?",
      "WYMIS can be delivered three ways: a One-Day Intensive (a full day, 9:00 AM to 6:00 PM), a 3-Day Applied Unit (hands-on and project-based), or the full 8 to 12 Week Cohort with all seven modules. Any single module can also run as a 75-minute session."),
     ("What is the WYMIS One-Day Intensive?",
-     "A condensed, single-day version of the program that runs from 9:00 AM to 6:00 PM. It covers six 75-minute module sessions (Soft Skills, Networking Principles, Financial Literacy, Business Administration, Etiquette, and Branding and Marketing with AI and Technology) for a group of 20 to 30 young adults."),
+     "A condensed, single-day version of the program that runs from 9:00 AM to 6:00 PM. It covers six 75-minute module sessions (Soft Skills, Networking Principles, Financial Literacy, Business Fundamentals, Etiquette, and Branding and Marketing with AI and Technology) for a group of 20 to 30 young adults."),
     ("What does a host site need for a One-Day Intensive?",
      "One room that seats 20 to 30 people, a screen or projector (WYMIS can bring one), reliable Wi-Fi, tables that can be arranged for breakouts, restrooms and a lunch space, access from about 8:00 AM to 6:30 PM, and parking."),
     ("Do students earn a credential?",
@@ -955,7 +955,7 @@ def page_intensive(base):
       <h2 id="day-h">One immersive day, seven modules.</h2>
       <div class="prose">
         <p class="lead"><strong>The One-Day Intensive condenses the core of WYMIS into a single day for groups that want a shorter-format introduction to the curriculum.</strong></p>
-        <p>The day covers Soft Skills, Networking Principles, Financial Literacy, Business Administration, Etiquette, and a closing session that pairs Branding and Marketing with AI and Technology.</p>
+        <p>The day covers Soft Skills, Networking Principles, Financial Literacy, Business Fundamentals, Etiquette, and a closing session that pairs Branding and Marketing with AI and Technology.</p>
         <p>Module order can shift based on facilitator availability. The 9:00 AM to 6:00 PM window and total instruction time stay fixed. Check-in opens at 8:30 AM.</p>
       </div>
       <div class="split-media" style="margin-top:12px"><div class="photo">{img(spid, salt)}</div></div>
@@ -999,7 +999,7 @@ def event_ld(e):
         place["address"]["postalCode"] = e["zip"]
     return {"@type": "EducationEvent", "@id": f"{SITE}/register#{e['slug']}",
             "name": f"WYMIS One-Day Intensive: {e['city']}, {e['abbr']}",
-            "description": f"A free, full-day WYMIS life skills and workforce readiness intensive for ages 16 to 26 in {e['city']}: six 75-minute sessions covering soft skills, networking, financial literacy, business administration, etiquette, and branding with AI and technology.",
+            "description": f"A free, full-day WYMIS life skills and workforce readiness intensive for ages 16 to 26 in {e['city']}: six 75-minute sessions covering soft skills, networking, financial literacy, business fundamentals, etiquette, and branding with AI and technology.",
             "startDate": f"{e['date']}T09:00:00{e['tz']}", "endDate": f"{e['date']}T18:00:00{e['tz']}",
             "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
             "location": place, "image": [OG_IMG], "organizer": {"@id": SITE + "/#org"}, "isAccessibleForFree": True,
@@ -1160,7 +1160,7 @@ PAGES = [
               "offers": {"@type": "Offer", "category": "Partnership", "url": SITE + "/partner"}}]),
     dict(slug="curriculum", crumb="Curriculum", fn=page_curriculum, prio="0.9",
          title="WYMIS Curriculum | 7 Life Skills & Workforce Modules",
-         desc="Seven WYMIS modules: Financial Literacy, Business Administration, Soft Skills, Etiquette, Networking, AI and Technology, and Branding and Marketing.",
+         desc="Seven WYMIS modules: Financial Literacy, Business Fundamentals, Soft Skills, Etiquette, Networking, AI and Technology, and Branding and Marketing.",
          ld=[{"@type": "ItemList", "name": "WYMIS curriculum modules", "numberOfItems": len(MODULES),
               "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": course(m)} for i, m in enumerate(MODULES)]}]),
     dict(slug="intensive", crumb="One-Day Intensive", fn=page_intensive, prio="0.9",
@@ -1170,7 +1170,7 @@ PAGES = [
               "description": "A condensed, single-day version of the WYMIS workforce readiness and life skills program for ages 16 to 26, with six 75-minute module sessions from 9:00 AM to 6:00 PM.",
               "provider": {"@id": SITE + "/#org"}, "typicalAgeRange": "16-26", "inLanguage": "en-US", "educationalLevel": "Beginner",
               "timeRequired": "PT9H", "educationalCredentialAwarded": "Open Badges 3.0 verifiable digital credential",
-              "teaches": ["Soft Skills", "Networking Principles", "Financial Literacy", "Business Administration", "Etiquette", "Branding and Marketing", "AI and Technology"],
+              "teaches": ["Soft Skills", "Networking Principles", "Financial Literacy", "Business Fundamentals", "Etiquette", "Branding and Marketing", "AI and Technology"],
               "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Onsite", "courseWorkload": "PT9H", "maximumAttendeeCapacity": 30},
               "offers": {"@type": "Offer", "category": "Partnership", "url": SITE + "/partner"}}]),
     dict(slug="register", crumb="Register", fn=page_register, prio="0.9",

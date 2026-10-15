@@ -30,7 +30,7 @@ Key facts:
 
 ## Curriculum
 - [Financial Literacy (WYM 101)](https://wymisworks.org/curriculum#financial-literacy): What financial literacy is, budgeting, credit, and simple investing, adapted for a first paycheck, first apartment, and first credit decisions.
-- [Business Administration (WYM 102)](https://wymisworks.org/curriculum#business-administration): What a business is, for-profit versus nonprofit models, basic business structures, how to start a simple business, and business ethics.
+- [Business Fundamentals (WYM 102)](https://wymisworks.org/curriculum#business-fundamentals): What a business is, for-profit versus nonprofit models, basic business structures, how to start a simple business, and business ethics.
 - [Soft Skills (WYM 103)](https://wymisworks.org/curriculum#soft-skills): Professional communication, teamwork and collaboration, professionalism and work ethic, and problem-solving and adaptability.
 - [Etiquette (WYM 104)](https://wymisworks.org/curriculum#etiquette): Everyday social etiquette, professional and interview etiquette, dining etiquette, and digital etiquette.
 - [Networking Principles (WYM 105)](https://wymisworks.org/curriculum#networking-principles): What networking is, building a personal introduction, working a room at an event or conference, and following up effectively.

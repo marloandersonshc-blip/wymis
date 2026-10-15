@@ -33,7 +33,7 @@ Money decisions start the day the first paycheck arrives. This module gives stud
 Covers: What financial literacy is, budgeting, credit, and simple investing, adapted for a first paycheck, first apartment, and first credit decisions.
 Formats: 75-minute session or 3-day unit.
 
-### Business Administration (WYM 102)
+### Business Fundamentals (WYM 102)
 Students learn how businesses are built and run, and what it takes to start one of their own.
 Covers: What a business is, for-profit versus nonprofit models, basic business structures, how to start a simple business, and business ethics.
 Formats: 75-minute session or 3-day unit.
@@ -70,7 +70,7 @@ Formats: 75-minute session or 3-day unit.
 - 11:40 AM to 11:50 AM: Break
 - 11:50 AM to 1:05 PM: Financial Literacy (75-minute module session)
 - 1:05 PM to 1:55 PM: Lunch (On site or nearby)
-- 1:55 PM to 3:10 PM: Business Administration (75-minute module session)
+- 1:55 PM to 3:10 PM: Business Fundamentals (75-minute module session)
 - 3:10 PM to 3:20 PM: Break
 - 3:20 PM to 4:35 PM: Etiquette (75-minute module session)
 - 4:35 PM to 4:45 PM: Break
@@ -102,13 +102,13 @@ WYMIS is designed for ages 16 to 26. That includes graduating high school senior
 The full WYMIS program runs 8 to 12 weeks as a cohort, with students moving through the modules together as a group.
 
 ### What does the WYMIS curriculum cover?
-Seven modules: Financial Literacy, Business Administration (business fundamentals), Soft Skills, Etiquette, Networking Principles, AI and Technology, and Branding and Marketing. Each one covers a skill area students consistently report feeling underprepared for after high school.
+Seven modules: Financial Literacy, Business Fundamentals, Soft Skills, Etiquette, Networking Principles, AI and Technology, and Branding and Marketing. Each one covers a skill area students consistently report feeling underprepared for after high school.
 
 ### What delivery formats are available?
 WYMIS can be delivered three ways: a One-Day Intensive (a full day, 9:00 AM to 6:00 PM), a 3-Day Applied Unit (hands-on and project-based), or the full 8 to 12 Week Cohort with all seven modules. Any single module can also run as a 75-minute session.
 
 ### What is the WYMIS One-Day Intensive?
-A condensed, single-day version of the program that runs from 9:00 AM to 6:00 PM. It covers six 75-minute module sessions (Soft Skills, Networking Principles, Financial Literacy, Business Administration, Etiquette, and Branding and Marketing with AI and Technology) for a group of 20 to 30 young adults.
+A condensed, single-day version of the program that runs from 9:00 AM to 6:00 PM. It covers six 75-minute module sessions (Soft Skills, Networking Principles, Financial Literacy, Business Fundamentals, Etiquette, and Branding and Marketing with AI and Technology) for a group of 20 to 30 young adults.
 
 ### What does a host site need for a One-Day Intensive?
 One room that seats 20 to 30 people, a screen or projector (WYMIS can bring one), reliable Wi-Fi, tables that can be arranged for breakouts, restrooms and a lunch space, access from about 8:00 AM to 6:30 PM, and parking.
