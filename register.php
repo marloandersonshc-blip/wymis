@@ -65,6 +65,7 @@ if ($minor && ($gname === '' || !filter_var($gemail, FILTER_VALIDATE_EMAIL) || !
 if (!$minor) { $gname = $gemail = $gphone = ''; $consent = false; }
 
 [$city, $day, $iso, $where] = $EVENTS[$event];
+$perk = $EVENTS[$event][4] ?? '';
 if ($iso < date('Y-m-d')) { back('error=4'); }   // past date
 
 // Light rate limit: one registration per IP every 30 seconds
@@ -90,6 +91,7 @@ $c .= "City: $city\nDate: $day\nTime: 9:00 AM to 6:00 PM local time (check-in op
 $c .= (strpos($where, 'to be announced') !== false)
     ? "We will email you the venue address as soon as it is confirmed.\n\n"
     : "Please arrive a few minutes early so we can start on time.\n\n";
+if ($perk !== '') { $c .= "$perk\n\n"; }
 $c .= "What to bring: a notebook or device for notes. We will share lunch details before the day.\n";
 $c .= "See the day's schedule: https://wymisworks.org/intensive\n\n";
 $c .= "Can't make it anymore? Just reply to this email so we can give your seat to someone else.\n\n";
