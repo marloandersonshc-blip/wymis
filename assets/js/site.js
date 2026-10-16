@@ -129,6 +129,25 @@
     });
   }
 
+  // Flyer lightbox (native <dialog>: Esc closes, focus is trapped and restored by the browser)
+  document.querySelectorAll("[data-flyer]").forEach(function (btn) {
+    var dlg = document.getElementById(btn.dataset.flyer);
+    if (!dlg || typeof dlg.showModal !== "function") return;
+    btn.addEventListener("click", function () {
+      var im = dlg.querySelector("img[data-src]");
+      if (im && !im.getAttribute("src")) im.src = im.dataset.src;
+      dlg.showModal();
+      document.documentElement.classList.add("lb-open");
+      track("view_flyer", { flyer: btn.dataset.flyer });
+    });
+    dlg.querySelector(".lb-close").addEventListener("click", function () { dlg.close(); });
+    dlg.addEventListener("click", function (e) { if (e.target === dlg || e.target.classList.contains("lb-body")) dlg.close(); });
+    dlg.addEventListener("close", function () { document.documentElement.classList.remove("lb-open"); });
+    dlg.querySelectorAll("a[download]").forEach(function (a) {
+      a.addEventListener("click", function () { track("file_download", { file_name: a.getAttribute("href").split("/").pop() }); });
+    });
+  });
+
   // Partner CTA clicks (only recorded when analytics is enabled)
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest('a[href$="partner"]');
