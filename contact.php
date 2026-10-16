@@ -76,7 +76,7 @@ if ($interest !== '') { $cbody .= "Interested in: $interest\n"; }
 $cbody .= "Received: $received (Phoenix time)\n\n";
 $cbody .= "If you need to add anything, just reply to this email.\n\n";
 $cbody .= "WYMIS\nhttps://wymisworks.org\n";
-$cbody .= "A program under the umbrella of Love Nation Ministries, a registered 501(c)(3) nonprofit organization.\n";
+$cbody .= "A program under the umbrella of Love Nation Inc., a registered 501(c)(3) nonprofit organization.\n";
 $cheaders  = 'From: WYMIS <' . FROM_EMAIL . ">\r\n";
 $cheaders .= 'Reply-To: WYMIS <' . FROM_EMAIL . ">\r\n";
 $cheaders .= "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\n";

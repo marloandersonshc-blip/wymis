@@ -96,7 +96,7 @@ $c .= "What to bring: a notebook or device for notes. We will share lunch detail
 $c .= "See the day's schedule: https://wymisworks.org/intensive\n\n";
 $c .= "Can't make it anymore? Just reply to this email so we can give your seat to someone else.\n\n";
 $c .= "WYMIS (What You Missed In School)\nhttps://wymisworks.org\n";
-$c .= "A program under the umbrella of Love Nation Ministries, a registered 501(c)(3) nonprofit organization.\n";
+$c .= "A program under the umbrella of Love Nation Inc., a registered 501(c)(3) nonprofit organization.\n";
 $confirm = send($email, "You're registered: WYMIS One-Day Intensive, $city", $c, 'WYMIS <' . FROM_EMAIL . '>');
 
 $gconfirm = false;

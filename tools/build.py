@@ -11,10 +11,10 @@ SITE = "https://wymisworks.org"
 EMAIL = "info@wymisworks.org"
 # Google Analytics 4 measurement ID (looks like G-XXXXXXXXXX). Leave empty to load no analytics.
 GA4_ID = ""
-PRIVACY_UPDATED = "October 14, 2026"
+PRIVACY_UPDATED = "October 15, 2026"
 SHEET_BACKUP = True  # sheet backup live since Oct 14, 2026 (URL in private server file)
 # Nonprofit umbrella. Add the EIN and website when confirmed; they appear automatically where set.
-UMBRELLA = "Love Nation Ministries"
+UMBRELLA = "Love Nation Inc."
 UMBRELLA_EIN = ""
 UMBRELLA_URL = "https://lovenationministries.org/"
 UMBRELLA_LOGO = "https://img1.wsimg.com/isteam/ip/a3d9029a-ee77-4795-b8c1-e567b129ffc1/Love%20Nation%20Without%20Slogan%20Transparent%20bg.svg"
@@ -195,7 +195,7 @@ FAQS = [
     ("Where has WYMIS been piloted?",
      "WYMIS has been piloted in Phoenix, Arizona; Las Vegas, Nevada; and Memphis, Tennessee, working directly with students to refine the curriculum from real classroom experience and feedback."),
     ("Is WYMIS a nonprofit program?",
-     f"Yes. WYMIS operates under the umbrella of {UMBRELLA}, a registered 501(c)(3) nonprofit organization. Schools, community partners, and funders can work with WYMIS through {UMBRELLA}."),
+     f"Yes. WYMIS operates under the umbrella of {UMBRELLA}, a registered 501(c)(3) nonprofit organization. Schools, community partners, and funders can work with WYMIS through {UMBRELLA}"),
     ("Who created WYMIS?",
      "WYMIS was founded by Dr. Barry K. Jackson, Ph.D., Provost and Vice President of Academic Affairs at Alliance Bible College and Seminary. His career spans community outreach, nonprofits, and higher education, including roles as President of the Memphis Youth Coalition and Director of Programs with the Memphis Urban League."),
     ("Why is it called the thirteenth grade?",
@@ -818,9 +818,9 @@ def page_about(base):
     <div class="np-logo"><img src="{UMBRELLA_LOGO}" alt="{UMBRELLA} logo" width="240" height="39" loading="lazy"><span class="np-tag">Registered 501(c)(3)</span></div>
     <div class="np-copy">
       <span class="eyebrow">Nonprofit home</span>
-      <h2 id="np-h">A program of {umbrella_name(False)}.</h2>
-      <p>{umbrella_line(False)} Based in Phoenix, Love Nation Ministries serves families through counseling, education, and community outreach, and gives schools, community organizations, and funders a nonprofit partner to work with when they bring WYMIS to their students.</p>
-      <a class="link-arrow" href="{UMBRELLA_URL}" target="_blank" rel="noopener">Visit Love Nation Ministries <span class="sr-only">(opens in a new tab)</span>{ARROW}</a>
+      <h2 id="np-h">A program of {umbrella_name(False)}</h2>
+      <p>{umbrella_line(False)} Based in Phoenix, Love Nation serves families through counseling, education, and community outreach, and gives schools, community organizations, and funders a nonprofit partner to work with when they bring WYMIS to their students.</p>
+      <a class="link-arrow" href="{UMBRELLA_URL}" target="_blank" rel="noopener">Visit the Love Nation website <span class="sr-only">(opens in a new tab)</span>{ARROW}</a>
     </div>
   </div></div>
 </section>
@@ -1197,7 +1197,7 @@ PAGES = [
          desc="WYMIS has been piloted with students in Phoenix, Arizona; Las Vegas, Nevada; and Memphis, Tennessee, refining the curriculum from real classroom feedback."),
     dict(slug="about", crumb="About", fn=page_about, prio="0.7", pagetype="AboutPage",
          title="About WYMIS | Mission, Vision & Nonprofit Home",
-         desc="The WYMIS mission and vision: closing the gap between a diploma and real-world skills for ages 16 to 26. A program under the 501(c)(3) Love Nation.",
+         desc="The WYMIS mission and vision: closing the gap between a diploma and real-world skills for ages 16 to 26. A program under the 501(c)(3) Love Nation Inc.",
          ld=[PERSON]),
     dict(slug="faq", crumb="FAQ", fn=page_faq, prio="0.8", pagetype="FAQPage",
          title="WYMIS FAQ | Ages, Program Length, Curriculum & Formats",
