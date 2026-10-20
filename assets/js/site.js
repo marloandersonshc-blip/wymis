@@ -105,12 +105,12 @@
     var done = rp.get("registered");
     if (done) {
       var o = Array.prototype.find.call(sel.options, function (x) { return x.value === done; });
-      rmsg("ok", "You're registered" + (o ? " for " + o.textContent.replace(" (closed)", "") : "") + ". Check your email for your confirmation (and your spam folder, just in case).");
+      rmsg("ok", "You're registered" + (o ? " for " + o.textContent.replace(" (closed)", "") : "") + ". Check your email for your confirmation (and your spam folder, just in case)." + (rp.get("consent") === "parent" ? " We also emailed your parent or guardian the consent form. They need to sign it before the event." : ""));
       track("sign_up", { method: "intensive_registration", event_slug: done });
     }
     var errs = { "1": "Your registration could not be sent. Check the city, your name, email, and age, then try again.",
                  "2": "Our mail service did not respond. Please try again in a few minutes or email us directly.",
-                 "3": "Registrants under 18 need a parent or guardian name, email, and permission. Please add those and try again.",
+                 "3": "Registrants under 18 need a parent or guardian name and email, and the box checked. Please add those and try again.",
                  "4": "Registration for that date has closed. Please choose another city." };
     if (errs[rp.get("error")]) rmsg("err", errs[rp.get("error")]);
     reg.addEventListener("submit", function (e) {
@@ -124,10 +124,19 @@
       if (ageSel.value === "16 or 17") {
         if (!reg.elements.gname.value.trim()) return bad(reg.elements.gname, "Add your parent or guardian's name.");
         if (!reg.elements.gemail.value.trim() || !reg.elements.gemail.checkValidity()) return bad(reg.elements.gemail, "Add a valid parent or guardian email.");
-        if (!reg.elements.gconsent.checked) return bad(reg.elements.gconsent, "Confirm that a parent or guardian has given permission.");
+        if (!reg.elements.gconsent.checked) return bad(reg.elements.gconsent, "Confirm that your parent or guardian knows you are registering.");
       }
     });
   }
+
+  // Consent form: relationship field only applies when a parent or guardian signs
+  var cf = document.querySelector("form.consent");
+  if (cf && cf.elements.minor) {
+    var relBox = cf.querySelector("[data-minor-only]");
+    var syncRel = function () { if (relBox) relBox.hidden = cf.elements.minor.value === "no"; };
+    cf.elements.minor.addEventListener("change", syncRel); syncRel();
+  }
+  if (document.querySelector(".consent-done")) track("consent_signed", {});
 
   // Flyer lightbox (native <dialog>: Esc closes, focus is trapped and restored by the browser)
   document.querySelectorAll("[data-flyer]").forEach(function (btn) {

@@ -8,6 +8,7 @@ RewriteEngine On
 
 # Block the build tools and git metadata from the web
 RewriteRule ^(tools|\.git)(/|$) - [F,L]
+RewriteRule \.inc\.php$ - [F,L]
 
 # Force HTTPS and the bare domain (wymisworks.org)
 RewriteCond %{HTTPS} off [OR]
@@ -26,6 +27,11 @@ RewriteRule ^ /%1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^([^/]+?)/?$ $1.html [L]
+
+# Serve /page from page.php when there is no page.html (consent form)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^([^/.]+?)/?$ $1.php [L]
 </IfModule>
 
 # Plain text types for AI and crawler files

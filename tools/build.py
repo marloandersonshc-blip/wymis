@@ -11,7 +11,7 @@ SITE = "https://wymisworks.org"
 EMAIL = "info@wymisworks.org"
 # Google Analytics 4 measurement ID (looks like G-XXXXXXXXXX). Leave empty to load no analytics.
 GA4_ID = ""
-PRIVACY_UPDATED = "October 15, 2026"
+PRIVACY_UPDATED = "October 20, 2026"
 SHEET_BACKUP = True  # sheet backup live since Oct 14, 2026 (URL in private server file)
 # Nonprofit umbrella. Add the EIN and website when confirmed; they appear automatically where set.
 UMBRELLA = "Love Nation Inc."
@@ -257,7 +257,7 @@ def head(p, base):
         graph.append(crumbs_ld([("Home", "/"), (p["crumb"], "/" + p["slug"])]))
     graph += p.get("ld", [])
     ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, separators=(",", ":"))
-    robots = "noindex, follow" if p["slug"] == "404" else "index, follow, max-image-preview:large, max-snippet:-1"
+    robots = "noindex, follow" if p["slug"] in ("404", "consent") else "index, follow, max-image-preview:large, max-snippet:-1"
     return f"""<!doctype html>
 <html lang="en-US">
 <head>
@@ -1068,7 +1068,7 @@ def page_register(base):
       <span class="eyebrow">Register</span>
       <h2 id="reg-h">Reserve your spot.</h2>
       <p>Registration takes about a minute. You will get a confirmation email right away, and a reminder with the venue details before the day.</p>
-      <ul class="contact-list"><li>Free to attend</li><li>Ages 16 to 26</li><li>{EVENT_HOURS}, check-in from 8:30 AM</li><li>Under 18? A parent or guardian must give permission</li></ul>
+      <ul class="contact-list"><li>Free to attend</li><li>Ages 16 to 26</li><li>{EVENT_HOURS}, check-in from 8:30 AM</li><li>Consent form required: signed by a parent or guardian if you are under 18, or by you if 18 or older</li></ul>
       <div class="direct"><span>Questions</span><a href="mailto:{EMAIL}">{EMAIL}</a></div>
     </div>
     <form class="inquiry register" action="{base}register.php" method="post" novalidate>
@@ -1082,13 +1082,13 @@ def page_register(base):
       <div class="field"><label for="r-org">School or organization (optional)</label><input id="r-org" name="org" autocomplete="organization" maxlength="160"></div>
       <fieldset class="field full guardian" id="guardian" hidden>
         <legend>Parent or guardian</legend>
-        <p class="guardian-note">Because you are under 18, we need a parent or guardian's details. They will get a copy of your confirmation.</p>
+        <p class="guardian-note">Because you are under 18, a parent or guardian must sign the WYMIS consent form before the event. We will email them the link as soon as you register.</p>
         <div class="guardian-grid">
           <div class="field"><label for="r-gname">Parent or guardian name</label><input id="r-gname" name="gname" maxlength="120"></div>
           <div class="field"><label for="r-gemail">Parent or guardian email</label><input id="r-gemail" name="gemail" type="email" maxlength="160"></div>
           <div class="field"><label for="r-gphone">Parent or guardian phone (optional)</label><input id="r-gphone" name="gphone" type="tel" maxlength="40"></div>
         </div>
-        <label class="check"><input type="checkbox" name="gconsent" value="yes"> <span>My parent or guardian has given permission for me to attend, and WYMIS may contact them about this event.</span></label>
+        <label class="check"><input type="checkbox" name="gconsent" value="yes"> <span>My parent or guardian knows I am registering, and WYMIS may email them the consent form and contact them about this event.</span></label>
       </fieldset>
       <div class="field full"><label for="r-heard">How did you hear about WYMIS? (optional)</label><select id="r-heard" name="heard"><option value="">Select</option><option>School or teacher</option><option>Church or community organization</option><option>Friend or family</option><option>Social media</option><option>Workforce program</option><option>Other</option></select></div>
       <div class="field full"><label for="r-notes">Accessibility needs or questions (optional)</label><textarea id="r-notes" name="notes" maxlength="2000" placeholder="Anything that would help us make the day work for you."></textarea></div>
@@ -1119,7 +1119,8 @@ def page_privacy(base):
 
     <h2>Information you give us</h2>
     <p>When you send an inquiry through the Partner page, we collect what you enter: your name, organization, email address, phone number (optional), the type of organization you represent, the program format you are interested in, and your message.</p>
-    <p>When you register for a One-Day Intensive, we collect the event you chose, your name, email address, phone number (optional), age range, school or organization (optional), how you heard about WYMIS (optional), and any accessibility needs or questions you share. If you are under 18, we also collect a parent or guardian's name, email address, phone number (optional), and confirmation that they gave permission for you to attend, and we send them a copy of your confirmation.</p>
+    <p>When you register for a One-Day Intensive, we collect the event you chose, your name, email address, phone number (optional), age range, school or organization (optional), how you heard about WYMIS (optional), and any accessibility needs or questions you share. If you are under 18, we also collect a parent or guardian's name, email address, and phone number (optional), and we email them the consent form.</p>
+    <p>Every participant signs a consent form (permission to attend and release of liability) before the event: a parent or guardian for participants under 18, or the participant if 18 or older. We collect the signer's name, relationship to the participant, email address, phone number, typed signature, and the date, time, IP address, and browser used to sign. We keep the signed form as the record of permission and email a copy to the signer.</p>
     <p>We use registration details only to run the event: confirming your seat, sending venue and schedule updates, checking you in, and following up about WYMIS programs.</p>
     <p>We use inquiry information only to respond to your inquiry, discuss bringing WYMIS to your students, and keep a record of that conversation. We do not sell, rent, or trade it, and we do not add you to a marketing list without your permission.</p>
 
@@ -1141,7 +1142,7 @@ def page_privacy(base):
     <p>You can ask us what information we hold about you, ask us to correct it, or ask us to delete it by emailing <a href="mailto:{EMAIL}">{EMAIL}</a>. Depending on where you live, you may have additional rights under state privacy laws, and we will honor requests made under them.</p>
 
     <h2>Young people</h2>
-    <p>WYMIS serves young people ages 16 to 26. Registrants who are 16 or 17 must provide a parent or guardian's contact details and confirm that the parent or guardian gave permission, and we send the parent or guardian a copy of the confirmation. A parent or guardian can ask us at any time to see, correct, or delete their child's registration. This website is not directed to children under 13, and we do not knowingly collect information from them. If you believe a child under 13 has sent us information, contact us and we will delete it.</p>
+    <p>WYMIS serves young people ages 16 to 26. Registrants who are 16 or 17 must provide a parent or guardian's contact details, and the parent or guardian must sign the consent form before the event. A parent or guardian can ask us at any time to see, correct, or delete their child's registration. This website is not directed to children under 13, and we do not knowingly collect information from them. If you believe a child under 13 has sent us information, contact us and we will delete it.</p>
 
     <h2>Security</h2>
     <p>The site uses HTTPS encryption, and inquiries and registrations are delivered by email to a private mailbox. No method of transmission or storage is completely secure, but we take reasonable steps to protect what you send us.</p>
@@ -1225,6 +1226,17 @@ def build():
         assert "—" not in doc, "em dash found in " + p["slug"]
         open(os.path.join(ROOT, p["slug"] + ".html"), "w").write(doc)
 
+    # consent form page (PHP): site chrome around tools/consent.tpl.php
+    cp = dict(slug="consent", crumb="Consent form", title="Consent Form | WYMIS One-Day Intensive",
+              desc="Parent, guardian, and participant consent, permission, and release of liability for the free WYMIS One-Day Intensive.")
+    tpl = open(os.path.join(ROOT, "tools", "consent.tpl.php")).read()
+    hero = page_hero("One-Day Intensive", "Consent <em>form</em>.",
+                     "Permission to attend and release of liability. Required for every participant before the event: signed by a parent or guardian if under 18, or by the participant if 18 or older.",
+                     None, "Consent form", "")
+    doc = tpl.replace("{{HEAD}}", head(cp, "")).replace("{{NAV}}", nav("register", "")).replace("{{HERO}}", hero).replace("{{FOOTER}}", footer(""))
+    assert "{{" not in doc and "\u2014" not in doc, "consent template"
+    open(os.path.join(ROOT, "consent.php"), "w").write(doc)
+
     # events for register.php (generated; PHP-only, prints nothing if requested over the web)
     rows = "".join(f"    {json.dumps(e['slug'])} => [{json.dumps(e['city'] + ', ' + e['abbr'])}, {json.dumps(e['day'])}, {json.dumps(e['date'])}, {json.dumps(event_where(e))}, {json.dumps(e.get('perk', ''))}],\n" for e in EVENTS)
     open(os.path.join(ROOT, "events.inc.php"), "w").write(f"<?php\n// Generated by tools/build.py from EVENTS. Do not edit by hand.\n// slug => [city label, day label, ISO date, location, perk]\nreturn [\n{rows}];\n")
@@ -1239,7 +1251,7 @@ def build():
             "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot", "Applebot-Extended", "CCBot", "DuckAssistBot", "Meta-ExternalAgent"]
     robots = "".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots)
     open(os.path.join(ROOT, "robots.txt"), "w").write(
-        f"# WYMIS robots.txt: search engines and AI assistants are welcome.\n{robots}User-agent: *\nAllow: /\nDisallow: /tools/\nDisallow: /contact.php\nDisallow: /register.php\nDisallow: /events.inc.php\n\nSitemap: {SITE}/sitemap.xml\n")
+        f"# WYMIS robots.txt: search engines and AI assistants are welcome.\n{robots}User-agent: *\nAllow: /\nDisallow: /tools/\nDisallow: /contact.php\nDisallow: /register.php\nDisallow: /events.inc.php\nDisallow: /consent.inc.php\n\nSitemap: {SITE}/sitemap.xml\n")
 
     # llms.txt (GEO): concise, link-rich summary for AI systems
     mod_lines = "\n".join(f"- [{m['title']} ({m['code']})]({SITE}/curriculum#{m['slug']}): {m['summary']}" for m in MODULES)

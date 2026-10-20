@@ -39,6 +39,22 @@ The visitor sees success if either the email or the sheet backup worked.
 
 **Sheet backup setup (one time):** open the sheet, go to Extensions > Apps Script, paste in `tools/google-apps-script.gs`, then Deploy > New deployment > Web app with "Execute as: Me" and "Who has access: Anyone". Put the Web app URL (ends in `/exec`) alone on one line in a file named `wymis-sheet-url.txt` one level ABOVE `public_html` on the server (Hostinger File Manager). `contact.php` reads it from there. The URL acts as the access key and this repo is public, so never commit it.
 
+## Consent form (/consent)
+
+Every One-Day Intensive participant signs a consent form: permission to attend plus a release of liability.
+
+- **Under 18:** `register.php` emails the parent or guardian a signing link (prefilled, tamper-proof). The student's confirmation says the parent must sign.
+- **18 or older:** after registering, the student goes straight to the prefilled form, and the link is also in their confirmation email.
+- **Registered before the form existed:** send them `https://wymisworks.org/consent`. They pick the event and enter the participant's details.
+
+On signing, `consent.php` saves a JSON record in `wymis-consents/` one level ABOVE `public_html`, emails the signed copy to the signer, a notice to the student and `info@`, and adds a row to the **Consents** tab of the Google Sheet. One form per participant email per event; a second attempt shows "already signed".
+
+The signing-link key is created automatically as `wymis-consent-secret.txt` one level above `public_html`. Never commit it. Deleting it invalidates links already emailed (the plain `/consent` form still works).
+
+The form wording lives in `consent_sections()` in `consent.inc.php`. If you change it, bump `CONSENT_VERSION`; each record stores the version and a hash of the exact text signed. The page itself is generated: edit `tools/consent.tpl.php`, then run `python3 tools/build.py`.
+
+After updating `tools/google-apps-script.gs`, paste it into the sheet's Apps Script and redeploy: Deploy > Manage deployments > edit > Version: New version > Deploy (same URL).
+
 ## Editing content
 
 All page content lives in `tools/build.py` (module text, FAQs, photos, page titles and meta descriptions). After editing:

@@ -53,5 +53,6 @@ Disallow: /tools/
 Disallow: /contact.php
 Disallow: /register.php
 Disallow: /events.inc.php
+Disallow: /consent.inc.php
 
 Sitemap: https://wymisworks.org/sitemap.xml
