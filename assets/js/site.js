@@ -79,7 +79,7 @@
     });
     var pick = function (slug) {
       var o = Array.prototype.find.call(sel.options, function (x) { return x.value === slug && !x.disabled; });
-      if (o) sel.value = slug;
+      if (o) { sel.value = slug; sel.dispatchEvent(new Event("change")); }
     };
     if (rp.get("event")) pick(rp.get("event"));
     document.querySelectorAll(".event-btn[data-event]").forEach(function (a) {
@@ -97,6 +97,14 @@
       reg.elements.gname.required = minor; reg.elements.gemail.required = minor; reg.elements.gconsent.required = minor;
     };
     ageSel.addEventListener("change", syncGuard); syncGuard();
+    var offerBox = document.getElementById("senior-offer");
+    var syncOffer = function () {
+      var o = sel.options[sel.selectedIndex];
+      var on = !!(o && o.dataset.offer);
+      offerBox.hidden = !on;
+      if (!on) reg.elements.offer.checked = false;
+    };
+    if (offerBox) { sel.addEventListener("change", syncOffer); syncOffer(); }
     var rmsg = function (cls, text) {
       var m = document.createElement("div");
       m.className = "form-msg " + cls; m.setAttribute("role", "status"); m.textContent = text;

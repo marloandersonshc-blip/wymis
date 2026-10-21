@@ -11,7 +11,7 @@ SITE = "https://wymisworks.org"
 EMAIL = "info@wymisworks.org"
 # Google Analytics 4 measurement ID (looks like G-XXXXXXXXXX). Leave empty to load no analytics.
 GA4_ID = ""
-PRIVACY_UPDATED = "October 20, 2026"
+PRIVACY_UPDATED = "October 21, 2026"
 SHEET_BACKUP = True  # sheet backup live since Oct 14, 2026 (URL in private server file)
 # Nonprofit umbrella. Add the EIN and website when confirmed; they appear automatically where set.
 UMBRELLA = "Love Nation Inc."
@@ -146,11 +146,22 @@ INTENSIVE = [
     ("4:45 PM", "6:00 PM", "Branding and Marketing / AI and Technology", "75-minute module session and closing", "branding-and-marketing"),
 ]
 
+# $100 senior offer: paid as a deposit into a GLCU Fresh Checking account (via Cambio). Full terms at /offer-terms.
+OFFER_URL = "https://www.glcu.org/bank/checking-accounts/fresh-checking/"
+OFFER_UPDATED = "October 21, 2026"
+OFFER_PERK = "High school seniors: complete the workshop and earn $100 for your senior dues.*"
+OFFER_NOTE = "*Paid as a $100 deposit into a Great Lakes Credit Union Fresh Checking account the student opens through our partner Cambio. Not paid in cash or to a school. Account approval required."
+OFFER_EMAIL = ("High school seniors: complete the workshop and earn $100 for your senior dues.\n"
+               "How it works: the $100 is deposited into a Great Lakes Credit Union Fresh Checking account you open through our partner Cambio. "
+               "It is not paid in cash or to your school. GLCU membership, an opening deposit, and account approval are required, "
+               "and students under 18 may need a parent or guardian on the account.\n"
+               "Full offer terms: https://wymisworks.org/offer-terms")
+
 # Public One-Day Intensive dates. Times are local to each city. Free; up to 30 seats each.
 EVENTS = [
     dict(slug="phoenix-2026-10-24", city="Phoenix", state="Arizona", abbr="AZ", date="2026-10-24", tz="-07:00",
          day="Saturday, October 24, 2026", short="Sat, Oct 24", venue="Heritage Headquarters", street="515 E Grant St, Ste 101", zip="85004", photo="phoenix",
-         audience="Open to all ages 16 to 26", perk="High school seniors: complete the workshop and receive $100 toward your senior dues.",
+         audience="Open to all ages 16 to 26", offer=True,
          flyer="wymis-phoenix-2026-10-24"),
     dict(slug="memphis-2026-11-07", city="Memphis", state="Tennessee", abbr="TN", date="2026-11-07", tz="-06:00",
          day="Saturday, November 7, 2026", short="Sat, Nov 7", venue="Allworld Headquarters", street="85 N. Danny Thomas Blvd", photo="memphis"),
@@ -345,7 +356,7 @@ def footer(base):
   </div>
   <div class="wrap foot-bot">
     <span>&copy; <span id="year">2026</span> WYMIS. All rights reserved.</span>
-    <span class="foot-links"><a href="{base}privacy">Privacy policy</a><span>Site by <a href="https://atgaz.com" target="_blank" rel="noopener">ATGAZ<span class="sr-only"> (opens in a new tab)</span></a></span></span>
+    <span class="foot-links"><a href="{base}privacy">Privacy policy</a><a href="{base}offer-terms">Offer terms</a><span>Site by <a href="https://atgaz.com" target="_blank" rel="noopener">ATGAZ<span class="sr-only"> (opens in a new tab)</span></a></span></span>
   </div>
 </footer>
 <script src="{base}assets/js/site.js?v={JS_V}" defer></script>
@@ -1024,7 +1035,7 @@ def events_block(base, cta=True):
           <div><dt>Location</dt><dd>{where}</dd></div>
           {f'<div><dt>For</dt><dd>{e["audience"]}</dd></div>' if e.get("audience") else ''}
         </dl>
-        {f'<p class="event-perk">{e["perk"]}</p>' if e.get("perk") else ''}
+        {f'<div class="event-perk"><p>{OFFER_PERK}</p><p class="perk-note">{OFFER_NOTE} <a href="{base}offer-terms">See full offer terms</a></p></div>' if e.get("offer") else ''}
         {f"""<button type="button" class="flyer-thumb" data-flyer="flyer-{e['slug']}" aria-haspopup="dialog">
           <img src="{base}assets/flyers/{e['flyer']}-thumb.jpg" alt="" width="64" height="96" loading="lazy">
           <span><b>View the flyer</b><span>Open full size or download</span></span>
@@ -1047,7 +1058,7 @@ def events_block(base, cta=True):
     return '<div class="events">' + "".join(cards) + "</div>" + dialogs
 
 def page_register(base):
-    opts = "".join(f'<option value="{e["slug"]}">{e["city"]}, {e["abbr"]}: {e["day"]}</option>' for e in EVENTS)
+    opts = "".join(f'<option value="{e["slug"]}"{" data-offer=\"1\"" if e.get("offer") else ""}>{e["city"]}, {e["abbr"]}: {e["day"]}</option>' for e in EVENTS)
     return page_hero("One-Day Intensive Registration", "Save your seat for a <em>free</em> intensive.",
                      f"WYMIS is coming to Phoenix, Memphis, and Las Vegas. One Saturday, {EVENT_HOURS}, six practical sessions on money, work, and adult life for ages 16 to 26.",
                      None, "Register", base) + f"""<main id="main">
@@ -1090,6 +1101,11 @@ def page_register(base):
         </div>
         <label class="check"><input type="checkbox" name="gconsent" value="yes"> <span>My parent or guardian knows I am registering, and WYMIS may email them the consent form and contact them about this event.</span></label>
       </fieldset>
+      <fieldset class="field full guardian" id="senior-offer" hidden>
+        <legend>$100 senior offer</legend>
+        <p class="guardian-note">High school seniors who complete this intensive can earn $100 for senior dues. It is deposited into a Great Lakes Credit Union Fresh Checking account you open through our partner Cambio, not paid in cash or to your school. <a href="{base}offer-terms" target="_blank" rel="noopener">Read the offer terms<span class="sr-only"> (opens in a new tab)</span></a></p>
+        <label class="check"><input type="checkbox" name="offer" value="yes"> <span>I am a high school senior and want the $100 offer. I understand it is paid as a deposit into a GLCU Fresh Checking account I open, that GLCU sets the account requirements and must approve the account, and that I may need a parent or guardian on the account if I am under 18.</span></label>
+      </fieldset>
       <div class="field full"><label for="r-heard">How did you hear about WYMIS? (optional)</label><select id="r-heard" name="heard"><option value="">Select</option><option>School or teacher</option><option>Church or community organization</option><option>Friend or family</option><option>Social media</option><option>Workforce program</option><option>Other</option></select></div>
       <div class="field full"><label for="r-notes">Accessibility needs or questions (optional)</label><textarea id="r-notes" name="notes" maxlength="2000" placeholder="Anything that would help us make the day work for you."></textarea></div>
       <div class="form-foot">
@@ -1119,7 +1135,7 @@ def page_privacy(base):
 
     <h2>Information you give us</h2>
     <p>When you send an inquiry through the Partner page, we collect what you enter: your name, organization, email address, phone number (optional), the type of organization you represent, the program format you are interested in, and your message.</p>
-    <p>When you register for a One-Day Intensive, we collect the event you chose, your name, email address, phone number (optional), age range, school or organization (optional), how you heard about WYMIS (optional), and any accessibility needs or questions you share. If you are under 18, we also collect a parent or guardian's name, email address, and phone number (optional), and we email them the consent form.</p>
+    <p>When you register for a One-Day Intensive, we collect the event you chose, your name, email address, phone number (optional), age range, school or organization (optional), how you heard about WYMIS (optional), whether you request the $100 senior offer (where offered), and any accessibility needs or questions you share. If you are under 18, we also collect a parent or guardian's name, email address, and phone number (optional), and we email them the consent form.</p>
     <p>Every participant signs a consent form (permission to attend and release of liability) before the event: a parent or guardian for participants under 18, or the participant if 18 or older. We collect the signer's name, relationship to the participant, email address, phone number, typed signature, and the date, time, IP address, and browser used to sign. We keep the signed form as the record of permission and email a copy to the signer.</p>
     <p>We use registration details only to run the event: confirming your seat, sending venue and schedule updates, checking you in, and following up about WYMIS programs.</p>
     <p>We use inquiry information only to respond to your inquiry, discuss bringing WYMIS to your students, and keep a record of that conversation. We do not sell, rent, or trade it, and we do not add you to a marketing list without your permission.</p>
@@ -1152,6 +1168,54 @@ def page_privacy(base):
 
     <h2>Contact</h2>
     <p>Questions about this policy: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+  </div></div>
+</section>
+</main>
+"""
+
+def page_offer_terms(base):
+    ev = "; ".join(f"{e['city']}, {e['abbr']} on {e['day']}" for e in EVENTS if e.get("offer")) or "none at this time"
+    return page_hero("Offer terms", "$100 for <em>senior dues</em>.", f"How the senior offer works, who qualifies, and what Great Lakes Credit Union requires. Last updated {OFFER_UPDATED}.", None, "Offer terms", base) + f"""<main id="main">
+<section class="section" aria-label="Offer terms">
+  <div class="wrap"><div class="legal">
+    <p class="lead">High school seniors who complete a WYMIS One-Day Intensive that lists this offer can earn $100. The $100 is deposited into a Fresh Checking account the student opens with Great Lakes Credit Union (GLCU) through our partner Cambio. It is not paid in cash, by check, or directly to any school.</p>
+
+    <h2>Who qualifies</h2>
+    <ul>
+      <li>Students currently enrolled as high school seniors.</li>
+      <li>Registered for, and attending the full day of, a One-Day Intensive where the offer is listed. Current events with the offer: {ev}.</li>
+      <li>A signed WYMIS consent form on file before the event.</li>
+      <li>One award per student.</li>
+    </ul>
+
+    <h2>How the $100 is paid</h2>
+    <ul>
+      <li>WYMIS gives eligible students access to the Fresh Checking account offered by Great Lakes Credit Union in partnership with Cambio.</li>
+      <li>The $100 is deposited into the student's Fresh Checking account when the account is opened.</li>
+      <li>The money belongs to the account holder. WYMIS offers it to help with senior dues, and the student decides how to use it. WYMIS does not pay dues to any school.</li>
+    </ul>
+
+    <h2>Account requirements</h2>
+    <p>GLCU, not WYMIS, sets the requirements for the account and decides whether to open it.</p>
+    <ul>
+      <li>GLCU membership, identity verification, and account approval are required. Approval is not guaranteed, and WYMIS cannot open an account for a student.</li>
+      <li>GLCU's posted terms for Fresh Checking list a $25 minimum opening deposit, and GLCU membership requires a share savings deposit of $1 or more. Confirm current requirements with GLCU before opening.</li>
+      <li>Students under 18 may need a parent or guardian on the account, depending on GLCU's rules.</li>
+      <li>The account is governed by GLCU's own terms, fee schedule, and membership agreement. See the <a href="{OFFER_URL}" target="_blank" rel="noopener">Fresh Checking page on glcu.org<span class="sr-only"> (opens in a new tab)</span></a>.</li>
+    </ul>
+
+    <h2>Taxes</h2>
+    <p>An account bonus may count as income. GLCU may report it to the IRS and send the account holder a tax form.</p>
+
+    <h2>Other terms</h2>
+    <ul>
+      <li>WYMIS is a program under the umbrella of {UMBRELLA}, a registered 501(c)(3) nonprofit organization. WYMIS is not a bank or credit union and does not provide financial accounts or financial advice.</li>
+      <li>Great Lakes Credit Union and Cambio are independent organizations. Accounts at GLCU are federally insured by NCUA.</li>
+      <li>WYMIS may change or end this offer at any time. Any change will be posted on this page.</li>
+    </ul>
+
+    <h2>Questions</h2>
+    <p>About the offer: <a href="mailto:{EMAIL}">{EMAIL}</a>. About the account itself: contact Great Lakes Credit Union.</p>
   </div></div>
 </section>
 </main>
@@ -1209,6 +1273,9 @@ PAGES = [
     dict(slug="privacy", crumb="Privacy", fn=page_privacy, prio="0.3",
          title="Privacy Policy | WYMIS",
          desc="How WYMIS collects, uses, and protects information submitted through wymisworks.org, including inquiry and registration form data, analytics, and your choices."),
+    dict(slug="offer-terms", crumb="Offer terms", fn=page_offer_terms, prio="0.3",
+         title="$100 Senior Dues Offer Terms | WYMIS",
+         desc="Terms for the WYMIS $100 senior offer: who qualifies, how the $100 is deposited into a Great Lakes Credit Union Fresh Checking account, and account requirements."),
     dict(slug="404", crumb="Not found", fn=page_404, title="Page not found | WYMIS", desc="This page could not be found."),
 ]
 
@@ -1238,7 +1305,7 @@ def build():
     open(os.path.join(ROOT, "consent.php"), "w").write(doc)
 
     # events for register.php (generated; PHP-only, prints nothing if requested over the web)
-    rows = "".join(f"    {json.dumps(e['slug'])} => [{json.dumps(e['city'] + ', ' + e['abbr'])}, {json.dumps(e['day'])}, {json.dumps(e['date'])}, {json.dumps(event_where(e))}, {json.dumps(e.get('perk', ''))}],\n" for e in EVENTS)
+    rows = "".join(f"    {json.dumps(e['slug'])} => [{json.dumps(e['city'] + ', ' + e['abbr'])}, {json.dumps(e['day'])}, {json.dumps(e['date'])}, {json.dumps(event_where(e))}, {json.dumps(OFFER_EMAIL if e.get('offer') else '')}],\n" for e in EVENTS)
     open(os.path.join(ROOT, "events.inc.php"), "w").write(f"<?php\n// Generated by tools/build.py from EVENTS. Do not edit by hand.\n// slug => [city label, day label, ISO date, location, perk]\nreturn [\n{rows}];\n")
 
     # sitemap

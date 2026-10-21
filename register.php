@@ -53,6 +53,7 @@ $gname   = clean($_POST['gname'] ?? '', 120);
 $gemail  = clean($_POST['gemail'] ?? '', 160);
 $gphone  = clean($_POST['gphone'] ?? '', 40);
 $consent = ($_POST['gconsent'] ?? '') === 'yes';
+$offer   = ($_POST['offer'] ?? '') === 'yes';
 $notes   = mb_substr(strip_tags(trim((string)($_POST['notes'] ?? ''))), 0, 2000);
 $ip      = $_SERVER['REMOTE_ADDR'] ?? '';
 
@@ -69,6 +70,7 @@ if (!$minor) { $gname = $gemail = $gphone = ''; $consent = false; }
 
 [$city, $day, $iso, $where] = $EVENTS[$event];
 $perk = $EVENTS[$event][4] ?? '';
+if ($perk === '') { $offer = false; }
 if ($iso < date('Y-m-d')) { back('error=4'); }   // past date
 
 // Light rate limit: one registration per IP every 30 seconds
@@ -89,6 +91,7 @@ $b  = "New One-Day Intensive registration\n\n";
 $b .= "Event: $city, $day\nLocation: $where\n\n";
 $b .= "Name: $name\nEmail: $email\nPhone: $phone\nAge: $age\nSchool or organization: $org\nHeard about WYMIS: $heard\n";
 if ($minor) { $b .= "\nParent or guardian: $gname\nParent email: $gemail\nParent phone: $gphone\nPermission confirmed: Yes\n"; }
+if ($perk !== '') { $b .= "\n\$100 senior offer: " . ($offer ? 'REQUESTED (registrant acknowledged the GLCU Fresh Checking terms)' : 'not requested') . "\n"; }
 $b .= "\nConsent form: " . ($minor ? "signing link emailed to $gname" : 'registrant sent to sign it now') . "\n$consentLink\n";
 $b .= "\nAccessibility needs or questions:\n$notes\n\nReceived: $received (Phoenix time)\nIP: $ip\n";
 $notice = send(TO_EMAIL, "WYMIS registration: $name ($city, " . date('M j', strtotime($iso)) . ")", $b, "$name <$email>");
@@ -100,7 +103,10 @@ $c .= "City: $city\nDate: $day\nTime: 9:00 AM to 6:00 PM local time (check-in op
 $c .= (strpos($where, 'to be announced') !== false)
     ? "We will email you the venue address as soon as it is confirmed.\n\n"
     : "Please arrive a few minutes early so we can start on time.\n\n";
-if ($perk !== '') { $c .= "$perk\n\n"; }
+if ($perk !== '') {
+    $c .= $offer ? "You requested the \$100 senior offer.\n" : '';
+    $c .= "$perk\n\n";
+}
 $c .= $minor
     ? "Before the event: your parent or guardian, $gname, must sign the WYMIS consent form. We just emailed them the link. They can also open it here:\n$consentLink\n\n"
     : "One more step: sign your consent form (permission and release of liability) before the event. It takes about a minute:\n$consentLink\n\n";
@@ -132,7 +138,7 @@ if (SHEET_URL !== '' && function_exists('curl_init')) {
         'event' => $city, 'date' => $day, 'location' => $where,
         'first' => $first, 'last' => $last, 'email' => $email, 'phone' => $phone, 'age' => $age, 'org' => $org, 'heard' => $heard,
         'gname' => $gname, 'gemail' => $gemail, 'gphone' => $gphone, 'gconsent' => $consent,
-        'notes' => $notes, 'notice' => $notice, 'confirmation' => $confirm, 'gconfirmation' => $gconfirm, 'ip' => $ip,
+        'notes' => ($offer ? "[\$100 senior offer requested] " : '') . $notes, 'notice' => $notice, 'confirmation' => $confirm, 'gconfirmation' => $gconfirm, 'ip' => $ip,
     ]);
     $ch = curl_init(SHEET_URL);
     curl_setopt_array($ch, [
