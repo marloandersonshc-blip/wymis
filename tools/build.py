@@ -153,7 +153,7 @@ OFFER_PERK = "High school seniors: complete the workshop and earn $100 for your 
 OFFER_NOTE = "*Paid as a $100 deposit into a Great Lakes Credit Union Fresh Checking account the student opens through our partner Cambio. Not paid in cash or to a school. Account approval required."
 OFFER_EMAIL = ("High school seniors: complete the workshop and earn $100 for your senior dues.\n"
                "How it works: the $100 is deposited into a Great Lakes Credit Union Fresh Checking account you open through our partner Cambio. "
-               "It is not paid in cash or to your school. GLCU membership, an opening deposit, and account approval are required, "
+               "It is not paid in cash or to your school. GLCU waives the $25 opening deposit for WYMIS students. GLCU membership and account approval are required, "
                "and students under 18 may need a parent or guardian on the account.\n"
                "Full offer terms: https://wymisworks.org/offer-terms")
 
@@ -1199,7 +1199,7 @@ def page_offer_terms(base):
     <p>GLCU, not WYMIS, sets the requirements for the account and decides whether to open it.</p>
     <ul>
       <li>GLCU membership, identity verification, and account approval are required. Approval is not guaranteed, and WYMIS cannot open an account for a student.</li>
-      <li>GLCU's posted terms for Fresh Checking list a $25 minimum opening deposit, and GLCU membership requires a share savings deposit of $1 or more. Confirm current requirements with GLCU before opening.</li>
+      <li>GLCU waives the $25 minimum opening deposit on Fresh Checking for WYMIS students. GLCU membership requires a share savings deposit of $1 or more; confirm current requirements with GLCU before opening.</li>
       <li>Students under 18 may need a parent or guardian on the account, depending on GLCU's rules.</li>
       <li>The account is governed by GLCU's own terms, fee schedule, and membership agreement. See the <a href="{OFFER_URL}" target="_blank" rel="noopener">Fresh Checking page on glcu.org<span class="sr-only"> (opens in a new tab)</span></a>.</li>
     </ul>
