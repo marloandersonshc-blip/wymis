@@ -324,7 +324,9 @@ def analytics():
 def nav(active, base):
     home = base or "./"
     items = "".join(f'<li><a href="{base}{s}"{" aria-current=\"page\"" if s == active else ""}>{t}</a></li>' for s, t in NAV)
-    return f"""<nav class="nav" aria-label="Main">
+    msgs = "".join(f'<a class="promo-link" href="{base}register?event={e["slug"]}#register" data-date="{e["date"]}"{"" if i == 0 else " hidden"}><span class="promo-tag">Free</span><span class="promo-text"><b>WYMIS One-Day Intensive</b> in {e["city"]}, {e["abbr"]}: {e["short"]}<span class="promo-sub">, ages 16 to 26</span></span><span class="promo-cta">Register now {ARROW}</span></a>' for i, e in enumerate(EVENTS))
+    banner = f'<div class="promo" id="promo" role="region" aria-label="Upcoming One-Day Intensive">\n  <div class="wrap promo-in">{msgs}</div>\n</div>\n'
+    return banner + f"""<nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
     <a class="brand" href="{home}" aria-label="WYMIS home"><picture><source srcset="{base}assets/img/brand/wymis-logo.webp" type="image/webp"><img src="{base}assets/img/brand/wymis-logo.png" alt="WYMIS: What You Missed In School" width="250" height="48" fetchpriority="high"></picture></a>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">

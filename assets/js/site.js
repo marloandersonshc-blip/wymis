@@ -57,6 +57,17 @@
   // Intensive dates: mark past events closed (local date), shared by every page that lists them
   var today = new Date(); today.setHours(0, 0, 0, 0);
   var isPast = function (iso) { var p = iso.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]) < today; };
+  // Promo banner: show the next upcoming intensive, or hide the banner when none are left
+  var promo = document.getElementById("promo");
+  if (promo) {
+    var next = null;
+    promo.querySelectorAll(".promo-link").forEach(function (a) {
+      var up = !isPast(a.dataset.date) && !next;
+      if (up) next = a;
+      a.hidden = !up;
+    });
+    if (!next) promo.hidden = true;
+  }
   document.querySelectorAll(".event[data-date]").forEach(function (card) {
     if (!isPast(card.dataset.date)) return;
     card.classList.add("is-past");
