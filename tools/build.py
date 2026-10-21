@@ -149,6 +149,7 @@ INTENSIVE = [
 # $100 senior offer: paid as a deposit into a GLCU Fresh Checking account (via Cambio). Full terms at /offer-terms.
 OFFER_URL = "https://www.glcu.org/bank/checking-accounts/fresh-checking/"
 OFFER_UPDATED = "October 21, 2026"
+SHOW_OFFER_FORM = False  # set True to show the $100 offer section and checkbox on the registration form
 SHOW_OFFER_NOTE = False  # set True to show the qualifier under the $100 line on event cards
 OFFER_PERK = "High school seniors: complete the workshop and earn $100 for your senior dues.*"
 OFFER_NOTE = "*Paid as a $100 deposit into a Great Lakes Credit Union Fresh Checking account the student opens through our partner Cambio. Not paid in cash or to a school. Account approval required."
@@ -1061,6 +1062,12 @@ def events_block(base, cta=True):
     return '<div class="events">' + "".join(cards) + "</div>" + dialogs
 
 def page_register(base):
+    OFFER_FORM = f"""      <fieldset class="field full guardian" id="senior-offer" hidden>
+        <legend>$100 senior offer</legend>
+        <p class="guardian-note">High school seniors who complete this intensive can earn $100 for senior dues. It is deposited into a Great Lakes Credit Union Fresh Checking account you open through our partner Cambio, not paid in cash or to your school. <a href="{base}offer-terms" target="_blank" rel="noopener">Read the offer terms<span class="sr-only"> (opens in a new tab)</span></a></p>
+        <label class="check"><input type="checkbox" name="offer" value="yes"> <span>I am a high school senior and want the $100 offer. I understand it is paid as a deposit into a GLCU Fresh Checking account I open, that GLCU sets the account requirements and must approve the account, and that I may need a parent or guardian on the account if I am under 18.</span></label>
+      </fieldset>
+"""
     opts = "".join(f'<option value="{e["slug"]}"{" data-offer=\"1\"" if e.get("offer") else ""}>{e["city"]}, {e["abbr"]}: {e["day"]}</option>' for e in EVENTS)
     return page_hero("One-Day Intensive Registration", "Save your seat for a <em>free</em> intensive.",
                      f"WYMIS is coming to Phoenix, Memphis, and Las Vegas. One Saturday, {EVENT_HOURS}, six practical sessions on money, work, and adult life for ages 16 to 26.",
@@ -1104,12 +1111,7 @@ def page_register(base):
         </div>
         <label class="check"><input type="checkbox" name="gconsent" value="yes"> <span>My parent or guardian knows I am registering, and WYMIS may email them the consent form and contact them about this event.</span></label>
       </fieldset>
-      <fieldset class="field full guardian" id="senior-offer" hidden>
-        <legend>$100 senior offer</legend>
-        <p class="guardian-note">High school seniors who complete this intensive can earn $100 for senior dues. It is deposited into a Great Lakes Credit Union Fresh Checking account you open through our partner Cambio, not paid in cash or to your school. <a href="{base}offer-terms" target="_blank" rel="noopener">Read the offer terms<span class="sr-only"> (opens in a new tab)</span></a></p>
-        <label class="check"><input type="checkbox" name="offer" value="yes"> <span>I am a high school senior and want the $100 offer. I understand it is paid as a deposit into a GLCU Fresh Checking account I open, that GLCU sets the account requirements and must approve the account, and that I may need a parent or guardian on the account if I am under 18.</span></label>
-      </fieldset>
-      <div class="field full"><label for="r-heard">How did you hear about WYMIS? (optional)</label><select id="r-heard" name="heard"><option value="">Select</option><option>School or teacher</option><option>Church or community organization</option><option>Friend or family</option><option>Social media</option><option>Workforce program</option><option>Other</option></select></div>
+{OFFER_FORM if SHOW_OFFER_FORM else ""}      <div class="field full"><label for="r-heard">How did you hear about WYMIS? (optional)</label><select id="r-heard" name="heard"><option value="">Select</option><option>School or teacher</option><option>Church or community organization</option><option>Friend or family</option><option>Social media</option><option>Workforce program</option><option>Other</option></select></div>
       <div class="field full"><label for="r-notes">Accessibility needs or questions (optional)</label><textarea id="r-notes" name="notes" maxlength="2000" placeholder="Anything that would help us make the day work for you."></textarea></div>
       <div class="form-foot">
         <span class="form-note">We use your details only for this event and WYMIS follow-up. <a href="{base}privacy">Privacy policy</a></span>
