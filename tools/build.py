@@ -149,6 +149,7 @@ INTENSIVE = [
 # $100 senior offer: paid as a deposit into a GLCU Fresh Checking account (via Cambio). Full terms at /offer-terms.
 OFFER_URL = "https://www.glcu.org/bank/checking-accounts/fresh-checking/"
 OFFER_UPDATED = "October 21, 2026"
+SHOW_OFFER_NOTE = False  # set True to show the qualifier under the $100 line on event cards
 OFFER_PERK = "High school seniors: complete the workshop and earn $100 for your senior dues.*"
 OFFER_NOTE = "*Paid as a $100 deposit into a Great Lakes Credit Union Fresh Checking account the student opens through our partner Cambio. Not paid in cash or to a school. Account approval required."
 OFFER_EMAIL = ("High school seniors: complete the workshop and earn $100 for your senior dues.\n"
@@ -1037,7 +1038,7 @@ def events_block(base, cta=True):
           <div><dt>Location</dt><dd>{where}</dd></div>
           {f'<div><dt>For</dt><dd>{e["audience"]}</dd></div>' if e.get("audience") else ''}
         </dl>
-        {f'<div class="event-perk"><p>{OFFER_PERK}</p><p class="perk-note">{OFFER_NOTE} <a href="{base}offer-terms">See full offer terms</a></p></div>' if e.get("offer") else ''}
+        {(f'<div class="event-perk"><p>{OFFER_PERK}</p><p class="perk-note">{OFFER_NOTE} <a href="{base}offer-terms">See full offer terms</a></p></div>' if SHOW_OFFER_NOTE else f'<div class="event-perk"><p>{OFFER_PERK.rstrip("*")}</p></div>') if e.get("offer") else ''}
         {f"""<button type="button" class="flyer-thumb" data-flyer="flyer-{e['slug']}" aria-haspopup="dialog">
           <img src="{base}assets/flyers/{e['flyer']}-thumb.jpg" alt="" width="64" height="96" loading="lazy">
           <span><b>View the flyer</b><span>Open full size or download</span></span>
