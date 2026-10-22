@@ -71,6 +71,7 @@ if (!$minor) { $gname = $gemail = $gphone = ''; $consent = false; }
 
 [$city, $day, $iso, $where] = $EVENTS[$event];
 $perk = $EVENTS[$event][4] ?? '';
+$hours = $EVENTS[$event][6] ?? '9:00 AM to 6:00 PM';
 $groups = $EVENTS[$event][5] ?? [];
 if (!$groups || !in_array($group, array_merge($groups, ['Neither, I am coming on my own']), true)) { $group = ''; }
 $orgLog = $group !== '' ? trim(($org !== '' ? "$org | " : '') . "Group: $group") : $org;
@@ -103,7 +104,7 @@ $notice = send(TO_EMAIL, "WYMIS registration: $name ($city, " . date('M j', strt
 // 2. Confirmation to the registrant (and parent or guardian)
 $c  = "Hi $first,\n\n";
 $c .= "You are registered for the free WYMIS One-Day Intensive.\n\n";
-$c .= "City: $city\nDate: $day\nTime: 9:00 AM to 6:00 PM local time (check-in opens at 8:30 AM)\nLocation: $where\n\n";
+$c .= "City: $city\nDate: $day\nTime: $hours local time (check-in opens at 8:30 AM)\nLocation: $where\n\n";
 $c .= (strpos($where, 'to be announced') !== false)
     ? "We will email you the venue address as soon as it is confirmed.\n\n"
     : "Please arrive a few minutes early so we can start on time.\n\n";
@@ -126,7 +127,7 @@ if ($minor) {
     $g  = "Hi $gname,\n\n";
     $g .= "$first $last registered for the free WYMIS One-Day Intensive and listed you as their parent or guardian.\n\n";
     $g .= "ACTION NEEDED: please sign the consent form (permission to attend and release of liability) before the event. It takes about a minute:\n$consentLink\n\n";
-    $g .= "City: $city\nDate: $day\nTime: 9:00 AM to 6:00 PM local time (check-in opens at 8:30 AM)\nLocation: $where\n\n";
+    $g .= "City: $city\nDate: $day\nTime: $hours local time (check-in opens at 8:30 AM)\nLocation: $where\n\n";
     $g .= "WYMIS is a workforce readiness and life skills program for ages 16 to 26. The day covers soft skills, networking, financial literacy, business basics, etiquette, and branding with AI and technology.\n";
     $g .= "Program details: https://wymisworks.org/intensive\n\n";
     $g .= "If you did not expect this email or do not give permission, please reply and let us know.\n\n";

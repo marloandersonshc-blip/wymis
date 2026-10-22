@@ -88,8 +88,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (!$errs) {
             [$city, $day, $iso, $where] = $EVENTS[$v['event']];
+            $hours = $EVENTS[$v['event']][6] ?? '9:00 AM to 6:00 PM';
             $student = $v['sfirst'] . ' ' . $v['slast'];
-            $text = consent_text($minor, $student, $city, $day, $where);
+            $text = consent_text($minor, $student, $city, $day, $where, $hours);
             [$dir, $path] = consent_record_path($v['event'], $v['semail']);
             if (is_readable($path)) {
                 $record = json_decode((string)file_get_contents($path), true);
@@ -111,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $sigLine = "Signed electronically by {$v['gname']} ({$v['rel']}) on $signedAt Phoenix time.\nTyped signature: {$v['sig']}\nEmail: {$v['gemail']}" . ($v['gphone'] !== '' ? "\nPhone: {$v['gphone']}" : '') . "\nForm version: " . CONSENT_VERSION;
                 $copy  = "WYMIS One-Day Intensive: Consent, Permission, and Release of Liability\n\n";
-                $copy .= "Participant: $student ($v[semail])\nEvent: $city, $day, 9:00 AM to 6:00 PM local time\nLocation: $where\n\n";
+                $copy .= "Participant: $student ($v[semail])\nEvent: $city, $day, $hours local time\nLocation: $where\n\n";
                 $copy .= $text . "\n\n" . $sigLine . "\n\nKeep this email as your copy. Questions or changes: reply to this email.\n\nWYMIS (What You Missed In School)\nA program under the umbrella of Love Nation Inc., a registered 501(c)(3) nonprofit organization.\nhttps://wymisworks.org\n";
                 $mSigner = send($v['gemail'], "Signed: WYMIS consent form for $student ($city)", $copy, 'WYMIS <' . FROM_EMAIL . '>');
                 $mStudent = false;
@@ -201,7 +202,7 @@ $err = function ($k) use ($errs) { return isset($errs[$k]) ? '<span class="field
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <div class="promo" id="promo" role="region" aria-label="Upcoming One-Day Intensive">
-  <div class="wrap promo-in"><a class="promo-link" href="register?event=phoenix-2026-10-24#register" data-date="2026-10-24"><span class="promo-tag">Free</span><span class="promo-text"><b>WYMIS One-Day Intensive</b> in Phoenix, AZ: Sat, Oct 24<span class="promo-sub">, ages 16 to 26</span></span><span class="promo-cta">Register now <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="promo-link" href="register?event=memphis-2026-11-07#register" data-date="2026-11-07" hidden><span class="promo-tag">Free</span><span class="promo-text"><b>WYMIS One-Day Intensive</b> in Memphis, TN: Sat, Nov 7<span class="promo-sub">, ages 16 to 26</span></span><span class="promo-cta">Register now <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="promo-link" href="register?event=las-vegas-2026-12-05#register" data-date="2026-12-05" hidden><span class="promo-tag">Free</span><span class="promo-text"><b>WYMIS One-Day Intensive</b> in Las Vegas, NV: Sat, Dec 5<span class="promo-sub">, ages 16 to 26</span></span><span class="promo-cta">Register now <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></div>
+  <div class="wrap promo-in"><a class="promo-link" href="register?event=chandler-2026-10-23#register" data-date="2026-10-23"><span class="promo-tag">Free</span><span class="promo-text"><b>WYMIS One-Day Intensive</b> in Chandler, AZ: Fri, Oct 23<span class="promo-sub">, ages 16 to 26</span></span><span class="promo-cta">Register now <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="promo-link" href="register?event=memphis-2026-11-07#register" data-date="2026-11-07" hidden><span class="promo-tag">Free</span><span class="promo-text"><b>WYMIS One-Day Intensive</b> in Memphis, TN: Sat, Nov 7<span class="promo-sub">, ages 16 to 26</span></span><span class="promo-cta">Register now <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a><a class="promo-link" href="register?event=las-vegas-2026-12-05#register" data-date="2026-12-05" hidden><span class="promo-tag">Free</span><span class="promo-text"><b>WYMIS One-Day Intensive</b> in Las Vegas, NV: Sat, Dec 5<span class="promo-sub">, ages 16 to 26</span></span><span class="promo-cta">Register now <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></a></div>
 </div>
 <nav class="nav" aria-label="Main">
   <div class="wrap nav-in">
@@ -252,7 +253,7 @@ $err = function ($k) use ($errs) { return isset($errs[$k]) ? '<span class="field
     <p class="lead"><?= $minorView ? 'Every participant under 18 needs this form signed by a parent or legal guardian before the event.' : ($v['minor'] === 'no' ? 'Participants 18 and older sign this form for themselves before the event.' : 'Every participant needs this form signed before the event: by a parent or legal guardian if the participant is under 18, or by the participant if 18 or older.') ?></p>
     <?php
       $sec = consent_sections($v['minor'] !== 'no', $studentName !== '' ? $studentName : 'the participant',
-          $ev[0] ?? 'the city selected below', $ev[1] ?? 'the date selected below', $ev[3] ?? 'the venue listed for that date');
+          $ev[0] ?? 'the city selected below', $ev[1] ?? 'the date selected below', $ev[3] ?? 'the venue listed for that date', $ev[6] ?? 'during the hours listed for that date');
       foreach ($sec as $s): ?>
     <h3><?= h($s[0]) ?></h3>
     <p><?= h($s[1]) ?></p>

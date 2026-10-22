@@ -11,7 +11,7 @@
  */
 if (!defined('WYMIS_PRIVATE_DIR')) define('WYMIS_PRIVATE_DIR', getenv('WYMIS_PRIVATE_DIR') ?: dirname(__DIR__));
 
-const CONSENT_VERSION = '2026-10-20';
+const CONSENT_VERSION = '2026-10-22';
 const CONSENT_TTL     = 15552000; // signing links work for 180 days
 
 function consent_secret() {
@@ -60,13 +60,13 @@ function consent_record_path($eventSlug, $studentEmail) {
  * The consent and release text. $minor: signed by a parent or guardian. Returns [heading, text] pairs.
  * Change the wording here and bump CONSENT_VERSION; each signed record stores the version and a hash of the exact text.
  */
-function consent_sections($minor, $student, $city, $day, $where) {
+function consent_sections($minor, $student, $city, $day, $where, $hours = '9:00 AM to 6:00 PM') {
     $org = 'Love Nation Inc., a 501(c)(3) nonprofit organization, its WYMIS (What You Missed In School) program, and their directors, officers, employees, facilitators, volunteers, and the host venue (together, "WYMIS")';
     $who = $minor ? "my child, $student" : 'myself';
     $s = [];
     $s[] = ['1. Permission to attend', $minor
-        ? "I am the parent or legal guardian of $student. I give permission for $student to attend the free WYMIS One-Day Intensive in $city on $day, 9:00 AM to 6:00 PM local time, at $where, and to take part in its sessions, group activities, and meals."
-        : "I am 18 or older. I am choosing to attend the free WYMIS One-Day Intensive in $city on $day, 9:00 AM to 6:00 PM local time, at $where, and to take part in its sessions, group activities, and meals."];
+        ? "I am the parent or legal guardian of $student. I give permission for $student to attend the free WYMIS One-Day Intensive in $city on $day, $hours local time, at $where, and to take part in its sessions, group activities, and meals."
+        : "I am 18 or older. I am choosing to attend the free WYMIS One-Day Intensive in $city on $day, $hours local time, at $where, and to take part in its sessions, group activities, and meals."];
     $s[] = ['2. Voluntary participation and conduct', ($minor ? "Attendance is voluntary. " . ucfirst($student) . " is expected" : 'Attendance is voluntary. I am expected') .
         " to follow staff instructions and venue rules and to treat others with respect. WYMIS may end participation for conduct that is unsafe or disruptive" .
         ($minor ? ', and will contact me if that happens. If my child needs to leave early, I will tell WYMIS staff.' : '.')];
@@ -81,6 +81,6 @@ function consent_sections($minor, $student, $city, $day, $where) {
     return $s;
 }
 
-function consent_text($minor, $student, $city, $day, $where) {
-    return implode("\n\n", array_map(function ($x) { return $x[0] . "\n" . $x[1]; }, consent_sections($minor, $student, $city, $day, $where)));
+function consent_text($minor, $student, $city, $day, $where, $hours = '9:00 AM to 6:00 PM') {
+    return implode("\n\n", array_map(function ($x) { return $x[0] . "\n" . $x[1]; }, consent_sections($minor, $student, $city, $day, $where, $hours)));
 }

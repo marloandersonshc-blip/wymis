@@ -162,16 +162,18 @@ OFFER_EMAIL = ("High school seniors: an optional $100 for your senior dues is av
 
 # Public One-Day Intensive dates. Times are local to each city. Free; up to 30 seats each.
 EVENTS = [
-    dict(slug="phoenix-2026-10-24", city="Phoenix", state="Arizona", abbr="AZ", date="2026-10-24", tz="-07:00",
-         day="Saturday, October 24, 2026", short="Sat, Oct 24", venue="Heritage Headquarters", street="515 E Grant St, Ste 101", zip="85004", photo="phoenix",
+    dict(slug="chandler-2026-10-23", city="Chandler", state="Arizona", abbr="AZ", date="2026-10-23", tz="-07:00",
+         day="Friday, October 23, 2026", short="Fri, Oct 23", venue="Justice University", street="2777 S Gilbert Rd", zip="85286", photo="phoenix",
+         hours="9:00 AM to 2:00 PM", end="14:00",
          audience="Open to all ages 16 to 26", offer=True, groups=["Heritage Headquarters", "Justice University"],
-         flyer="wymis-phoenix-2026-10-24"),
+         flyer="wymis-chandler-2026-10-23", flyer_size=(1582, 2047)),
     dict(slug="memphis-2026-11-07", city="Memphis", state="Tennessee", abbr="TN", date="2026-11-07", tz="-06:00",
          day="Saturday, November 7, 2026", short="Sat, Nov 7", venue="Allworld Headquarters", street="85 N. Danny Thomas Blvd", photo="memphis"),
     dict(slug="las-vegas-2026-12-05", city="Las Vegas", state="Nevada", abbr="NV", date="2026-12-05", tz="-08:00",
          day="Saturday, December 5, 2026", short="Sat, Dec 5", venue="", street="", photo="vegas"),
 ]
 EVENT_HOURS = "9:00 AM to 6:00 PM"
+def hours(e): return e.get("hours", EVENT_HOURS)
 
 FACILITY = [
     "One main room that seats 20 to 30 participants, classroom or round-table style",
@@ -1016,7 +1018,7 @@ def event_ld(e):
     return {"@type": "EducationEvent", "@id": f"{SITE}/register#{e['slug']}",
             "name": f"WYMIS One-Day Intensive: {e['city']}, {e['abbr']}",
             "description": f"A free, full-day WYMIS life skills and workforce readiness intensive for ages 16 to 26 in {e['city']}: six 75-minute sessions covering soft skills, networking, financial literacy, business fundamentals, etiquette, and branding with AI and technology.",
-            "startDate": f"{e['date']}T09:00:00{e['tz']}", "endDate": f"{e['date']}T18:00:00{e['tz']}",
+            "startDate": f"{e['date']}T09:00:00{e['tz']}", "endDate": f"{e['date']}T{e.get('end', '18:00')}:00{e['tz']}",
             "eventStatus": "https://schema.org/EventScheduled", "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
             "location": place, "image": [OG_IMG], "organizer": {"@id": SITE + "/#org"}, "isAccessibleForFree": True,
             "typicalAgeRange": "16-26", "maximumAttendeeCapacity": 30, "inLanguage": "en-US",
@@ -1036,13 +1038,13 @@ def events_block(base, cta=True):
         <h3>{e['city']}, {e['abbr']}</h3>
         <dl class="event-facts">
           <div><dt>Date</dt><dd>{e['day']}</dd></div>
-          <div><dt>Time</dt><dd>{EVENT_HOURS} <span>(check-in 8:30 AM)</span></dd></div>
+          <div><dt>Time</dt><dd>{hours(e)} <span>(check-in 8:30 AM)</span></dd></div>
           <div><dt>Location</dt><dd>{where}</dd></div>
           {f'<div><dt>For</dt><dd>{e["audience"]}</dd></div>' if e.get("audience") else ''}
         </dl>
         {(f'<div class="event-perk"><p>{OFFER_PERK}</p><p class="perk-note">{OFFER_NOTE} <a href="{base}offer-terms">See full offer terms</a></p></div>' if SHOW_OFFER_NOTE else f'<div class="event-perk"><p>{OFFER_PERK.rstrip("*")}</p></div>') if e.get("offer") else ''}
         {f"""<button type="button" class="flyer-thumb" data-flyer="flyer-{e['slug']}" aria-haspopup="dialog">
-          <img src="{base}assets/flyers/{e['flyer']}-thumb.jpg?v={ver('assets/flyers/'+e['flyer']+'-thumb.jpg')}" alt="" width="64" height="96" loading="lazy">
+          <img src="{base}assets/flyers/{e['flyer']}-thumb.jpg?v={ver('assets/flyers/'+e['flyer']+'-thumb.jpg')}" alt="" width="64" height="{round(64 * e.get('flyer_size', (1024, 1536))[1] / e.get('flyer_size', (1024, 1536))[0])}" loading="lazy">
           <span><b>View the flyer</b><span>Open full size or download</span></span>
         </button>""" if e.get("flyer") else ''}
         {f'<a class="btn btn-primary event-btn" href="{base}register?event={e["slug"]}#register" data-event="{e["slug"]}">Register for {e["city"]} {ARROW}</a>' if cta else ''}
@@ -1058,7 +1060,7 @@ def events_block(base, cta=True):
       <button type="button" class="lb-close" aria-label="Close flyer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
   </div>
-  <div class="lb-body"><img data-src="{base}assets/flyers/{e['flyer']}.jpg?v={ver('assets/flyers/'+e['flyer']+'.jpg')}" alt="Flyer for the free WYMIS One-Day Intensive in {e['city']} on {e['day']}, {EVENT_HOURS}, at {event_where(e)}." width="1024" height="1536"></div>
+  <div class="lb-body"><img data-src="{base}assets/flyers/{e['flyer']}.jpg?v={ver('assets/flyers/'+e['flyer']+'.jpg')}" alt="Flyer for the free WYMIS One-Day Intensive in {e['city']} on {e['day']}, {hours(e)}, at {event_where(e)}." width="{e.get('flyer_size', (1024, 1536))[0]}" height="{e.get('flyer_size', (1024, 1536))[1]}"></div>
 </dialog>""" for e in EVENTS if e.get("flyer"))
     return '<div class="events">' + "".join(cards) + "</div>" + dialogs
 
@@ -1071,7 +1073,7 @@ def page_register(base):
 """
     opts = "".join(f'<option value="{e["slug"]}"{" data-offer=\"1\"" if e.get("offer") else ""}{(" data-groups=\"" + esc("|".join(e["groups"])) + "\"") if e.get("groups") else ""}>{e["city"]}, {e["abbr"]}: {e["day"]}</option>' for e in EVENTS)
     return page_hero("One-Day Intensive Registration", "Save your seat for a <em>free</em> intensive.",
-                     f"WYMIS is coming to Phoenix, Memphis, and Las Vegas. One Saturday, {EVENT_HOURS}, six practical sessions on money, work, and adult life for ages 16 to 26.",
+                     f"WYMIS is coming to Chandler, Memphis, and Las Vegas. One day of practical sessions on money, work, and adult life for ages 16 to 26.",
                      None, "Register", base) + f"""<main id="main">
 <section class="section" aria-labelledby="dates-h">
   <div class="wrap">
@@ -1090,7 +1092,7 @@ def page_register(base):
       <span class="eyebrow">Register</span>
       <h2 id="reg-h">Reserve your spot.</h2>
       <p>Registration takes about a minute. You will get a confirmation email right away, and a reminder with the venue details before the day.</p>
-      <ul class="contact-list"><li>Free to attend</li><li>Ages 16 to 26</li><li>{EVENT_HOURS}, check-in from 8:30 AM</li><li>Consent form required: signed by a parent or guardian if you are under 18, or by you if 18 or older</li></ul>
+      <ul class="contact-list"><li>Free to attend</li><li>Ages 16 to 26</li><li>Check-in from 8:30 AM</li><li>Consent form required: signed by a parent or guardian if you are under 18, or by you if 18 or older</li></ul>
       <div class="direct"><span>Questions</span><a href="mailto:{EMAIL}">{EMAIL}</a></div>
     </div>
     <form class="inquiry register" action="{base}register.php" method="post" novalidate>
@@ -1265,9 +1267,9 @@ PAGES = [
               "hasCourseInstance": {"@type": "CourseInstance", "courseMode": "Onsite", "courseWorkload": "PT9H", "maximumAttendeeCapacity": 30},
               "offers": {"@type": "Offer", "category": "Partnership", "url": SITE + "/partner"}}]),
     dict(slug="register", crumb="Register", fn=page_register, prio="0.9",
-         title="Register | Free WYMIS One-Day Intensives: Phoenix, Memphis, Las Vegas",
-         og="Free WYMIS One-Day Intensives: Phoenix, Memphis, Las Vegas",
-         desc="Register free for a WYMIS One-Day Intensive for ages 16 to 26: Phoenix Oct 24, Memphis Nov 7, Las Vegas Dec 5, 2026. 9 AM to 6 PM.",
+         title="Register | Free WYMIS One-Day Intensives: Chandler, Memphis, Las Vegas",
+         og="Free WYMIS One-Day Intensives: Chandler, Memphis, Las Vegas",
+         desc="Register free for a WYMIS One-Day Intensive for ages 16 to 26: Chandler Oct 23, Memphis Nov 7, Las Vegas Dec 5, 2026.",
          ld=[event_ld(e) for e in EVENTS]),
     dict(slug="pilots", crumb="Pilots", fn=page_pilots, prio="0.7",
          title="WYMIS Pilot Programs | Phoenix, Las Vegas & Memphis",
@@ -1317,8 +1319,8 @@ def build():
     open(os.path.join(ROOT, "consent.php"), "w").write(doc)
 
     # events for register.php (generated; PHP-only, prints nothing if requested over the web)
-    rows = "".join(f"    {json.dumps(e['slug'])} => [{json.dumps(e['city'] + ', ' + e['abbr'])}, {json.dumps(e['day'])}, {json.dumps(e['date'])}, {json.dumps(event_where(e))}, {json.dumps(OFFER_EMAIL if e.get('offer') else '')}, {json.dumps(e.get('groups', []))}],\n" for e in EVENTS)
-    open(os.path.join(ROOT, "events.inc.php"), "w").write(f"<?php\n// Generated by tools/build.py from EVENTS. Do not edit by hand.\n// slug => [city label, day label, ISO date, location, perk, groups]\nreturn [\n{rows}];\n")
+    rows = "".join(f"    {json.dumps(e['slug'])} => [{json.dumps(e['city'] + ', ' + e['abbr'])}, {json.dumps(e['day'])}, {json.dumps(e['date'])}, {json.dumps(event_where(e))}, {json.dumps(OFFER_EMAIL if e.get('offer') else '')}, {json.dumps(e.get('groups', []))}, {json.dumps(hours(e))}],\n" for e in EVENTS)
+    open(os.path.join(ROOT, "events.inc.php"), "w").write(f"<?php\n// Generated by tools/build.py from EVENTS. Do not edit by hand.\n// slug => [city label, day label, ISO date, location, perk, groups, hours]\nreturn [\n{rows}];\n")
 
     # sitemap
     urls = "".join(f"""  <url><loc>{SITE}{'/' if p['slug']=='index' else '/' + p['slug']}</loc><lastmod>{TODAY}</lastmod><priority>{p['prio']}</priority></url>\n"""
@@ -1334,7 +1336,7 @@ def build():
 
     # llms.txt (GEO): concise, link-rich summary for AI systems
     mod_lines = "\n".join(f"- [{m['title']} ({m['code']})]({SITE}/curriculum#{m['slug']}): {m['summary']}" for m in MODULES)
-    events_line = "; ".join(f"{e['city']}, {e['abbr']} on {e['day']} ({event_where(e)})" for e in EVENTS)
+    events_line = "; ".join(f"{e['city']}, {e['abbr']} on {e['day']}, {hours(e)} ({event_where(e)})" for e in EVENTS)
     llms = f"""# WYMIS: What You Missed In School
 
 > WYMIS is a practical "thirteenth grade" workforce readiness and life skills program created by {FOUNDER}. It is a cohort-based, 8 to 12 week program for ages 16 to 26 that teaches the everyday skills school often leaves out: managing money, holding a job, communicating professionally, and navigating adult life. It has been piloted in Phoenix (AZ), Las Vegas (NV), and Memphis (TN).
@@ -1352,7 +1354,7 @@ Key facts:
 - Pilot cities: Phoenix, Arizona; Las Vegas, Nevada; Memphis, Tennessee
 - Founded by: {FOUNDER}, Provost and Vice President of Academic Affairs, Alliance Bible College and Seminary
 - Contact: {EMAIL}
-- Upcoming free One-Day Intensives ({EVENT_HOURS} local time, register at {SITE}/register): {events_line}
+- Upcoming free One-Day Intensives (local time, register at {SITE}/register): {events_line}
 
 ## Pages
 - [Home]({SITE}/): Overview of WYMIS
