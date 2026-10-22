@@ -629,3 +629,4 @@ form.consent [data-minor-only][hidden]{display:none}
 .consent-facts span{color:var(--fg)}
 @media (max-width:520px){.consent-facts li{grid-template-columns:1fr;gap:2px}}
 .consent-alert.consent-ok{border-color:color-mix(in srgb,var(--ok) 60%,transparent);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+#group-field[hidden]{display:none}

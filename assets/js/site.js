@@ -116,6 +116,15 @@
       if (!on) reg.elements.offer.checked = false;
     };
     if (offerBox) { sel.addEventListener("change", syncOffer); syncOffer(); }
+    var groupField = document.getElementById("group-field"), groupSel = reg.elements.group;
+    var syncGroup = function () {
+      var o = sel.options[sel.selectedIndex];
+      var list = o && o.dataset.groups ? o.dataset.groups.split("|") : [];
+      groupField.hidden = !list.length; groupSel.required = !!list.length;
+      groupSel.length = 1;
+      list.concat(list.length ? ["Neither, I am coming on my own"] : []).forEach(function (g) { groupSel.add(new Option(g, g)); });
+    };
+    if (groupField) { sel.addEventListener("change", syncGroup); syncGroup(); }
     var rmsg = function (cls, text) {
       var m = document.createElement("div");
       m.className = "form-msg " + cls; m.setAttribute("role", "status"); m.textContent = text;
@@ -140,6 +149,7 @@
       if (!reg.elements.last.value.trim()) return bad(reg.elements.last, "Add your last name.");
       if (!em.value.trim() || !em.checkValidity()) return bad(em, "Enter a valid email address for your confirmation.");
       if (!ageSel.value) return bad(ageSel, "Select your age.");
+      if (groupSel && groupSel.required && !groupSel.value) return bad(groupSel, "Tell us if you are coming with a group.");
       if (ageSel.value === "16 or 17") {
         if (!reg.elements.gname.value.trim()) return bad(reg.elements.gname, "Add your parent or guardian's name.");
         if (!reg.elements.gemail.value.trim() || !reg.elements.gemail.checkValidity()) return bad(reg.elements.gemail, "Add a valid parent or guardian email.");

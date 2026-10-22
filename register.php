@@ -48,6 +48,7 @@ $email   = clean($_POST['email'] ?? '', 160);
 $phone   = clean($_POST['phone'] ?? '', 40);
 $age     = clean($_POST['age'] ?? '', 20);
 $org     = clean($_POST['org'] ?? '', 160);
+$group   = clean($_POST['group'] ?? '', 80);
 $heard   = clean($_POST['heard'] ?? '', 80);
 $gname   = clean($_POST['gname'] ?? '', 120);
 $gemail  = clean($_POST['gemail'] ?? '', 160);
@@ -70,6 +71,9 @@ if (!$minor) { $gname = $gemail = $gphone = ''; $consent = false; }
 
 [$city, $day, $iso, $where] = $EVENTS[$event];
 $perk = $EVENTS[$event][4] ?? '';
+$groups = $EVENTS[$event][5] ?? [];
+if (!$groups || !in_array($group, array_merge($groups, ['Neither, I am coming on my own']), true)) { $group = ''; }
+$orgLog = $group !== '' ? trim(($org !== '' ? "$org | " : '') . "Group: $group") : $org;
 if ($perk === '') { $offer = false; }
 if ($iso < date('Y-m-d')) { back('error=4'); }   // past date
 
@@ -89,7 +93,7 @@ $consentLink = consent_url($minor
 // 1. Notice to the WYMIS inbox
 $b  = "New One-Day Intensive registration\n\n";
 $b .= "Event: $city, $day\nLocation: $where\n\n";
-$b .= "Name: $name\nEmail: $email\nPhone: $phone\nAge: $age\nSchool or organization: $org\nHeard about WYMIS: $heard\n";
+$b .= "Name: $name\nEmail: $email\nPhone: $phone\nAge: $age\nGroup: " . ($group !== '' ? $group : 'n/a') . "\nSchool or organization: $org\nHeard about WYMIS: $heard\n";
 if ($minor) { $b .= "\nParent or guardian: $gname\nParent email: $gemail\nParent phone: $gphone\nPermission confirmed: Yes\n"; }
 if ($perk !== '') { $b .= "\n\$100 senior offer: " . ($offer ? 'REQUESTED (registrant acknowledged the GLCU Fresh Checking terms)' : 'not requested') . "\n"; }
 $b .= "\nConsent form: " . ($minor ? "signing link emailed to $gname" : 'registrant sent to sign it now') . "\n$consentLink\n";
@@ -136,7 +140,7 @@ if (SHEET_URL !== '' && function_exists('curl_init')) {
     $payload = json_encode([
         'source' => 'wymisworks.org', 'form' => 'registration', 'received' => $received,
         'event' => $city, 'date' => $day, 'location' => $where,
-        'first' => $first, 'last' => $last, 'email' => $email, 'phone' => $phone, 'age' => $age, 'org' => $org, 'heard' => $heard,
+        'first' => $first, 'last' => $last, 'email' => $email, 'phone' => $phone, 'age' => $age, 'org' => $orgLog, 'heard' => $heard,
         'gname' => $gname, 'gemail' => $gemail, 'gphone' => $gphone, 'gconsent' => $consent,
         'notes' => ($offer ? "[\$100 senior offer requested] " : '') . $notes, 'notice' => $notice, 'confirmation' => $confirm, 'gconfirmation' => $gconfirm, 'ip' => $ip,
     ]);
