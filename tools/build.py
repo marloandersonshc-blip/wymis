@@ -1042,7 +1042,7 @@ def events_block(base, cta=True):
         </dl>
         {(f'<div class="event-perk"><p>{OFFER_PERK}</p><p class="perk-note">{OFFER_NOTE} <a href="{base}offer-terms">See full offer terms</a></p></div>' if SHOW_OFFER_NOTE else f'<div class="event-perk"><p>{OFFER_PERK.rstrip("*")}</p></div>') if e.get("offer") else ''}
         {f"""<button type="button" class="flyer-thumb" data-flyer="flyer-{e['slug']}" aria-haspopup="dialog">
-          <img src="{base}assets/flyers/{e['flyer']}-thumb.jpg" alt="" width="64" height="96" loading="lazy">
+          <img src="{base}assets/flyers/{e['flyer']}-thumb.jpg?v={ver('assets/flyers/'+e['flyer']+'-thumb.jpg')}" alt="" width="64" height="96" loading="lazy">
           <span><b>View the flyer</b><span>Open full size or download</span></span>
         </button>""" if e.get("flyer") else ''}
         {f'<a class="btn btn-primary event-btn" href="{base}register?event={e["slug"]}#register" data-event="{e["slug"]}">Register for {e["city"]} {ARROW}</a>' if cta else ''}
@@ -1053,12 +1053,12 @@ def events_block(base, cta=True):
   <div class="lb-bar">
     <h2 id="flyer-{e['slug']}-h">{e['city']}, {e['abbr']} One-Day Intensive flyer</h2>
     <div class="lb-actions">
-      <a class="btn btn-primary" href="{base}assets/flyers/{e['flyer']}.pdf" download>Download PDF</a>
-      <a class="btn btn-ghost" href="{base}assets/flyers/{e['flyer']}.jpg" download>Download image</a>
+      <a class="btn btn-primary" href="{base}assets/flyers/{e['flyer']}.pdf?v={ver('assets/flyers/'+e['flyer']+'.pdf')}" download>Download PDF</a>
+      <a class="btn btn-ghost" href="{base}assets/flyers/{e['flyer']}.jpg?v={ver('assets/flyers/'+e['flyer']+'.jpg')}" download>Download image</a>
       <button type="button" class="lb-close" aria-label="Close flyer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
   </div>
-  <div class="lb-body"><img data-src="{base}assets/flyers/{e['flyer']}.jpg" alt="Flyer for the free WYMIS One-Day Intensive in {e['city']} on {e['day']}, {EVENT_HOURS}, at {event_where(e)}." width="1024" height="1536"></div>
+  <div class="lb-body"><img data-src="{base}assets/flyers/{e['flyer']}.jpg?v={ver('assets/flyers/'+e['flyer']+'.jpg')}" alt="Flyer for the free WYMIS One-Day Intensive in {e['city']} on {e['day']}, {EVENT_HOURS}, at {event_where(e)}." width="1024" height="1536"></div>
 </dialog>""" for e in EVENTS if e.get("flyer"))
     return '<div class="events">' + "".join(cards) + "</div>" + dialogs
 
