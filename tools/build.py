@@ -149,11 +149,12 @@ INTENSIVE = [
 # $100 senior offer: paid as a deposit into a GLCU Fresh Checking account (via Cambio). Full terms at /offer-terms.
 OFFER_URL = "https://www.glcu.org/bank/checking-accounts/fresh-checking/"
 OFFER_UPDATED = "October 21, 2026"
-SHOW_OFFER_FORM = False  # set True to show the $100 offer section and checkbox on the registration form
-SHOW_OFFER_NOTE = False  # set True to show the qualifier under the $100 line on event cards
-OFFER_PERK = "High school seniors: complete the workshop and earn $100 for your senior dues.*"
-OFFER_NOTE = "*Paid as a $100 deposit into a Great Lakes Credit Union Fresh Checking account the student opens through our partner Cambio. Not paid in cash or to a school. Account approval required."
-OFFER_EMAIL = ("High school seniors: complete the workshop and earn $100 for your senior dues.\n"
+SHOW_OFFER_FORM = True  # set True to show the $100 offer section and checkbox on the registration form
+SHOW_OFFER_NOTE = True  # set True to show the qualifier under the $100 line on event cards
+OFFER_PERK = "High school seniors: optional $100 for your senior dues.*"
+OFFER_NOTE = "*Optional, and not required to attend WYMIS. The $100 is not conditioned on attending or completing the workshop. Paid as a deposit into a Great Lakes Credit Union Fresh Checking account the student opens through our partner Cambio, not in cash or to a school. Account approval required."
+OFFER_EMAIL = ("High school seniors: an optional $100 for your senior dues is available.\n"
+               "It is your choice. You do not need it to attend WYMIS, and the $100 does not depend on attending or completing the workshop.\n"
                "How it works: the $100 is deposited into a Great Lakes Credit Union Fresh Checking account you open through our partner Cambio. "
                "It is not paid in cash or to your school. GLCU waives the $25 opening deposit for WYMIS students. GLCU membership and account approval are required, "
                "and students under 18 may need a parent or guardian on the account.\n"
@@ -1064,8 +1065,8 @@ def events_block(base, cta=True):
 def page_register(base):
     OFFER_FORM = f"""      <fieldset class="field full guardian" id="senior-offer" hidden>
         <legend>$100 senior offer</legend>
-        <p class="guardian-note">High school seniors who complete this intensive can earn $100 for senior dues. It is deposited into a Great Lakes Credit Union Fresh Checking account you open through our partner Cambio, not paid in cash or to your school. <a href="{base}offer-terms" target="_blank" rel="noopener">Read the offer terms<span class="sr-only"> (opens in a new tab)</span></a></p>
-        <label class="check"><input type="checkbox" name="offer" value="yes"> <span>I am a high school senior and want the $100 offer. I understand it is paid as a deposit into a GLCU Fresh Checking account I open, that GLCU sets the account requirements and must approve the account, and that I may need a parent or guardian on the account if I am under 18.</span></label>
+        <p class="guardian-note">Optional. High school seniors can get $100 for senior dues. You do not need it to register or attend, and the $100 does not depend on attending or completing the workshop. It is deposited into a Great Lakes Credit Union Fresh Checking account you open through our partner Cambio, not paid in cash or to your school. <a href="{base}offer-terms" target="_blank" rel="noopener">Read the offer terms<span class="sr-only"> (opens in a new tab)</span></a></p>
+        <label class="check"><input type="checkbox" name="offer" value="yes"> <span>Optional: I am a high school senior and want the $100 offer. I understand it is not required to attend WYMIS, it is paid as a deposit into a GLCU Fresh Checking account I open, that GLCU sets the account requirements and must approve the account, and that I may need a parent or guardian on the account if I am under 18.</span></label>
       </fieldset>
 """
     opts = "".join(f'<option value="{e["slug"]}"{" data-offer=\"1\"" if e.get("offer") else ""}>{e["city"]}, {e["abbr"]}: {e["day"]}</option>' for e in EVENTS)
@@ -1183,14 +1184,19 @@ def page_offer_terms(base):
     return page_hero("Offer terms", "$100 for <em>senior dues</em>.", f"How the senior offer works, who qualifies, and what Great Lakes Credit Union requires. Last updated {OFFER_UPDATED}.", None, "Offer terms", base) + f"""<main id="main">
 <section class="section" aria-label="Offer terms">
   <div class="wrap"><div class="legal">
-    <p class="lead">High school seniors who complete a WYMIS One-Day Intensive that lists this offer can earn $100. The $100 is deposited into a Fresh Checking account the student opens with Great Lakes Credit Union (GLCU) through our partner Cambio. It is not paid in cash, by check, or directly to any school.</p>
+    <p class="lead">WYMIS makes an optional $100 offer available to high school seniors. Taking it is entirely the student's choice, and it is not contingent on participation in WYMIS. The $100 is deposited into a Fresh Checking account the student opens with Great Lakes Credit Union (GLCU) through our partner Cambio. It is not paid in cash, by check, or directly to any school.</p>
 
     <h2>Who qualifies</h2>
     <ul>
       <li>Students currently enrolled as high school seniors.</li>
-      <li>Registered for, and attending the full day of, a One-Day Intensive where the offer is listed. Current events with the offer: {ev}.</li>
-      <li>A signed WYMIS consent form on file before the event.</li>
+      <li>The offer is currently shared at these One-Day Intensives: {ev}.</li>
       <li>One award per student.</li>
+    </ul>
+
+    <h2>Optional, and separate from WYMIS</h2>
+    <ul>
+      <li>Opening an account is optional. Students do not need an account to register for, attend, or complete WYMIS, and choosing not to open one has no effect on their participation.</li>
+      <li>The $100 is not contingent on participation in WYMIS. It does not depend on attending or completing a workshop.</li>
     </ul>
 
     <h2>How the $100 is paid</h2>
